@@ -1,0 +1,146 @@
+site_name: Homelab Cyber Wiki
+site_description: Dokumentation meiner IT-, Cybersecurity- und Homelab-Projekte
+site_author: Marcel
+
+repo_name: homelab
+repo_url: https://github.com/DEINUSERNAME/homelab
+
+theme:
+  name: material
+
+  language: de
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.instant
+    - navigation.instant.progress
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+  palette:
+
+    # Dark Mode Standard
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Heller Modus
+
+    # Light Mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Dunkler Modus
+
+
+  icon:
+    repo: fontawesome/brands/github
+
+
+plugins:
+  - search
+
+
+markdown_extensions:
+
+  # Hinweisboxen
+  - admonition
+
+  # Aufklappbare Bereiche
+  - pymdownx.details
+
+  # Erweiterte Codeblöcke
+  - pymdownx.superfences
+
+  # Tabs
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  # Tabellen
+  - tables
+
+  # Emoji / Icons
+  - attr_list
+  - md_in_html
+
+  # Inhaltsverzeichnis
+  - toc:
+      permalink: true
+
+
+nav:
+
+  - Start:
+      - Übersicht: index.md
+
+
+  - Cybersecurity:
+
+      - Wazuh:
+          - Übersicht: security/wazuh.md
+
+      - Suricata:
+          - Übersicht: security/suricata.md
+
+      - SOC Lab:
+          - Übersicht: security/soc-lab.md
+
+
+  - Linux:
+
+      - Ubuntu Server:
+          - Übersicht: linux/ubuntu-server.md
+
+      - Docker:
+          - Übersicht: linux/docker.md
+
+      - Proxmox:
+          - Übersicht: linux/proxmox.md
+
+
+  - Netzwerk:
+
+      - VLAN:
+          - Übersicht: network/vlan.md
+
+
+  - Raspberry Pi:
+
+      - Shortwave Internetradio:
+          - Übersicht: raspberry-pi/shortwave.md
+
+
+  - KI:
+
+      - Ollama:
+          - Übersicht: ai/ollama.md
+
+      - Open WebUI:
+          - Übersicht: ai/open-webui.md
+
+
+  - Projekte:
+
+      - AzuraCast:
+          - Übersicht: projects/azuracast.md
+
+      - Gitea:
+          - Übersicht: projects/gitea.md
+
+
+  - Wissen:
+
+      - Befehle:
+          - Linux Commands: knowledge/linux-commands.md
+
+      - Troubleshooting:
+          - Fehler & Lösungen: knowledge/troubleshooting.md
+
+  - Über mich:
+      - Profil: about.md
