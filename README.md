@@ -1,2 +1,2 @@
-# homelab
+# YGGDRASIL
 Homelab documentation
