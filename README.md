@@ -1,124 +1,126 @@
 # 🌳 YGGDRASIL
 
-> A self-hosted homelab documentation project focused on infrastructure, networking, cybersecurity, automation and open-source technologies.
+> Persönliches Homelab- und Dokumentationsprojekt für Infrastruktur, Netzwerke, Cybersecurity, Automatisierung und Open-Source-Technologien.
 
-![Status](https://img.shields.io/badge/status-active-success)
-![Documentation](https://img.shields.io/badge/docs-MkDocs-blue)
+![Status](https://img.shields.io/badge/Status-Aktiv-brightgreen)
+![Dokumentation](https://img.shields.io/badge/Dokumentation-MkDocs-blue)
 ![Linux](https://img.shields.io/badge/Linux-Ubuntu-orange)
-![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED)
+![Docker](https://img.shields.io/badge/Docker-Container-2496ED)
 
 ---
 
-## 📖 About
+## 📖 Über das Projekt
 
-**YGGDRASIL** is my personal homelab environment and documentation project.
+**YGGDRASIL** ist mein persönliches Homelab- und Wissensprojekt.
 
-The goal is to build, test and document modern IT infrastructure in a practical environment while continuously expanding my knowledge in:
+Ziel ist es, moderne IT-Infrastrukturen praktisch aufzubauen, zu testen und vollständig zu dokumentieren. Dabei dient die Umgebung als Lernplattform für verschiedene Bereiche der IT:
 
-- Linux administration
-- Server infrastructure
-- Virtualization
-- Networking
+- Linux-Administration
+- Serverbetrieb
+- Virtualisierung
+- Netzwerktechnik
 - Cybersecurity
 - Monitoring
-- Automation
-- Self-hosted services
-- Open-source technologies
+- Automatisierung
+- Selfhosting
+- Open-Source-Technologien
 
-Every component is documented with the intention of making the setup reproducible and understandable.
+Alle Systeme und Dienste werden dokumentiert, damit die Aufbauten nachvollziehbar, reproduzierbar und verständlich bleiben.
 
 ---
 
-# 🌐 Architecture
+# 🌐 Projektstruktur
 
-The project is organized into different realms inspired by the mythology of Yggdrasil:
+Die Organisation von YGGDRASIL orientiert sich an der nordischen Mythologie und unterteilt die Infrastruktur in verschiedene Bereiche.
 
-## 🖥️ ASGARD — Core Infrastructure
+---
 
-Foundation of the environment:
+## 🖥️ ASGARD — Kerninfrastruktur
+
+Die Basis der Umgebung:
 
 - Proxmox VE
-- Virtual Machines
+- Virtuelle Maschinen
 - Storage
 - Ubuntu Server
-- Docker infrastructure
+- Docker-Plattform
 
 ---
 
-## 🌉 BIFROST — Network Layer
+## 🌉 BIFROST — Netzwerk
 
-Connectivity and communication:
+Die Verbindung zwischen den Systemen:
 
 - OPNsense Firewall
 - Routing & Switching
 - VLANs
 - DNS / DHCP
-- Network topology
+- Netzwerkarchitektur
 
 ---
 
-## 🛡️ HEIMDALL — Security Operations
+## 🛡️ HEIMDALL — Security & Monitoring
 
-Monitoring and defense:
+Überwachung und Absicherung der Infrastruktur:
 
 - Wazuh SIEM
 - Suricata IDS
 - EveBox
-- Security monitoring
-- Detection rules
-- Hardening
+- Security Monitoring
+- Loganalyse
+- Systemhärtung
 
 ---
 
-## 🌍 MIDGARD — Services
+## 🌍 MIDGARD — Dienste & Anwendungen
 
-User-facing applications:
+Bereitgestellte Services:
 
 - AzuraCast Webradio
-- Gitea
+- Gitea Git-Server
 - Mailserver
 - Passbolt
-- Docker services
+- weitere Docker-Anwendungen
 
 ---
 
-## 🤖 HUGINN & MUNINN — Automation & AI
+## 🤖 HUGINN & MUNINN — KI & Automatisierung
 
-Experiments and intelligent systems:
+Experimente mit modernen Technologien:
 
 - Ollama
 - Open WebUI
-- Automation workflows
-- AI experiments
+- Automatisierungsprozesse
+- KI-basierte Werkzeuge
 
 ---
 
-## 👁️ ODIN — Management & Knowledge
+## 👁️ ODIN — Verwaltung & Dokumentation
 
-Documentation and administration:
+Organisation und Wissen:
 
-- Backup strategies
-- Inventory
-- Maintenance
-- Changelog
-- System documentation
+- Dokumentationssystem
+- Backups
+- Inventarisierung
+- Wartung
+- Änderungsverlauf
 
 ---
 
-## 🐦 RAVEN — Edge Devices
+## 🐦 RAVEN — Edge & Hardware-Projekte
 
-Small devices and experiments:
+Experimente mit Geräten außerhalb der Hauptinfrastruktur:
 
 - Raspberry Pi
 - SDR
 - Shortwave Radio
-- IoT experiments
+- Hardware-Projekte
 
 ---
 
-# 🧰 Technologies
+# 🧰 Eingesetzte Technologien
 
-Some technologies used in this project:
+Ein Auszug der verwendeten Technologien:
 
 - Ubuntu Server
 - Proxmox VE
@@ -133,29 +135,33 @@ Some technologies used in this project:
 
 ---
 
-# 🎯 Goals
+# 🎯 Ziele
 
-Future goals:
+Die nächsten Entwicklungsschritte:
 
-- Expand monitoring capabilities
-- Improve automation
-- Add infrastructure-as-code
-- Build additional security scenarios
-- Document more services
-- Create a complete self-hosted environment
-
----
-
-# 📚 Documentation
-
-The complete documentation is available here:
-
-> Coming soon 🚀
+- Ausbau der Überwachung
+- Mehr Automatisierung
+- Infrastruktur als Code
+- Erweiterung der Security-Umgebung
+- Weitere Selfhosting-Projekte
+- Vollständige technische Dokumentation
 
 ---
 
-# 📜 License
+# 📚 Dokumentation
 
-This project is licensed under the Unlicense.
+Die vollständige Dokumentation befindet sich aktuell im Aufbau.
 
-Feel free to use, modify and learn from it.
+Eine öffentliche Version wird später bereitgestellt.
+
+---
+
+# 📜 Lizenz
+
+Dieses Projekt verwendet die **Unlicense**.
+
+Die Inhalte dürfen frei verwendet, verändert und weitergegeben werden.
+
+---
+
+🌳 *YGGDRASIL — Ein lebendes IT-Ökosystem aus Infrastruktur, Wissen und Experimenten.*
