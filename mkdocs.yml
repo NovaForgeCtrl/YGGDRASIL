@@ -1,146 +1,130 @@
-site_name: Homelab Cyber Wiki
-site_description: Dokumentation meiner IT-, Cybersecurity- und Homelab-Projekte
-site_author: Marcel
-
-repo_name: homelab
-repo_url: https://github.com/DEINUSERNAME/homelab
+﻿site_name: YGGDRASIL
+site_description: 'Ein digitales Ökosystem aus Servern, Netzwerken, Sicherheit und Automatisierung'
+site_author: 'Marcel'
+site_url: https://novaforgectrl.github.io/YGGDRASIL/
 
 theme:
   name: material
-
   language: de
-
+  palette:
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Zu Light Mode wechseln
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Zu Dark Mode wechseln
   features:
     - navigation.tabs
     - navigation.sections
-    - navigation.expand
     - navigation.top
-    - navigation.instant
-    - navigation.instant.progress
+    - search.suggest
     - search.highlight
-    - search.share
     - content.code.copy
     - content.code.annotate
-
-  palette:
-
-    # Dark Mode Standard
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/weather-sunny
-        name: Heller Modus
-
-    # Light Mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: material/weather-night
-        name: Dunkler Modus
-
-
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.png
   icon:
     repo: fontawesome/brands/github
 
+extra_css:
+  - assets/css/index.css
+  - assets/css/asgard.css
+  - assets/css/bifrost.css
+  - assets/css/heimdall.css
+  - assets/css/huginn-muninn.css
+  - assets/css/midgard.css
+  - assets/css/odin.css
+  - assets/css/raven.css
+  - assets/css/soc-lab.css
+  - assets/css/mailserver.css
+
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/NovaForgeCtrl
 
 plugins:
-  - search
-
+  - search:
+      lang: de
 
 markdown_extensions:
-
-  # Hinweisboxen
-  - admonition
-
-  # Aufklappbare Bereiche
-  - pymdownx.details
-
-  # Erweiterte Codeblöcke
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.superfences
-
-  # Tabs
+  - admonition
+  - pymdownx.details
   - pymdownx.tabbed:
       alternate_style: true
-
-  # Tabellen
-  - tables
-
-  # Emoji / Icons
-  - attr_list
-  - md_in_html
-
-  # Inhaltsverzeichnis
   - toc:
       permalink: true
-
+      toc_depth: 4
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
-
   - Start:
-      - Übersicht: index.md
+    - index.md
+    - about.md
+  - ASGARD:
+    - asgard.md
+    - Proxmox VE: ASGARD/proxmox.md
+    - Ubuntu Server: ASGARD/ubuntu-server.md
+    - Docker: ASGARD/docker.md
+    - Storage: ASGARD/storage.md
+    - Virtualisierung: ASGARD/virtualization.md
+  - HEIMDALL:
+    - heimdall.md
+    - Wazuh SIEM: HEIMDALL/wazuh.md
+    - Suricata IDS: HEIMDALL/suricata.md
+    - EveBox: HEIMDALL/evebox.md
+    - YARA: HEIMDALL/yara.md
+    - SOC Lab: HEIMDALL/soc-lab.md
+  - BIFROST:
+    - bifrost.md
+    - OPNsense: BIFROST/opnsense.md
+    - VLAN: BIFROST/vlan.md
+    - Routing: BIFROST/routing.md
+    - DNS & DHCP: BIFROST/dns-dhcp.md
+    - Topologie: BIFROST/topology.md
+  - MIDGARD:
+    - midgard.md
+    - AzuraCast: MIDGARD/azuracast.md
+    - Shortwave: MIDGARD/shortwave.md
+    - Gitea: MIDGARD/gitea.md
+    - Passbolt: MIDGARD/passbolt.md
+    - Mailserver: MIDGARD/mailserver.md
+    - Docker Services: MIDGARD/docker-services.md
+  - HUGINN & MUNINN:
+    - huginn-muninn.md
+    - Ollama: HUGINN-MUNINN/ollama.md
+    - Open WebUI: HUGINN-MUNINN/open-webui.md
+    - Automatisierung: HUGINN-MUNINN/automation.md
+    - Experimente: HUGINN-MUNINN/experiments.md
+  - ODIN:
+    - odin.md
+    - Dokumentation: ODIN/documentation.md
+    - Backup: ODIN/backup.md
+    - Inventar: ODIN/inventory.md
+    - Wartung: ODIN/maintenance.md
+    - Changelog: ODIN/changelog.md
+  - RAVEN:
+    - raven.md
+    - Raspberry Pi: RAVEN/raspberry-pi.md
+    - Shortwave: RAVEN/shortwave.md
+    - SDR: RAVEN/sdr.md
 
-
-  - Cybersecurity:
-
-      - Wazuh:
-          - Übersicht: security/wazuh.md
-
-      - Suricata:
-          - Übersicht: security/suricata.md
-
-      - SOC Lab:
-          - Übersicht: security/soc-lab.md
-
-
-  - Linux:
-
-      - Ubuntu Server:
-          - Übersicht: linux/ubuntu-server.md
-
-      - Docker:
-          - Übersicht: linux/docker.md
-
-      - Proxmox:
-          - Übersicht: linux/proxmox.md
-
-
-  - Netzwerk:
-
-      - VLAN:
-          - Übersicht: network/vlan.md
-
-
-  - Raspberry Pi:
-
-      - Shortwave Internetradio:
-          - Übersicht: raspberry-pi/shortwave.md
-
-
-  - KI:
-
-      - Ollama:
-          - Übersicht: ai/ollama.md
-
-      - Open WebUI:
-          - Übersicht: ai/open-webui.md
-
-
-  - Projekte:
-
-      - AzuraCast:
-          - Übersicht: projects/azuracast.md
-
-      - Gitea:
-          - Übersicht: projects/gitea.md
-
-
-  - Wissen:
-
-      - Befehle:
-          - Linux Commands: knowledge/linux-commands.md
-
-      - Troubleshooting:
-          - Fehler & Lösungen: knowledge/troubleshooting.md
-
-  - Über mich:
-      - Profil: about.md
+copyright: 'Copyright &copy; 2026 Marcel - YGGDRASIL Homelab'

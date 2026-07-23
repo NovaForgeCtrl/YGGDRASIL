@@ -1,0 +1,488 @@
+/* ============================================================
+   🌳 YGGDRASIL INDEX - CYBERPUNK MYTHISCH NORDISCH
+   EXTREME EDITION - FINAL VERSION
+   ============================================================ */
+
+/* ========== STERNENHIMMEL ========== */
+.md-content__inner:has(#yggdrasil-main)::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(2px 2px at 20px 30px, #00e5ff, transparent),
+    radial-gradient(2px 2px at 40px 70px, #0080ff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #00ff41, transparent),
+    radial-gradient(2px 2px at 160px 120px, #00e5ff, transparent),
+    radial-gradient(1px 1px at 230px 80px, #0080ff, transparent),
+    radial-gradient(2px 2px at 300px 50px, #00ff41, transparent),
+    radial-gradient(1px 1px at 350px 150px, #00e5ff, transparent),
+    radial-gradient(2px 2px at 420px 90px, #0080ff, transparent),
+    radial-gradient(1px 1px at 480px 180px, #00ff41, transparent),
+    radial-gradient(2px 2px at 550px 60px, #00e5ff, transparent),
+    radial-gradient(1px 1px at 620px 140px, #0080ff, transparent),
+    radial-gradient(2px 2px at 680px 30px, #00ff41, transparent),
+    radial-gradient(1px 1px at 750px 100px, #00e5ff, transparent),
+    radial-gradient(2px 2px at 820px 170px, #0080ff, transparent),
+    radial-gradient(1px 1px at 880px 50px, #00ff41, transparent),
+    radial-gradient(2px 2px at 950px 130px, #00e5ff, transparent),
+    radial-gradient(1px 1px at 1020px 80px, #0080ff, transparent),
+    radial-gradient(2px 2px at 1080px 160px, #00ff41, transparent),
+    radial-gradient(1px 1px at 1150px 40px, #00e5ff, transparent),
+    radial-gradient(2px 2px at 1220px 110px, #0080ff, transparent),
+    radial-gradient(1px 1px at 1280px 190px, #00ff41, transparent),
+    radial-gradient(2px 2px at 1350px 70px, #00e5ff, transparent),
+    radial-gradient(1px 1px at 1420px 150px, #0080ff, transparent),
+    radial-gradient(2px 2px at 1480px 20px, #00ff41, transparent),
+    radial-gradient(1px 1px at 1550px 100px, #00e5ff, transparent),
+    radial-gradient(2px 2px at 1620px 180px, #0080ff, transparent),
+    radial-gradient(1px 1px at 1680px 60px, #00ff41, transparent),
+    radial-gradient(2px 2px at 1750px 140px, #00e5ff, transparent),
+    radial-gradient(1px 1px at 1820px 90px, #0080ff, transparent),
+    radial-gradient(2px 2px at 1880px 170px, #00ff41, transparent);
+  background-repeat: repeat;
+  background-size: 1920px 200px;
+  animation: starfield 100s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes starfield {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
+}
+
+/* ========== TITEL - EPIC NEON ========== */
+#yggdrasil-main {
+  font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: #00e5ff !important;
+  text-shadow:
+    0 0 10px #00e5ff,
+    0 0 20px #00e5ff,
+    0 0 40px rgba(0, 229, 255, 0.6),
+    0 0 80px rgba(0, 229, 255, 0.4),
+    0 0 120px rgba(0, 128, 255, 0.3),
+    0 0 160px rgba(0, 128, 255, 0.2) !important;
+  animation: neonPulse 3s ease-in-out infinite;
+  border: none !important;
+  margin-bottom: 1rem !important;
+  position: relative !important;
+  padding-top: 1rem !important;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff, 0 0 40px rgba(0,229,255,0.6), 0 0 80px rgba(0,229,255,0.4), 0 0 120px rgba(0,128,255,0.3), 0 0 160px rgba(0,128,255,0.2) !important;
+    filter: brightness(1);
+  }
+  50% {
+    text-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff, 0 0 80px rgba(0,229,255,0.8), 0 0 120px rgba(0,229,255,0.6), 0 0 160px rgba(0,128,255,0.4), 0 0 200px rgba(0,128,255,0.3) !important;
+    filter: brightness(1.4);
+  }
+}
+
+/* Baum Emoji */
+#yggdrasil-main::after {
+  content: '🌳' !important;
+  display: inline-block !important;
+  margin-left: 0.15em !important;
+  font-size: 0.7em !important;
+  animation: treeFloat 4s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.8)) !important;
+}
+
+@keyframes treeFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg) scale(1); }
+  25% { transform: translateY(-6px) rotate(3deg) scale(1.05); }
+  50% { transform: translateY(-12px) rotate(-2deg) scale(1.1); }
+  75% { transform: translateY(-6px) rotate(4deg) scale(1.05); }
+}
+
+/* RGB SHIFT */
+#yggdrasil-main::before {
+  content: 'YGGDRASIL' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  color: transparent !important;
+  text-shadow: -3px 0 #ff00ff, 3px 0 #00ffff !important;
+  opacity: 0 !important;
+  animation: rgbShift 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+  letter-spacing: 0.2em !important;
+}
+
+@keyframes rgbShift {
+  0%, 88%, 100% { opacity: 0; transform: translateX(0); }
+  90% { opacity: 0.4; transform: translateX(-4px); }
+  92% { opacity: 0.6; transform: translateX(4px); }
+  94% { opacity: 0.4; transform: translateX(-2px); }
+  96% { opacity: 0.2; transform: translateX(2px); }
+  98% { opacity: 0; transform: translateX(0); }
+}
+
+/* ========== UNTERTITEL (Blockquote nach h1) ========== */
+#yggdrasil-main + blockquote {
+  border-left: 3px solid rgba(0, 229, 255, 0.3) !important;
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.05) 0%, transparent 100%) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1rem 1.5rem !important;
+  color: #94a3b8 !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.05) !important;
+}
+
+/* ========== SECTION HEADER "Die neun Welten" ========== */
+#yggdrasil-main ~ h2 {
+  color: #00ff41 !important;
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  letter-spacing: 0.1em !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.4) !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important;
+}
+
+#yggdrasil-main ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 60% !important;
+  height: 2px !important;
+  margin: 0.5rem auto 0 !important;
+  background: linear-gradient(90deg, transparent, #00ff41, #00e5ff, #00ff41, transparent) !important;
+  opacity: 0.6 !important;
+}
+
+/* ========== WELTEN-BOXEN ========== */
+#yggdrasil-main ~ h3 {
+  background: linear-gradient(135deg, #0a0a12 0%, #111827 50%, #0a0a12 100%) !important;
+  border: 1px solid rgba(0, 229, 255, 0.25) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem 2rem !important;
+  margin: 1.5rem 0 0.5rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(0, 229, 255, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  color: #00e5ff !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  animation: boxFloat 6s ease-in-out infinite !important;
+}
+
+#yggdrasil-main ~ h3:nth-of-type(1) { animation-delay: 0s !important; }
+#yggdrasil-main ~ h3:nth-of-type(2) { animation-delay: -1s !important; }
+#yggdrasil-main ~ h3:nth-of-type(3) { animation-delay: -2s !important; }
+#yggdrasil-main ~ h3:nth-of-type(4) { animation-delay: -3s !important; }
+#yggdrasil-main ~ h3:nth-of-type(5) { animation-delay: -4s !important; }
+#yggdrasil-main ~ h3:nth-of-type(6) { animation-delay: -5s !important; }
+#yggdrasil-main ~ h3:nth-of-type(7) { animation-delay: -0.5s !important; }
+
+@keyframes boxFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+#yggdrasil-main ~ h3:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: #00e5ff !important;
+  box-shadow:
+    0 16px 50px rgba(0,0,0,0.6),
+    0 0 30px rgba(0, 229, 255, 0.4),
+    0 0 60px rgba(0, 229, 255, 0.2),
+    0 0 90px rgba(0, 128, 255, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.1) !important;
+}
+
+/* Regenbogen-Rand oben */
+#yggdrasil-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #00ff41, #00e5ff, #0080ff, #c084fc, #fbbf24, #c084fc, #0080ff, #00e5ff, #00ff41) !important;
+  background-size: 300% 100% !important;
+  animation: rainbowMove 4s linear infinite !important;
+  opacity: 0.8 !important;
+}
+
+@keyframes rainbowMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Scanline-Effekt */
+#yggdrasil-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.08), transparent) !important;
+  animation: scanline 5s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes scanline {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+/* ========== BESCHREIBUNGSTEXT ========== */
+#yggdrasil-main ~ h3 + p {
+  color: #94a3b8 !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.8rem !important;
+  padding-left: 0.5rem !important;
+}
+
+/* ========== WORLD-LINKS ========== */
+#yggdrasil-main ~ p a.world-link {
+  display: inline-block !important;
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.12) 0%, rgba(0, 229, 255, 0.06) 100%) !important;
+  border: 1px solid rgba(0, 229, 255, 0.25) !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0.25rem !important;
+  color: #00e5ff !important;
+  text-decoration: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.08) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#yggdrasil-main ~ p a.world-link::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.3), transparent) !important;
+  transition: left 0.6s ease !important;
+}
+
+#yggdrasil-main ~ p a.world-link:hover::before {
+  left: 100% !important;
+}
+
+#yggdrasil-main ~ p a.world-link:hover {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.25) 0%, rgba(0, 229, 255, 0.15) 100%) !important;
+  border-color: #00e5ff !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 15px rgba(0, 229, 255, 0.4),
+    0 0 30px rgba(0, 229, 255, 0.2),
+    0 0 45px rgba(0, 128, 255, 0.15) !important;
+  transform: translateY(-3px) !important;
+  animation: glitch 0.3s ease !important;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* ========== GOLDENE PARTIKEL ========== */
+.md-content__inner:has(#yggdrasil-main)::after {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background:
+    radial-gradient(2px 2px at 100px 200px, #fbbf24, transparent),
+    radial-gradient(1px 1px at 300px 400px, #fbbf24, transparent),
+    radial-gradient(2px 2px at 500px 100px, #fbbf24, transparent),
+    radial-gradient(1px 1px at 700px 300px, #fbbf24, transparent),
+    radial-gradient(2px 2px at 900px 500px, #fbbf24, transparent),
+    radial-gradient(1px 1px at 1100px 200px, #fbbf24, transparent),
+    radial-gradient(2px 2px at 1300px 400px, #fbbf24, transparent),
+    radial-gradient(1px 1px at 1500px 100px, #fbbf24, transparent) !important;
+  background-repeat: repeat !important;
+  background-size: 1600px 600px !important;
+  animation: particles 25s linear infinite !important;
+  opacity: 0.2 !important;
+}
+
+@keyframes particles {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-600px) rotate(360deg); }
+}
+
+/* ========== TRENNLINIE ========== */
+#yggdrasil-main ~ hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #00e5ff, #0080ff, #00ff41, #0080ff, #00e5ff, transparent) !important;
+  margin: 2.5rem 0 !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.3) !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+#yggdrasil-main ~ hr::after {
+  content: '✦' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #00e5ff !important;
+  font-size: 1.2rem !important;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.8) !important;
+  background: #0a0a0f !important;
+  padding: 0 1rem !important;
+}
+
+/* ========== TABELLE ========== */
+#yggdrasil-main ~ table {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(0, 229, 255, 0.2) !important;
+  background: linear-gradient(135deg, #0a0a12 0%, #111827 100%) !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(0, 229, 255, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  margin: 1.5rem 0 !important;
+}
+
+#yggdrasil-main ~ table thead {
+  background: linear-gradient(180deg, rgba(0, 128, 255, 0.2) 0%, rgba(0, 229, 255, 0.08) 100%) !important;
+}
+
+#yggdrasil-main ~ table th {
+  color: #00e5ff !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.15em !important;
+  border-bottom: 2px solid #00e5ff !important;
+  padding: 1.2rem 1.5rem !important;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.4) !important;
+}
+
+#yggdrasil-main ~ table td {
+  border-bottom: 1px solid rgba(30, 58, 95, 0.5) !important;
+  padding: 1rem 1.5rem !important;
+  color: #e2e8f0 !important;
+  transition: all 0.3s ease !important;
+}
+
+#yggdrasil-main ~ table tr:hover {
+  background: linear-gradient(90deg, rgba(0, 128, 255, 0.12) 0%, transparent 100%) !important;
+}
+
+#yggdrasil-main ~ table tr:hover td {
+  color: #00e5ff !important;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.3) !important;
+}
+
+/* ========== ZITAT (letztes Blockquote) ========== */
+#yggdrasil-main ~ blockquote:last-of-type {
+  border-left: 4px solid #00e5ff !important;
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.08) 0%, transparent 100%) !important;
+  border-radius: 0 16px 16px 0 !important;
+  padding: 2rem 2.5rem !important;
+  font-style: italic !important;
+  color: #e2e8f0 !important;
+  text-align: center !important;
+  box-shadow:
+    0 0 25px rgba(0, 229, 255, 0.08),
+    inset 0 0 25px rgba(0, 229, 255, 0.03) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-top: 2rem !important;
+}
+
+#yggdrasil-main ~ blockquote:last-of-type::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: -15px !important;
+  left: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(0, 229, 255, 0.15) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+#yggdrasil-main ~ blockquote:last-of-type::after {
+  content: '"' !important;
+  position: absolute !important;
+  bottom: -25px !important;
+  right: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(0, 229, 255, 0.15) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+/* ========== CODE INLINE ========== */
+#yggdrasil-main ~ p code:not(pre code) {
+  background: linear-gradient(135deg, rgba(0, 128, 255, 0.2) 0%, rgba(0, 229, 255, 0.1) 100%) !important;
+  color: #00e5ff !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(0, 229, 255, 0.2) !important;
+  font-size: 0.9em !important;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.15) !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #yggdrasil-main {
+    font-size: 2.2rem !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  #yggdrasil-main ~ h2 {
+    font-size: 1.4rem !important;
+  }
+
+  #yggdrasil-main ~ h3 {
+    padding: 1.2rem 1.5rem !important;
+    font-size: 1.2rem !important;
+  }
+
+  #yggdrasil-main ~ p a.world-link {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
+    margin: 0.15rem !important;
+  }
+
+  .md-content__inner:has(#yggdrasil-main)::before {
+    opacity: 0.25 !important;
+  }
+}

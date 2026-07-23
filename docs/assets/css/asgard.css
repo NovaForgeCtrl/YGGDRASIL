@@ -1,0 +1,489 @@
+/* ============================================================
+   ⚔️ ASGARD - Die Fundamente
+   Stil: Warm, mächtig, königlich - GOLD
+   ID-basierter Ansatz für maximale Spezifität
+   ============================================================ */
+
+/* ========== STERNENHIMMEL - Goldene Funken ========== */
+.md-content__inner:has(#asgard-main)::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(2px 2px at 50px 40px, #ffd700, transparent),
+    radial-gradient(1px 1px at 120px 90px, #ff8c00, transparent),
+    radial-gradient(2px 2px at 200px 150px, #ffd700, transparent),
+    radial-gradient(1px 1px at 280px 60px, #daa520, transparent),
+    radial-gradient(2px 2px at 350px 180px, #ffd700, transparent),
+    radial-gradient(1px 1px at 420px 110px, #ff8c00, transparent),
+    radial-gradient(2px 2px at 500px 40px, #ffd700, transparent),
+    radial-gradient(1px 1px at 580px 160px, #daa520, transparent),
+    radial-gradient(2px 2px at 650px 80px, #ffd700, transparent),
+    radial-gradient(1px 1px at 720px 190px, #ff8c00, transparent),
+    radial-gradient(2px 2px at 800px 50px, #ffd700, transparent),
+    radial-gradient(1px 1px at 880px 130px, #daa520, transparent),
+    radial-gradient(2px 2px at 950px 70px, #ffd700, transparent),
+    radial-gradient(1px 1px at 1020px 170px, #ff8c00, transparent),
+    radial-gradient(2px 2px at 1100px 30px, #ffd700, transparent),
+    radial-gradient(1px 1px at 1180px 140px, #daa520, transparent),
+    radial-gradient(2px 2px at 1250px 90px, #ffd700, transparent),
+    radial-gradient(1px 1px at 1320px 200px, #ff8c00, transparent),
+    radial-gradient(2px 2px at 1400px 60px, #ffd700, transparent),
+    radial-gradient(1px 1px at 1480px 150px, #daa520, transparent),
+    radial-gradient(2px 2px at 1550px 100px, #ffd700, transparent),
+    radial-gradient(1px 1px at 1620px 180px, #ff8c00, transparent),
+    radial-gradient(2px 2px at 1700px 40px, #ffd700, transparent),
+    radial-gradient(1px 1px at 1780px 120px, #daa520, transparent),
+    radial-gradient(2px 2px at 1850px 80px, #ffd700, transparent);
+  background-repeat: repeat;
+  background-size: 1920px 220px;
+  animation: asgardStars 120s linear infinite;
+  opacity: 0.35;
+}
+
+@keyframes asgardStars {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-220px); }
+}
+
+/* ========== TITEL - GOLDENES NEON ========== */
+#asgard-main {
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: #ffd700 !important;
+  text-shadow:
+    0 0 10px #ffd700,
+    0 0 20px #ffd700,
+    0 0 40px rgba(255, 215, 0, 0.6),
+    0 0 80px rgba(255, 215, 0, 0.4),
+    0 0 120px rgba(255, 140, 0, 0.3),
+    0 0 160px rgba(255, 140, 0, 0.2) !important;
+  animation: asgardPulse 3s ease-in-out infinite;
+  border: none !important;
+  margin-bottom: 1rem !important;
+  position: relative !important;
+  padding-top: 1rem !important;
+}
+
+@keyframes asgardPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px rgba(255,215,0,0.6), 0 0 80px rgba(255,215,0,0.4), 0 0 120px rgba(255,140,0,0.3), 0 0 160px rgba(255,140,0,0.2) !important;
+    filter: brightness(1);
+  }
+  50% {
+    text-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700, 0 0 80px rgba(255,215,0,0.8), 0 0 120px rgba(255,215,0,0.6), 0 0 160px rgba(255,140,0,0.4), 0 0 200px rgba(255,140,0,0.3) !important;
+    filter: brightness(1.3);
+  }
+}
+
+/* Schwert Emoji */
+#asgard-main::after {
+  content: '⚔️' !important;
+  display: inline-block !important;
+  margin-left: 0.15em !important;
+  font-size: 0.7em !important;
+  animation: swordFloat 4s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) !important;
+}
+
+@keyframes swordFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg) scale(1); }
+  25% { transform: translateY(-6px) rotate(3deg) scale(1.05); }
+  50% { transform: translateY(-12px) rotate(-2deg) scale(1.1); }
+  75% { transform: translateY(-6px) rotate(4deg) scale(1.05); }
+}
+
+/* Goldener RGB Shift */
+#asgard-main::before {
+  content: 'ASGARD' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  color: transparent !important;
+  text-shadow: -3px 0 #ff4500, 3px 0 #ffd700 !important;
+  opacity: 0 !important;
+  animation: asgardRgbShift 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+  letter-spacing: 0.15em !important;
+}
+
+@keyframes asgardRgbShift {
+  0%, 88%, 100% { opacity: 0; transform: translateX(0); }
+  90% { opacity: 0.4; transform: translateX(-4px); }
+  92% { opacity: 0.6; transform: translateX(4px); }
+  94% { opacity: 0.4; transform: translateX(-2px); }
+  96% { opacity: 0.2; transform: translateX(2px); }
+  98% { opacity: 0; transform: translateX(0); }
+}
+
+/* ========== UNTERTITEL ========== */
+#asgard-main + blockquote {
+  border-left: 3px solid rgba(255, 215, 0, 0.3) !important;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1rem 1.5rem !important;
+  color: #daa520 !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.05) !important;
+}
+
+/* ========== SECTION HEADERS ========== */
+#asgard-main ~ h2 {
+  color: #ff8c00 !important;
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  letter-spacing: 0.1em !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.4) !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important;
+}
+
+#asgard-main ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 60% !important;
+  height: 2px !important;
+  margin: 0.5rem auto 0 !important;
+  background: linear-gradient(90deg, transparent, #ffd700, #ff8c00, #ffd700, transparent) !important;
+  opacity: 0.6 !important;
+}
+
+/* ========== WELTEN-BOXEN (H3) ========== */
+#asgard-main ~ h3 {
+  background: linear-gradient(135deg, #1a1200 0%, #2a1a00 50%, #1a1200 100%) !important;
+  border: 1px solid rgba(184, 134, 11, 0.4) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem 2rem !important;
+  margin: 1.5rem 0 0.5rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255, 215, 0, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  color: #ffd700 !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  animation: asgardBoxFloat 6s ease-in-out infinite !important;
+}
+
+#asgard-main ~ h3:nth-of-type(1) { animation-delay: 0s !important; }
+#asgard-main ~ h3:nth-of-type(2) { animation-delay: -1s !important; }
+#asgard-main ~ h3:nth-of-type(3) { animation-delay: -2s !important; }
+#asgard-main ~ h3:nth-of-type(4) { animation-delay: -3s !important; }
+#asgard-main ~ h3:nth-of-type(5) { animation-delay: -4s !important; }
+#asgard-main ~ h3:nth-of-type(6) { animation-delay: -5s !important; }
+#asgard-main ~ h3:nth-of-type(7) { animation-delay: -0.5s !important; }
+
+@keyframes asgardBoxFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+#asgard-main ~ h3:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: #ffd700 !important;
+  box-shadow:
+    0 16px 50px rgba(0,0,0,0.6),
+    0 0 30px rgba(255, 215, 0, 0.3),
+    0 0 60px rgba(255, 215, 0, 0.15),
+    0 0 90px rgba(255, 140, 0, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.1) !important;
+}
+
+/* Goldener Rand oben */
+#asgard-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #daa520, #ffd700, #ff8c00, #ffd700) !important;
+  background-size: 300% 100% !important;
+  animation: asgardRainbow 4s linear infinite !important;
+  opacity: 0.8 !important;
+}
+
+@keyframes asgardRainbow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Goldener Scanline */
+#asgard-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.08), transparent) !important;
+  animation: asgardScanline 5s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes asgardScanline {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+/* ========== BESCHREIBUNGSTEXT ========== */
+#asgard-main ~ h3 + p {
+  color: #c9a84c !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.8rem !important;
+  padding-left: 0.5rem !important;
+}
+
+/* ========== LINKS ========== */
+#asgard-main ~ p a,
+#asgard-main ~ p a.world-link {
+  display: inline-block !important;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.12) 0%, rgba(255, 140, 0, 0.06) 100%) !important;
+  border: 1px solid rgba(255, 215, 0, 0.25) !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0.25rem !important;
+  color: #ffd700 !important;
+  text-decoration: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.08) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#asgard-main ~ p a::before,
+#asgard-main ~ p a.world-link::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent) !important;
+  transition: left 0.6s ease !important;
+}
+
+#asgard-main ~ p a:hover::before,
+#asgard-main ~ p a.world-link:hover::before {
+  left: 100% !important;
+}
+
+#asgard-main ~ p a:hover,
+#asgard-main ~ p a.world-link:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.25) 0%, rgba(255, 140, 0, 0.15) 100%) !important;
+  border-color: #ffd700 !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 15px rgba(255, 215, 0, 0.4),
+    0 0 30px rgba(255, 215, 0, 0.2),
+    0 0 45px rgba(255, 140, 0, 0.15) !important;
+  transform: translateY(-3px) !important;
+  animation: asgardGlitch 0.3s ease !important;
+}
+
+@keyframes asgardGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* ========== GOLDENE PARTIKEL ========== */
+.md-content__inner:has(#asgard-main)::after {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background:
+    radial-gradient(2px 2px at 80px 180px, #ffd700, transparent),
+    radial-gradient(1px 1px at 250px 350px, #ff8c00, transparent),
+    radial-gradient(2px 2px at 450px 80px, #daa520, transparent),
+    radial-gradient(1px 1px at 650px 280px, #ffd700, transparent),
+    radial-gradient(2px 2px at 850px 450px, #ff8c00, transparent),
+    radial-gradient(1px 1px at 1050px 180px, #daa520, transparent),
+    radial-gradient(2px 2px at 1250px 380px, #ffd700, transparent),
+    radial-gradient(1px 1px at 1450px 90px, #ff8c00, transparent) !important;
+  background-repeat: repeat !important;
+  background-size: 1600px 550px !important;
+  animation: asgardParticles 25s linear infinite !important;
+  opacity: 0.2 !important;
+}
+
+@keyframes asgardParticles {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-550px) rotate(360deg); }
+}
+
+/* ========== TRENNLINIE ========== */
+#asgard-main ~ hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #ffd700, #ff8c00, #daa520, #ff8c00, #ffd700, transparent) !important;
+  margin: 2.5rem 0 !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3) !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+#asgard-main ~ hr::after {
+  content: '⚔️' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #ffd700 !important;
+  font-size: 1.2rem !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;
+  background: #0a0a0f !important;
+  padding: 0 1rem !important;
+}
+
+/* ========== TABELLE ========== */
+#asgard-main ~ table {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(184, 134, 11, 0.3) !important;
+  background: linear-gradient(135deg, #1a1200 0%, #2a1a00 100%) !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255, 215, 0, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  margin: 1.5rem 0 !important;
+}
+
+#asgard-main ~ table thead {
+  background: linear-gradient(180deg, rgba(255, 140, 0, 0.2) 0%, rgba(255, 215, 0, 0.08) 100%) !important;
+}
+
+#asgard-main ~ table th {
+  color: #ffd700 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.15em !important;
+  border-bottom: 2px solid #ffd700 !important;
+  padding: 1.2rem 1.5rem !important;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4) !important;
+}
+
+#asgard-main ~ table td {
+  border-bottom: 1px solid rgba(184, 134, 11, 0.3) !important;
+  padding: 1rem 1.5rem !important;
+  color: #e8d5a3 !important;
+  transition: all 0.3s ease !important;
+}
+
+#asgard-main ~ table tr:hover {
+  background: linear-gradient(90deg, rgba(255, 140, 0, 0.12) 0%, transparent 100%) !important;
+}
+
+#asgard-main ~ table tr:hover td {
+  color: #ffd700 !important;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3) !important;
+}
+
+/* ========== ZITAT ========== */
+#asgard-main ~ blockquote:last-of-type {
+  border-left: 4px solid #ffd700 !important;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.08) 0%, transparent 100%) !important;
+  border-radius: 0 16px 16px 0 !important;
+  padding: 2rem 2.5rem !important;
+  font-style: italic !important;
+  color: #e8d5a3 !important;
+  text-align: center !important;
+  box-shadow:
+    0 0 25px rgba(255, 215, 0, 0.08),
+    inset 0 0 25px rgba(255, 215, 0, 0.03) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-top: 2rem !important;
+}
+
+#asgard-main ~ blockquote:last-of-type::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: -15px !important;
+  left: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(255, 215, 0, 0.15) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+#asgard-main ~ blockquote:last-of-type::after {
+  content: '"' !important;
+  position: absolute !important;
+  bottom: -25px !important;
+  right: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(255, 215, 0, 0.15) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+/* ========== CODE INLINE ========== */
+#asgard-main ~ p code:not(pre code) {
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%) !important;
+  color: #ffd700 !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(255, 215, 0, 0.2) !important;
+  font-size: 0.9em !important;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.15) !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #asgard-main {
+    font-size: 2.2rem !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  #asgard-main ~ h2 {
+    font-size: 1.4rem !important;
+  }
+
+  #asgard-main ~ h3 {
+    padding: 1.2rem 1.5rem !important;
+    font-size: 1.2rem !important;
+  }
+
+  #asgard-main ~ p a,
+  #asgard-main ~ p a.world-link {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
+    margin: 0.15rem !important;
+  }
+
+  .md-content__inner:has(#asgard-main)::before {
+    opacity: 0.25 !important;
+  }
+}

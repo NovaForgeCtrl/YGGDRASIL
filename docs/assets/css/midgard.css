@@ -1,0 +1,548 @@
+/* ============================================================
+   🏠 MIDGARD — THE LIVING WORLD EDITION
+   Stil: Warm, einladend, lebendig — die Welt der Sterblichen
+   Palette: Warmes Bernstein, Sanftes Grün, Goldenes Licht
+   ============================================================ */
+
+/* ========== LEBENDIGER HINTERGRUND — SCHWEBENDE LICHTPARTIKEL ========== */
+.md-content__inner:has(#midgard-main)::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    /* Warme Lichtpartikel */
+    radial-gradient(2px 2px at 60px 120px, rgba(255, 200, 100, 0.35), transparent),
+    radial-gradient(2px 2px at 180px 280px, rgba(255, 200, 100, 0.25), transparent),
+    radial-gradient(3px 3px at 300px 80px, rgba(255, 200, 100, 0.3), transparent),
+    radial-gradient(2px 2px at 420px 350px, rgba(255, 200, 100, 0.2), transparent),
+    radial-gradient(2px 2px at 540px 150px, rgba(255, 200, 100, 0.35), transparent),
+    radial-gradient(3px 3px at 660px 300px, rgba(255, 200, 100, 0.25), transparent),
+    radial-gradient(2px 2px at 780px 60px, rgba(255, 200, 100, 0.3), transparent),
+    radial-gradient(2px 2px at 900px 250px, rgba(255, 200, 100, 0.2), transparent),
+    radial-gradient(3px 3px at 1020px 380px, rgba(255, 200, 100, 0.35), transparent),
+    radial-gradient(2px 2px at 1140px 100px, rgba(255, 200, 100, 0.25), transparent),
+    radial-gradient(2px 2px at 1260px 320px, rgba(255, 200, 100, 0.3), transparent),
+    radial-gradient(3px 3px at 1380px 180px, rgba(255, 200, 100, 0.2), transparent),
+    radial-gradient(2px 2px at 1500px 360px, rgba(255, 200, 100, 0.35), transparent),
+    radial-gradient(2px 2px at 1620px 90px, rgba(255, 200, 100, 0.25), transparent),
+    radial-gradient(3px 3px at 1740px 270px, rgba(255, 200, 100, 0.3), transparent),
+    radial-gradient(2px 2px at 1860px 40px, rgba(255, 200, 100, 0.2), transparent),
+    /* Grüne Naturpartikel */
+    radial-gradient(1px 1px at 100px 200px, rgba(120, 200, 120, 0.4), transparent),
+    radial-gradient(1px 1px at 250px 50px, rgba(120, 200, 120, 0.3), transparent),
+    radial-gradient(2px 2px at 380px 220px, rgba(120, 200, 120, 0.35), transparent),
+    radial-gradient(1px 1px at 500px 120px, rgba(120, 200, 120, 0.25), transparent),
+    radial-gradient(1px 1px at 620px 280px, rgba(120, 200, 120, 0.4), transparent),
+    radial-gradient(2px 2px at 740px 80px, rgba(120, 200, 120, 0.3), transparent),
+    radial-gradient(1px 1px at 860px 320px, rgba(120, 200, 120, 0.35), transparent),
+    radial-gradient(1px 1px at 980px 160px, rgba(120, 200, 120, 0.25), transparent),
+    radial-gradient(2px 2px at 1100px 340px, rgba(120, 200, 120, 0.4), transparent),
+    radial-gradient(1px 1px at 1220px 70px, rgba(120, 200, 120, 0.3), transparent),
+    radial-gradient(1px 1px at 1340px 240px, rgba(120, 200, 120, 0.35), transparent),
+    radial-gradient(2px 2px at 1460px 110px, rgba(120, 200, 120, 0.25), transparent),
+    radial-gradient(1px 1px at 1580px 300px, rgba(120, 200, 120, 0.4), transparent),
+    radial-gradient(1px 1px at 1700px 50px, rgba(120, 200, 120, 0.3), transparent),
+    radial-gradient(2px 2px at 1820px 190px, rgba(120, 200, 120, 0.35), transparent);
+  background-repeat: repeat;
+  background-size: 1920px 400px;
+  animation: livingLight 18s linear infinite;
+  opacity: 0.35;
+}
+
+@keyframes livingLight {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-400px) rotate(-3deg); }
+}
+
+/* Zweite Ebene: Schnellere, kleinere Partikel */
+.md-content__inner:has(#midgard-main)::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(1px 1px at 140px 180px, rgba(255, 220, 150, 0.25), transparent),
+    radial-gradient(1px 1px at 320px 80px, rgba(255, 220, 150, 0.2), transparent),
+    radial-gradient(2px 2px at 460px 280px, rgba(255, 220, 150, 0.25), transparent),
+    radial-gradient(1px 1px at 600px 140px, rgba(255, 220, 150, 0.3), transparent),
+    radial-gradient(1px 1px at 740px 340px, rgba(255, 220, 150, 0.2), transparent),
+    radial-gradient(2px 2px at 880px 60px, rgba(255, 220, 150, 0.25), transparent),
+    radial-gradient(1px 1px at 1020px 260px, rgba(255, 220, 150, 0.3), transparent),
+    radial-gradient(1px 1px at 1160px 120px, rgba(255, 220, 150, 0.2), transparent),
+    radial-gradient(2px 2px at 1300px 300px, rgba(255, 220, 150, 0.25), transparent),
+    radial-gradient(1px 1px at 1440px 40px, rgba(255, 220, 150, 0.3), transparent),
+    radial-gradient(1px 1px at 1580px 220px, rgba(255, 220, 150, 0.2), transparent),
+    radial-gradient(2px 2px at 1720px 360px, rgba(255, 220, 150, 0.25), transparent);
+  background-repeat: repeat;
+  background-size: 1920px 400px;
+  animation: livingLight 10s linear infinite reverse;
+  opacity: 0.2;
+}
+
+/* ========== HAUPTTITEL — WARM & EINLADEND ========== */
+#midgard-main {
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: #f5e6c8 !important;
+  font-family: 'Cinzel', 'Georgia', serif !important;
+  text-shadow:
+    0 0 20px rgba(255, 180, 80, 0.3),
+    0 0 40px rgba(255, 180, 80, 0.15),
+    0 0 80px rgba(255, 180, 80, 0.08),
+    0 2px 4px rgba(0, 0, 0, 0.5) !important;
+  border: none !important;
+  margin-bottom: 0.5rem !important;
+  padding-top: 2rem !important;
+  position: relative !important;
+  animation: warmGlow 4s ease-in-out infinite !important;
+}
+
+@keyframes warmGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(255, 180, 80, 0.3), 0 0 40px rgba(255, 180, 80, 0.15), 0 0 80px rgba(255, 180, 80, 0.08), 0 2px 4px rgba(0, 0, 0, 0.5); }
+  50% { text-shadow: 0 0 30px rgba(255, 180, 80, 0.5), 0 0 60px rgba(255, 180, 80, 0.25), 0 0 120px rgba(255, 180, 80, 0.12), 0 2px 4px rgba(0, 0, 0, 0.5); }
+}
+
+/* Haus-Emoji mit sanftem Schweben */
+#midgard-main::after {
+  content: '🏠' !important;
+  display: inline-block !important;
+  margin-left: 0.2em !important;
+  font-size: 0.6em !important;
+  animation: homeFloat 3s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 10px rgba(255, 180, 80, 0.5)) !important;
+}
+
+@keyframes homeFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-6px) rotate(3deg); }
+}
+
+/* Warme Begrüßung über dem Titel */
+#midgard-main::before {
+  content: '✦ Die Welt der Sterblichen ✦' !important;
+  position: absolute !important;
+  top: -8px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 0.28em !important;
+  color: rgba(255, 180, 80, 0.6) !important;
+  font-family: 'Cinzel', 'Georgia', serif !important;
+  letter-spacing: 0.15em !important;
+  text-shadow: 0 0 10px rgba(255, 180, 80, 0.3) !important;
+  white-space: nowrap !important;
+  animation: welcomeFlicker 5s ease-in-out infinite !important;
+}
+
+@keyframes welcomeFlicker {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+  75% { opacity: 0.4; }
+}
+
+/* ========== STATUS-LEISTE — WARM ========== */
+#midgard-main + blockquote {
+  border-left: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0.5rem 1.5rem !important;
+  color: #7a8a6a !important;
+  font-style: normal !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  text-align: center !important;
+  margin-bottom: 2.5rem !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.05em !important;
+}
+
+#midgard-main + blockquote code {
+  background: rgba(255, 180, 80, 0.08) !important;
+  color: #d4a860 !important;
+  padding: 0.1rem 0.35rem !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 180, 80, 0.15) !important;
+  font-size: 0.72rem !important;
+  box-shadow: 0 0 5px rgba(255, 180, 80, 0.1) !important;
+}
+
+/* ========== ABSCHNITTSÜBERSCHRIFTEN — NATUR-STIL ========== */
+#midgard-main ~ h2 {
+  color: #e8c8a0 !important;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  text-align: left !important;
+  letter-spacing: 0.08em !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  font-family: 'Cinzel', 'Georgia', serif !important;
+  position: relative !important;
+  padding-left: 1.2rem !important;
+  border-bottom: 1px solid rgba(255, 180, 80, 0.1) !important;
+  padding-bottom: 0.5rem !important;
+  text-shadow: 0 0 10px rgba(255, 180, 80, 0.15) !important;
+}
+
+#midgard-main ~ h2::before {
+  content: '🌿' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0.1rem !important;
+  font-size: 0.7rem !important;
+  animation: leafSway 3s ease-in-out infinite !important;
+}
+
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+/* ========== UNTERÜBERSCHRIFTEN — LEBENDIGE KARTEN ========== */
+#midgard-main ~ h3 {
+  background: linear-gradient(135deg, rgba(30, 35, 25, 0.95) 0%, rgba(25, 30, 20, 0.98) 100%) !important;
+  border: 1px solid rgba(255, 180, 80, 0.12) !important;
+  border-radius: 8px !important;
+  padding: 0.9rem 1.2rem !important;
+  margin: 1.5rem 0 0.6rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  color: #e8c8a0 !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  font-family: 'Cinzel', 'Georgia', serif !important;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    inset 0 0 20px rgba(255, 180, 80, 0.02) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+#midgard-main ~ h3:hover {
+  border-color: rgba(255, 180, 80, 0.25) !important;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 180, 80, 0.05),
+    0 0 30px rgba(255, 180, 80, 0.08),
+    inset 0 0 30px rgba(255, 180, 80, 0.03) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Natur-Indikator */
+#midgard-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 3px !important;
+  height: 50% !important;
+  background: linear-gradient(180deg, rgba(120, 200, 120, 0.5), rgba(120, 200, 120, 0.05)) !important;
+  border-radius: 0 2px 2px 0 !important;
+  animation: natureLine 4s ease-in-out infinite !important;
+}
+
+@keyframes natureLine {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Schwebende Partikel im H3 */
+#midgard-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -10px !important;
+  right: 20px !important;
+  width: 4px !important;
+  height: 4px !important;
+  background: rgba(255, 180, 80, 0.6) !important;
+  border-radius: 50% !important;
+  box-shadow:
+    0 0 10px rgba(255, 180, 80, 0.4),
+    0 0 20px rgba(255, 180, 80, 0.2) !important;
+  animation: sporeFloat 6s ease-in-out infinite !important;
+}
+
+@keyframes sporeFloat {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+  25% { transform: translateY(-15px) translateX(5px); opacity: 1; }
+  50% { transform: translateY(-5px) translateX(-5px); opacity: 0.4; }
+  75% { transform: translateY(-20px) translateX(3px); opacity: 0.8; }
+}
+
+/* ========== FLIEßTEXT — ANGENEHM LESBAR ========== */
+#midgard-main ~ p {
+  color: #a8b898 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.9rem !important;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+}
+
+#midgard-main ~ h3 + p {
+  color: #98a888 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.65 !important;
+  margin-bottom: 0.8rem !important;
+  padding-left: 0.3rem !important;
+}
+
+/* ========== LINKS — NATÜRLICHE RUNEN ========== */
+#midgard-main ~ p a,
+#midgard-main ~ p a.world-link {
+  display: inline-block !important;
+  background: rgba(120, 180, 120, 0.05) !important;
+  border: 1px solid rgba(120, 180, 120, 0.12) !important;
+  border-radius: 6px !important;
+  padding: 0.3rem 0.7rem !important;
+  margin: 0.15rem !important;
+  color: #7ab87a !important;
+  text-decoration: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.78rem !important;
+  font-weight: 400 !important;
+  transition: all 0.25s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#midgard-main ~ p a::before,
+#midgard-main ~ p a.world-link::before {
+  content: '🌿 ' !important;
+  font-size: 0.6em !important;
+}
+
+#midgard-main ~ p a:hover,
+#midgard-main ~ p a.world-link:hover {
+  background: rgba(120, 180, 120, 0.1) !important;
+  border-color: rgba(120, 180, 120, 0.25) !important;
+  color: #9ad89a !important;
+  box-shadow: 0 0 15px rgba(120, 180, 120, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ========== TRENNLINIEN — NATÜRLICH ========== */
+#midgard-main ~ hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 180, 80, 0.2), rgba(120, 200, 120, 0.15), rgba(255, 180, 80, 0.2), transparent) !important;
+  margin: 2rem 0 !important;
+  position: relative !important;
+  box-shadow: 0 0 10px rgba(255, 180, 80, 0.05) !important;
+}
+
+#midgard-main ~ hr::after {
+  content: '🌿 🏠 🌿' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: rgba(255, 180, 80, 0.3) !important;
+  font-size: 0.5rem !important;
+  letter-spacing: 0.3em !important;
+  background: #0d1117 !important;
+  padding: 0 1rem !important;
+}
+
+/* ========== TABELLEN — LEBENDIGE TAFELN ========== */
+#midgard-main ~ table {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 180, 80, 0.08) !important;
+  background: rgba(25, 30, 20, 0.6) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.02) !important;
+  margin: 1.5rem 0 !important;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+}
+
+#midgard-main ~ table thead {
+  background: linear-gradient(180deg, rgba(255, 180, 80, 0.06) 0%, rgba(255, 180, 80, 0.01) 100%) !important;
+}
+
+#midgard-main ~ table th {
+  color: #d4a860 !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.12em !important;
+  border-bottom: 1px solid rgba(255, 180, 80, 0.1) !important;
+  padding: 0.9rem 1rem !important;
+  font-family: 'Cinzel', 'Georgia', serif !important;
+  text-shadow: 0 0 5px rgba(255, 180, 80, 0.1) !important;
+}
+
+#midgard-main ~ table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
+  padding: 0.7rem 1rem !important;
+  color: #a8b898 !important;
+  transition: all 0.2s ease !important;
+  font-size: 0.82rem !important;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+}
+
+#midgard-main ~ table tr:hover {
+  background: rgba(255, 180, 80, 0.02) !important;
+}
+
+#midgard-main ~ table tr:hover td {
+  color: #c8d8b8 !important;
+  text-shadow: 0 0 5px rgba(255, 180, 80, 0.05) !important;
+}
+
+/* ========== CODE-BLÖCKE — NATUR-SCHRIFT ========== */
+#midgard-main ~ pre {
+  background: rgba(18, 22, 15, 0.95) !important;
+  border: 1px solid rgba(120, 200, 120, 0.08) !important;
+  border-radius: 8px !important;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02) !important;
+  padding: 1.1rem !important;
+  margin: 0.8rem 0 !important;
+  position: relative !important;
+}
+
+#midgard-main ~ pre::before {
+  content: '🌿 Natur-Schrift 🌿' !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 15px !important;
+  background: #0d1117 !important;
+  padding: 0 0.5rem !important;
+  color: rgba(255, 180, 80, 0.4) !important;
+  font-size: 0.6rem !important;
+  font-family: 'Cinzel', 'Georgia', serif !important;
+  letter-spacing: 0.1em !important;
+}
+
+#midgard-main ~ pre code {
+  color: #8ab8a0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.82rem !important;
+  line-height: 1.55 !important;
+}
+
+/* Inline-Code */
+#midgard-main ~ p code:not(pre code) {
+  background: rgba(120, 200, 120, 0.08) !important;
+  color: #7ab87a !important;
+  padding: 0.12rem 0.35rem !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(120, 200, 120, 0.1) !important;
+  font-size: 0.8em !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  box-shadow: 0 0 5px rgba(120, 200, 120, 0.05) !important;
+}
+
+/* ========== BLOCKQUOTES — WEISHEITEN DER WELT ========== */
+#midgard-main ~ blockquote {
+  border-left: 2px solid rgba(255, 180, 80, 0.25) !important;
+  background: rgba(255, 180, 80, 0.02) !important;
+  border-radius: 0 8px 8px 0 !important;
+  padding: 1.2rem 1.8rem !important;
+  font-style: normal !important;
+  color: #98a888 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
+  margin: 1.2rem 0 !important;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+  position: relative !important;
+}
+
+#midgard-main ~ blockquote::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: 0.5rem !important;
+  left: 0.8rem !important;
+  color: rgba(255, 180, 80, 0.2) !important;
+  font-size: 2rem !important;
+  font-family: 'Georgia', serif !important;
+  line-height: 1 !important;
+}
+
+/* ========== LISTEN — NATÜRLICH ========== */
+#midgard-main ~ ul li,
+#midgard-main ~ ol li {
+  color: #a8b898 !important;
+  line-height: 1.65 !important;
+  margin-bottom: 0.3rem !important;
+}
+
+#midgard-main ~ ul li::marker {
+  color: rgba(255, 180, 80, 0.4) !important;
+  font-size: 0.8em !important;
+}
+
+/* ========== ADMONITIONS — NATURWARNUNGEN ========== */
+#midgard-main ~ .admonition {
+  background: rgba(255, 180, 80, 0.02) !important;
+  border: 1px solid rgba(255, 180, 80, 0.08) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#midgard-main ~ .admonition::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 180, 80, 0.3), transparent) !important;
+}
+
+#midgard-main ~ .admonition-title {
+  background: rgba(255, 180, 80, 0.04) !important;
+  color: #d4a860 !important;
+  font-family: 'Cinzel', 'Georgia', serif !important;
+  font-weight: 400 !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #midgard-main {
+    font-size: 1.5rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  #midgard-main ~ h2 {
+    font-size: 1.1rem !important;
+  }
+
+  #midgard-main ~ h3 {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  #midgard-main ~ p a,
+  #midgard-main ~ p a.world-link {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.72rem !important;
+  }
+}
+
+/* ========== SCROLLBAR — NATÜRLICH ========== */
+#midgard-main ~ *::-webkit-scrollbar {
+  width: 5px;
+}
+
+#midgard-main ~ *::-webkit-scrollbar-track {
+  background: rgba(20, 25, 15, 0.5);
+}
+
+#midgard-main ~ *::-webkit-scrollbar-thumb {
+  background: rgba(255, 180, 80, 0.15);
+  border-radius: 3px;
+}
+
+#midgard-main ~ *::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 180, 80, 0.3);
+}
