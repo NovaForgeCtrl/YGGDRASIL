@@ -1,4 +1,9 @@
-﻿site_name: ""
+﻿
+plugins:
+  - search
+  - glightbox
+  
+site_name: ""
 site_description: 'Ein digitales Ökosystem aus Servern, Netzwerken, Sicherheit und Automatisierung'
 site_author: 'Marcel'
 site_url: https://novaforgectrl.github.io/YGGDRASIL/
