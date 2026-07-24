@@ -65,5 +65,7 @@ Die kleinen, flinken Boten des Weltenbaums. Funk, Wellen und Hardware-Experiment
 | AzuraCast Stream | MIDGARD | 🟢 Online | 24/7 Radio läuft |
 
 ---
+## 🛡️ Datenschutz
+[Datenschutz](datenschutz.md)
 
 > *"Von den Wurzeln bis zu den Zweigen — alles verbunden, alles überwacht."*
