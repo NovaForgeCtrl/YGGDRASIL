@@ -1,21 +1,50 @@
 # Datenschutz
 
-Diese Webseite wird über **GitHub Pages** (GitHub, Inc., Tochtergesellschaft von Microsoft Corporation) bereitgestellt.
+Diese Webseite wird über **GitHub Pages** (GitHub, Inc., ein Unternehmen der Microsoft Corporation) bereitgestellt.
 
 ## Hosting & Server-Logs
 
-Beim Aufruf der Webseite werden durch den Hosting-Anbieter technische Daten (z. B. IP-Adresse, Zeitpunkt des Zugriffs, User-Agent) in Server-Logs verarbeitet. Auf diese Verarbeitung habe ich als Betreiber keinen direkten Einfluss.
+Beim Aufruf dieser Webseite werden durch den Hosting-Anbieter technische Informationen verarbeitet und in Server-Logs gespeichert. Hierzu können insbesondere die IP-Adresse, Datum und Uhrzeit des Zugriffs, Browser- und Geräteinformationen sowie weitere technisch notwendige Verbindungsdaten gehören.
+
+Diese Verarbeitung erfolgt durch den Hosting-Anbieter, um den sicheren und zuverlässigen Betrieb der Webseite zu gewährleisten. Auf Art und Umfang dieser Verarbeitung habe ich als Betreiber dieser Webseite keinen direkten Einfluss.
 
 ## Cookies & Tracking
 
-**Diese Webseite setzt selbst keine Cookies** und implementiert kein eigenes Tracking, keine Analytics-Dienste und keine Werbung.
+Diese Webseite verwendet selbst:
 
-Der Hosting-Anbieter **GitHub (Microsoft Corporation)** kann beim Aufruf der Seite technisch notwendige Cookies setzen (z. B. für Sitzungsmanagement, Sicherheit und Abuse-Prevention), auf die ich als Betreiber keinen Einfluss habe.
+* keine Cookies,
+* kein eigenes Tracking,
+* keine Analytics-Dienste,
+* keine Werbedienste und
+* keine Social-Media-Plugins.
 
-## Keine aktive Datenerhebung
+Der Hosting-Anbieter GitHub kann im Rahmen der technischen Bereitstellung der Webseite technisch notwendige Cookies oder vergleichbare Technologien einsetzen, beispielsweise für Sicherheit, Missbrauchsschutz oder die Bereitstellung des Dienstes. Auf diese Verarbeitung habe ich keinen Einfluss.
 
-Diese Seite dient ausschließlich der privaten Dokumentation eines Homelab- und Lernprojekts. Es werden **keine personenbezogenen Daten aktiv erhoben, gespeichert oder weitergegeben**. Es gibt keine Kontaktformulare, keine Kommentarfunktion und keine Nutzerregistrierung.
+## Keine eigene Datenerhebung
+
+Als Betreiber dieser Webseite erhebe, speichere oder verarbeite ich selbst keine personenbezogenen Daten der Besucher.
+
+Diese Webseite stellt ausschließlich Informationen zur Verfügung und enthält:
+
+* kein Kontaktformular,
+* keine Kommentarfunktion,
+* keine Nutzerregistrierung,
+* keinen Newsletter,
+* keine Analyse- oder Statistikdienste und
+* keine Werbeeinbindungen.
+
+Es erfolgt daher keine aktive Erhebung personenbezogener Daten durch mich.
+
+## Externe Inhalte
+
+Soweit auf dieser Webseite Links zu externen Webseiten enthalten sind, verlassen Besucher beim Anklicken den Verantwortungsbereich dieser Webseite. Für die Inhalte und die Datenverarbeitung der verlinkten Webseiten sind ausschließlich deren jeweilige Betreiber verantwortlich.
+
+## Zweck der Webseite
+
+Diese Webseite dient ausschließlich der privaten Dokumentation eines Homelab-, Lern- und Dokumentationsprojekts. Sie verfolgt keine kommerziellen Zwecke.
 
 ## Weitere Informationen
 
-Weitere Details zur Datenverarbeitung durch GitHub findest du in der [GitHub Privacy Policy](https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement).
+Weitere Informationen zur Datenverarbeitung durch GitHub finden sich in der **GitHub Privacy Statement**.
+
+https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement
