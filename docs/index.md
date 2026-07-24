@@ -66,6 +66,6 @@ Die kleinen, flinken Boten des Weltenbaums. Funk, Wellen und Hardware-Experiment
 
 ---
 ## 🛡️ Datenschutz
-[Datenschutz](datenschutz.md)
+[Datenschutz](datenschutz.md){: .world-link }
 
 > *"Von den Wurzeln bis zu den Zweigen — alles verbunden, alles überwacht."*
