@@ -45,6 +45,5 @@ Diese Webseite dient ausschließlich der privaten Dokumentation eines Homelab-, 
 
 ## Weitere Informationen
 
-Weitere Informationen zur Datenverarbeitung durch GitHub finden sich in der **GitHub Privacy Statement**.
-
-https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement
+Weitere Informationen zur Datenverarbeitung durch GitHub finden sich in der 
+[GitHub Privacy Statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement).
