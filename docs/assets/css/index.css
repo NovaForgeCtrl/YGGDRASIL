@@ -502,8 +502,8 @@
 
 /* Logo-Button: Position & Größe */
 .md-header__button.md-logo {
-  margin-left: -600px;       /* ← nach links */
-  margin-top: 500px;           /* ← TIEFER (mehr = weiter unten) */
+  margin-left: -350px;       /* ← nach links */
+  margin-top: 150px;           /* ← TIEFER (mehr = weiter unten) */
   position: relative;
   z-index: 1000;             /* immer klickbar */
   height: auto !important;
@@ -514,8 +514,8 @@
 /* Logo selbst: WEITAUS GRÖSSER */
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  width: 560px;              /* ← GRÖSSER */
-  height: 320px;             /* ← GRÖSSER */
+  width: 380px;              /* ← GRÖSSER */
+  height: 180px;             /* ← GRÖSSER */
   object-fit: contain;
   filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.6));
   transition: all 0.3s ease;
