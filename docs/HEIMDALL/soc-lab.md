@@ -157,6 +157,9 @@ systemctl status wazuh-dashboard
 
 ### Wazuh Dashboard
 
+
+![wazuh](../../assets/images/wazuh.png)
+
 | Attribut | Wert |
 |----------|------|
 | URL | `https://WAZUH-IP` |
@@ -970,7 +973,10 @@ Durch die Trennung bleiben die Regeln:
 
 ### Regel-ID Struktur
 
+![regeln](../../assets/images/regeln.png)
+
 Eigene Regeln verwenden den Bereich:
+
 
 ```bash
 100000 - 100999
@@ -1063,6 +1069,8 @@ MITRE: `T1548.003` Sudo Abuse
 ---
 
 ### Suricata IDS Integration
+
+![suricata](../../assets/images/suricata.png)
 
 Datei: `suricata_rules.xml`
 

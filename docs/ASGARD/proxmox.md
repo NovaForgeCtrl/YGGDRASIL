@@ -70,3 +70,6 @@ Proxmox VE basiert auf einem robusten **Debian GNU/Linux-Betriebssystem** und ve
 
 !!! tip "🚀 Tipp für Einsteiger"
     Starte mit einer einzelnen Node, nutze **ZFS** als Dateisystem und experimentiere mit **LXC-Containern** — sie sind ressourcenschonend und perfekt für den Einstieg!
+
+
+![poxmox](../../assets/images/poxmox.png)
