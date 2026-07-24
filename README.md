@@ -165,3 +165,9 @@ Die Inhalte dürfen frei verwendet, verändert und weitergegeben werden.
 ---
 
 🌳 *YGGDRASIL — Ein lebendes IT-Ökosystem aus Infrastruktur, Wissen und Experimenten.*
+## ⚠️ Hinweis
+
+Alle gezeigten Systeme und Tests finden ausschließlich in kontrollierten
+Laborumgebungen statt.
+
+Die Dokumentationen dienen ausschließlich Bildungs- und Lernzwecken.
