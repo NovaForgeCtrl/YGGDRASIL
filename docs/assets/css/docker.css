@@ -1,0 +1,274 @@
+/* ═══════════════════════════════════════════════════════════════
+   DOCKER — Container Platform Theme
+   Farbpalette: Docker-Blau (#2496ED), Meeres-Türkis, Tech-Weiß
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Sternenhimmel-Hintergrund ── */
+#docker ~ .md-content .md-content__inner::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(36, 150, 237, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(13, 59, 102, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(29, 99, 237, 0.04) 0%, transparent 70%),
+    linear-gradient(180deg, #0a0f14 0%, #0d1520 40%, #080c12 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Sterne (CSS-Only) ── */
+#docker ~ .md-content .md-content__inner {
+  position: relative;
+}
+
+#docker ~ .md-content .md-content__inner::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 15% 25%, rgba(150, 210, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 40% 60%, rgba(100, 180, 240, 0.6), transparent),
+    radial-gradient(2px 2px at 55% 15%, rgba(180, 220, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 70% 45%, rgba(120, 190, 250, 0.5), transparent),
+    radial-gradient(2px 2px at 85% 80%, rgba(160, 210, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 10% 75%, rgba(140, 200, 250, 0.4), transparent),
+    radial-gradient(1px 1px at 48% 38%, rgba(170, 220, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 90% 20%, rgba(130, 200, 255, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 25% 90%, rgba(150, 210, 250, 0.5), transparent),
+    radial-gradient(1px 1px at 62% 55%, rgba(180, 220, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 78% 30%, rgba(140, 200, 250, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 5% 50%, rgba(160, 210, 255, 0.5), transparent);
+  background-size: 100% 100%;
+  animation: dockerStars 8s ease-in-out infinite alternate;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes dockerStars {
+  0%   { opacity: 0.6; transform: translateY(0px); }
+  50%  { opacity: 1.0; transform: translateY(-3px); }
+  100% { opacity: 0.7; transform: translateY(2px); }
+}
+
+/* ── h1: Docker Glow ── */
+#docker {
+  color: #4db8ff !important;
+  text-shadow:
+    0 0 10px rgba(36, 150, 237, 0.6),
+    0 0 25px rgba(36, 150, 237, 0.4),
+    0 0 50px rgba(36, 150, 237, 0.2),
+    0 0 80px rgba(13, 59, 102, 0.15);
+  font-size: 2.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(36, 150, 237, 0.3);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── h2: Section Headers ── */
+#docker ~ .md-content h2 {
+  color: #66c2ff !important;
+  text-shadow: 0 0 12px rgba(36, 150, 237, 0.35), 0 0 30px rgba(13, 59, 102, 0.15);
+  font-size: 1.9rem !important;
+  font-weight: 600 !important;
+  border-left: 4px solid #2496ED;
+  padding-left: 1rem;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+#docker ~ .md-content h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 1rem;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(36, 150, 237, 0.5), transparent);
+}
+
+/* ── h3: Sub-Sections ── */
+#docker ~ .md-content h3 {
+  color: #88ccff !important;
+  text-shadow: 0 0 8px rgba(36, 150, 237, 0.25);
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  margin-top: 2rem;
+}
+
+/* ── Paragraphs ── */
+#docker ~ .md-content p {
+  color: #dce8f0 !important;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+/* ── Links ── */
+#docker ~ .md-content a {
+  color: #66b3ff !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(36, 150, 237, 0.3);
+  transition: all 0.3s ease;
+}
+
+#docker ~ .md-content a:hover {
+  color: #99ccff !important;
+  text-shadow: 0 0 10px rgba(36, 150, 237, 0.5);
+  border-bottom-color: rgba(36, 150, 237, 0.8);
+}
+
+/* ── Lists (ul/li) ── */
+#docker ~ .md-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#docker ~ .md-content ul li {
+  color: #dce8f0 !important;
+  padding-left: 1.8rem;
+  position: relative;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+#docker ~ .md-content ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #2496ED;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px rgba(36, 150, 237, 0.5);
+}
+
+/* ── Strong / Bold ── */
+#docker ~ .md-content strong {
+  color: #88ccff !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(36, 150, 237, 0.2);
+}
+
+/* ── Em / Italic ── */
+#docker ~ .md-content em {
+  color: #99bbdd !important;
+  font-style: italic;
+}
+
+/* ── Horizontal Rule ── */
+#docker ~ .md-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(36, 150, 237, 0.4), transparent);
+  margin: 2rem 0;
+}
+
+/* ── Tables ── */
+#docker ~ .md-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: rgba(8, 15, 25, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(36, 150, 237, 0.1);
+}
+
+#docker ~ .md-content table thead {
+  background: linear-gradient(135deg, rgba(36, 150, 237, 0.25), rgba(13, 59, 102, 0.2));
+}
+
+#docker ~ .md-content table th {
+  color: #aaddff !important;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(36, 150, 237, 0.4);
+  text-shadow: 0 0 8px rgba(36, 150, 237, 0.2);
+}
+
+#docker ~ .md-content table td {
+  color: #dce8f0 !important;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(36, 150, 237, 0.1);
+}
+
+#docker ~ .md-content table tbody tr:hover {
+  background: rgba(36, 150, 237, 0.08);
+  transition: background 0.3s ease;
+}
+
+/* ── Blockquotes ── */
+#docker ~ .md-content blockquote {
+  border-left: 4px solid #2496ED;
+  background: rgba(36, 150, 237, 0.08);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  color: #dce8f0 !important;
+  box-shadow: 0 0 15px rgba(36, 150, 237, 0.1);
+}
+
+/* ── Code Inline ── */
+#docker ~ .md-content code {
+  background: rgba(36, 150, 237, 0.12) !important;
+  color: #88ccff !important;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(36, 150, 237, 0.2);
+}
+
+/* ── Code Blocks ── */
+#docker ~ .md-content pre {
+  background: linear-gradient(135deg, #080c12, #0d1520) !important;
+  border: 1px solid rgba(36, 150, 237, 0.25);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(36, 150, 237, 0.1), inset 0 0 30px rgba(0,0,0,0.5);
+  padding: 1.2rem;
+  overflow-x: auto;
+}
+
+#docker ~ .md-content pre code {
+  background: transparent !important;
+  border: none;
+  color: #dce8f0 !important;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ── Admonitions ── */
+#docker ~ .md-content .admonition {
+  background: rgba(8, 15, 25, 0.6);
+  border: 1px solid rgba(36, 150, 237, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(36, 150, 237, 0.08);
+}
+
+#docker ~ .md-content .admonition-title {
+  background: linear-gradient(90deg, rgba(36, 150, 237, 0.2), transparent);
+  color: #aaddff !important;
+  font-weight: 600;
+}
+
+/* ── Scrollbar Styling ── */
+#docker ~ .md-content ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+#docker ~ .md-content ::-webkit-scrollbar-track {
+  background: rgba(8, 15, 25, 0.5);
+  border-radius: 4px;
+}
+
+#docker ~ .md-content ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2496ED, #0D3B66);
+  border-radius: 4px;
+}
+
+#docker ~ .md-content ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3aa8ff, #1a5a8a);
+}

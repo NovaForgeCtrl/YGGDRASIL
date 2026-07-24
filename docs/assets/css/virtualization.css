@@ -1,0 +1,296 @@
+/* ═══════════════════════════════════════════════════════════════
+   VIRTUALISIERUNG — Tech-Neutral Theme
+   Farbpalette: Indigo (#6366f1), Cyan (#06b6d4), Silber
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Sternenhimmel-Hintergrund ── */
+#virtualization ~ .md-content .md-content__inner::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 25%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 75%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 70%),
+    linear-gradient(180deg, #0a0a12 0%, #0d0d1a 40%, #08080f 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Sterne (CSS-Only) ── */
+#virtualization ~ .md-content .md-content__inner {
+  position: relative;
+}
+
+#virtualization ~ .md-content .md-content__inner::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 12% 22%, rgba(180, 200, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 35% 55%, rgba(100, 220, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 55% 12%, rgba(200, 210, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 72% 42%, rgba(150, 200, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 85% 80%, rgba(180, 220, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 18% 72%, rgba(120, 210, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 45% 35%, rgba(170, 200, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 90% 15%, rgba(140, 220, 255, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 25% 90%, rgba(160, 210, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 60% 55%, rgba(190, 220, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 75% 25%, rgba(130, 200, 255, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 5% 45%, rgba(180, 210, 255, 0.5), transparent);
+  background-size: 100% 100%;
+  animation: virtStars 8s ease-in-out infinite alternate;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes virtStars {
+  0%   { opacity: 0.6; transform: translateY(0px); }
+  50%  { opacity: 1.0; transform: translateY(-3px); }
+  100% { opacity: 0.7; transform: translateY(2px); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EINHEITLICHE SCHRIFTFARBE — Alles in einem warmen Silber-Cyan
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── h1: Virtualization Glow ── */
+.md-content__inner h1#virtualization,
+#virtualization,
+.md-content h1#virtualization {
+  color: #a5b4fc !important;
+  text-shadow:
+    0 0 10px rgba(99, 102, 241, 0.6),
+    0 0 25px rgba(99, 102, 241, 0.4),
+    0 0 50px rgba(99, 102, 241, 0.2),
+    0 0 80px rgba(6, 182, 212, 0.15);
+  font-size: 2.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── ALLE Überschriften einheitlich ── */
+#virtualization ~ .md-content h1,
+#virtualization ~ .md-content h2,
+#virtualization ~ .md-content h3,
+#virtualization ~ .md-content h4,
+#virtualization ~ .md-content h5,
+#virtualization ~ .md-content h6 {
+  color: #c7d2fe !important;
+}
+
+/* ── h2: Section Headers ── */
+#virtualization ~ .md-content h2 {
+  text-shadow: 0 0 12px rgba(99, 102, 241, 0.35), 0 0 30px rgba(6, 182, 212, 0.15);
+  font-size: 1.9rem !important;
+  font-weight: 600 !important;
+  border-left: 4px solid #6366f1;
+  padding-left: 1rem;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+#virtualization ~ .md-content h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 1rem;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.5), transparent);
+}
+
+/* ── h3: Sub-Sections ── */
+#virtualization ~ .md-content h3 {
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.25);
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  margin-top: 2rem;
+}
+
+/* ── EINHEITLICHE SCHRIFTFARBE für ALLES ── */
+#virtualization ~ .md-content,
+#virtualization ~ .md-content p,
+#virtualization ~ .md-content span,
+#virtualization ~ .md-content li,
+#virtualization ~ .md-content td,
+#virtualization ~ .md-content th,
+#virtualization ~ .md-content blockquote,
+#virtualization ~ .md-content .admonition,
+#virtualization ~ .md-content .admonition-title {
+  color: #d1d5f0 !important;
+}
+
+/* ── Paragraphs ── */
+#virtualization ~ .md-content p {
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+/* ── Links ── */
+#virtualization ~ .md-content a {
+  color: #93c5fd !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+#virtualization ~ .md-content a:hover {
+  color: #bfdbfe !important;
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+  border-bottom-color: rgba(99, 102, 241, 0.8);
+}
+
+/* ── Lists (ul/li) ── */
+#virtualization ~ .md-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#virtualization ~ .md-content ul li {
+  padding-left: 1.8rem;
+  position: relative;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+#virtualization ~ .md-content ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #6366f1;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+}
+
+/* ── Strong / Bold ── */
+#virtualization ~ .md-content strong {
+  color: #e0e7ff !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(99, 102, 241, 0.2);
+}
+
+/* ── Em / Italic ── */
+#virtualization ~ .md-content em {
+  color: #a5f3fc !important;
+  font-style: italic;
+}
+
+/* ── Horizontal Rule ── */
+#virtualization ~ .md-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), transparent);
+  margin: 2rem 0;
+}
+
+/* ── Tables ── */
+#virtualization ~ .md-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: rgba(10, 10, 20, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+#virtualization ~ .md-content table thead {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(6, 182, 212, 0.2));
+}
+
+#virtualization ~ .md-content table th {
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.4);
+  text-shadow: 0 0 8px rgba(99, 102, 241, 0.2);
+}
+
+#virtualization ~ .md-content table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+#virtualization ~ .md-content table tbody tr:hover {
+  background: rgba(99, 102, 241, 0.08);
+  transition: background 0.3s ease;
+}
+
+/* ── Blockquotes ── */
+#virtualization ~ .md-content blockquote {
+  border-left: 4px solid #6366f1;
+  background: rgba(99, 102, 241, 0.08);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+}
+
+/* ── Code Inline ── */
+#virtualization ~ .md-content code {
+  background: rgba(99, 102, 241, 0.12) !important;
+  color: #a5b4fc !important;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* ── Code Blocks ── */
+#virtualization ~ .md-content pre {
+  background: linear-gradient(135deg, #08080f, #0d0d1a) !important;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.1), inset 0 0 30px rgba(0,0,0,0.5);
+  padding: 1.2rem;
+  overflow-x: auto;
+}
+
+#virtualization ~ .md-content pre code {
+  background: transparent !important;
+  border: none;
+  color: #d1d5f0 !important;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ── Admonitions ── */
+#virtualization ~ .md-content .admonition {
+  background: rgba(10, 10, 20, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.08);
+}
+
+#virtualization ~ .md-content .admonition-title {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), transparent);
+  color: #c7d2fe !important;
+  font-weight: 600;
+}
+
+/* ── Scrollbar Styling ── */
+#virtualization ~ .md-content ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+#virtualization ~ .md-content ::-webkit-scrollbar-track {
+  background: rgba(10, 10, 20, 0.5);
+  border-radius: 4px;
+}
+
+#virtualization ~ .md-content ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #06b6d4);
+  border-radius: 4px;
+}
+
+#virtualization ~ .md-content ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #818cf8, #22d3ee);
+}

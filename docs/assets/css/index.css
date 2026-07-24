@@ -486,3 +486,50 @@
     opacity: 0.25 !important;
   }
 }
+
+
+/* ========== HEADER SCHMAL + LOGO RIESIG & TIEF ========== */
+
+.md-header {
+  height: 48px !important;
+  overflow: visible !important;
+}
+
+.md-header__inner {
+  height: 100% !important;
+  padding: 0 0.5rem !important;
+}
+
+/* Logo-Button: Position & Größe */
+.md-header__button.md-logo {
+  margin-left: -600px;       /* ← nach links */
+  margin-top: 500px;           /* ← TIEFER (mehr = weiter unten) */
+  position: relative;
+  z-index: 1000;             /* immer klickbar */
+  height: auto !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* Logo selbst: WEITAUS GRÖSSER */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: 560px;              /* ← GRÖSSER */
+  height: 320px;             /* ← GRÖSSER */
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.6));
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover: noch epischer */
+.md-header__button.md-logo:hover img,
+.md-header__button.md-logo:hover svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 30px rgba(0, 229, 255, 1));
+}
+
+/* Titel weiter nach rechts, damit Logo nicht überlappt */
+.md-header__title {
+  margin-left: 60px !important;
+}

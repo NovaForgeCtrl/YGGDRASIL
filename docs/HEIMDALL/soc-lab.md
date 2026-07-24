@@ -14,9 +14,12 @@ Ubuntu Server (Wazuh + Suricata)
       |
       v
 Wazuh Agents
-```
 
+```
+![Sentinel](../../assets/images/sentinel.png)
+Das Bild wurde mit Gemini erzeugt :3
 ---
+
 
 ### Vorbereitung Ubuntu Server
 

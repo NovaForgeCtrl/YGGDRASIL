@@ -1,0 +1,274 @@
+/* ═══════════════════════════════════════════════════════════════
+   PROXMOX VE — Virtual Environment Theme
+   Farbpalette: Proxmox Orange (#E57000), Dunkelrot, Tech-Grau
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Sternenhimmel-Hintergrund ── */
+#proxmox ~ .md-content .md-content__inner::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(229, 112, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(180, 40, 10, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(229, 112, 0, 0.03) 0%, transparent 70%),
+    linear-gradient(180deg, #0d0d0d 0%, #1a0a05 40%, #0f0502 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Sterne (CSS-Only) ── */
+#proxmox ~ .md-content .md-content__inner {
+  position: relative;
+}
+
+#proxmox ~ .md-content .md-content__inner::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, rgba(255, 200, 150, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 30% 60%, rgba(255, 180, 120, 0.6), transparent),
+    radial-gradient(2px 2px at 50% 10%, rgba(255, 220, 180, 0.7), transparent),
+    radial-gradient(1px 1px at 70% 40%, rgba(255, 190, 140, 0.5), transparent),
+    radial-gradient(2px 2px at 85% 80%, rgba(255, 210, 160, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 15% 75%, rgba(255, 200, 150, 0.4), transparent),
+    radial-gradient(1px 1px at 45% 35%, rgba(255, 180, 130, 0.5), transparent),
+    radial-gradient(2px 2px at 90% 15%, rgba(255, 220, 170, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 25% 90%, rgba(255, 190, 140, 0.5), transparent),
+    radial-gradient(1px 1px at 60% 55%, rgba(255, 200, 160, 0.6), transparent),
+    radial-gradient(2px 2px at 75% 25%, rgba(255, 210, 150, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 5% 45%, rgba(255, 220, 180, 0.5), transparent);
+  background-size: 100% 100%;
+  animation: proxmoxStars 8s ease-in-out infinite alternate;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes proxmoxStars {
+  0%   { opacity: 0.6; transform: translateY(0px); }
+  50%  { opacity: 1.0; transform: translateY(-3px); }
+  100% { opacity: 0.7; transform: translateY(2px); }
+}
+
+/* ── h1: Proxmox Glow ── */
+#proxmox {
+  color: #ff9a3c !important;
+  text-shadow:
+    0 0 10px rgba(229, 112, 0, 0.6),
+    0 0 25px rgba(229, 112, 0, 0.4),
+    0 0 50px rgba(229, 112, 0, 0.2),
+    0 0 80px rgba(180, 40, 10, 0.15);
+  font-size: 2.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(229, 112, 0, 0.3);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── h2: Section Headers ── */
+#proxmox ~ .md-content h2 {
+  color: #ffb366 !important;
+  text-shadow: 0 0 12px rgba(229, 112, 0, 0.35), 0 0 30px rgba(229, 112, 0, 0.15);
+  font-size: 1.9rem !important;
+  font-weight: 600 !important;
+  border-left: 4px solid #E57000;
+  padding-left: 1rem;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+#proxmox ~ .md-content h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 1rem;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(229, 112, 0, 0.5), transparent);
+}
+
+/* ── h3: Sub-Sections ── */
+#proxmox ~ .md-content h3 {
+  color: #ffcc99 !important;
+  text-shadow: 0 0 8px rgba(229, 112, 0, 0.25);
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  margin-top: 2rem;
+}
+
+/* ── Paragraphs ── */
+#proxmox ~ .md-content p {
+  color: #e8ddd5 !important;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+/* ── Links ── */
+#proxmox ~ .md-content a {
+  color: #ffaa55 !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(229, 112, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#proxmox ~ .md-content a:hover {
+  color: #ffcc88 !important;
+  text-shadow: 0 0 10px rgba(229, 112, 0, 0.5);
+  border-bottom-color: rgba(229, 112, 0, 0.8);
+}
+
+/* ── Lists (ul/li) ── */
+#proxmox ~ .md-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#proxmox ~ .md-content ul li {
+  color: #e8ddd5 !important;
+  padding-left: 1.8rem;
+  position: relative;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+#proxmox ~ .md-content ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #E57000;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px rgba(229, 112, 0, 0.5);
+}
+
+/* ── Strong / Bold ── */
+#proxmox ~ .md-content strong {
+  color: #ffbb77 !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(229, 112, 0, 0.2);
+}
+
+/* ── Em / Italic ── */
+#proxmox ~ .md-content em {
+  color: #ffaa66 !important;
+  font-style: italic;
+}
+
+/* ── Horizontal Rule ── */
+#proxmox ~ .md-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(229, 112, 0, 0.4), transparent);
+  margin: 2rem 0;
+}
+
+/* ── Tables ── */
+#proxmox ~ .md-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: rgba(20, 10, 5, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(229, 112, 0, 0.1);
+}
+
+#proxmox ~ .md-content table thead {
+  background: linear-gradient(135deg, rgba(229, 112, 0, 0.25), rgba(180, 40, 10, 0.2));
+}
+
+#proxmox ~ .md-content table th {
+  color: #ffcc99 !important;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(229, 112, 0, 0.4);
+  text-shadow: 0 0 8px rgba(229, 112, 0, 0.2);
+}
+
+#proxmox ~ .md-content table td {
+  color: #e8ddd5 !important;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(229, 112, 0, 0.1);
+}
+
+#proxmox ~ .md-content table tbody tr:hover {
+  background: rgba(229, 112, 0, 0.08);
+  transition: background 0.3s ease;
+}
+
+/* ── Blockquotes ── */
+#proxmox ~ .md-content blockquote {
+  border-left: 4px solid #E57000;
+  background: rgba(229, 112, 0, 0.08);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  color: #e8ddd5 !important;
+  box-shadow: 0 0 15px rgba(229, 112, 0, 0.1);
+}
+
+/* ── Code Inline ── */
+#proxmox ~ .md-content code {
+  background: rgba(229, 112, 0, 0.12) !important;
+  color: #ffbb77 !important;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(229, 112, 0, 0.2);
+}
+
+/* ── Code Blocks ── */
+#proxmox ~ .md-content pre {
+  background: linear-gradient(135deg, #0f0805, #1a0d05) !important;
+  border: 1px solid rgba(229, 112, 0, 0.25);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(229, 112, 0, 0.1), inset 0 0 30px rgba(0,0,0,0.5);
+  padding: 1.2rem;
+  overflow-x: auto;
+}
+
+#proxmox ~ .md-content pre code {
+  background: transparent !important;
+  border: none;
+  color: #e8ddd5 !important;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ── Admonitions (Info/Warning/Note) ── */
+#proxmox ~ .md-content .admonition {
+  background: rgba(20, 10, 5, 0.6);
+  border: 1px solid rgba(229, 112, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(229, 112, 0, 0.08);
+}
+
+#proxmox ~ .md-content .admonition-title {
+  background: linear-gradient(90deg, rgba(229, 112, 0, 0.2), transparent);
+  color: #ffcc99 !important;
+  font-weight: 600;
+}
+
+/* ── Scrollbar Styling ── */
+#proxmox ~ .md-content ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+#proxmox ~ .md-content ::-webkit-scrollbar-track {
+  background: rgba(20, 10, 5, 0.5);
+  border-radius: 4px;
+}
+
+#proxmox ~ .md-content ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #E57000, #b4280a);
+  border-radius: 4px;
+}
+
+#proxmox ~ .md-content ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff8c2a, #d44020);
+}

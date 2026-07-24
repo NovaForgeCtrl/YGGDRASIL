@@ -1,4 +1,4 @@
-﻿site_name: YGGDRASIL
+﻿site_name: ""
 site_description: 'Ein digitales Ökosystem aus Servern, Netzwerken, Sicherheit und Automatisierung'
 site_author: 'Marcel'
 site_url: https://novaforgectrl.github.io/YGGDRASIL/
@@ -43,6 +43,11 @@ extra_css:
   - assets/css/raven.css
   - assets/css/soc-lab.css
   - assets/css/mailserver.css
+  - assets/css/proxmox.css
+  - assets/css/ubuntu-server.css
+  - assets/css/docker.css
+  - assets/css/storage.css
+  - assets/cssvirtualization.css
 
 
 

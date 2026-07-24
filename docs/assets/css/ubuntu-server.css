@@ -1,0 +1,274 @@
+/* ═══════════════════════════════════════════════════════════════
+   UBUNTU SERVER 26.04 LTS — Noble Numbat Theme
+   Farbpalette: Ubuntu Orange (#E95420), Aubergine (#5E2750), Lila
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Sternenhimmel-Hintergrund ── */
+#ubuntu-server ~ .md-content .md-content__inner::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(233, 84, 32, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 75%, rgba(94, 39, 80, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(119, 41, 83, 0.04) 0%, transparent 70%),
+    linear-gradient(180deg, #0d0a0f 0%, #1a0f18 40%, #0f080d 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Sterne (CSS-Only) ── */
+#ubuntu-server ~ .md-content .md-content__inner {
+  position: relative;
+}
+
+#ubuntu-server ~ .md-content .md-content__inner::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 12% 22%, rgba(255, 160, 100, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 35% 55%, rgba(200, 120, 200, 0.6), transparent),
+    radial-gradient(2px 2px at 55% 12%, rgba(255, 180, 140, 0.7), transparent),
+    radial-gradient(1px 1px at 72% 42%, rgba(220, 150, 220, 0.5), transparent),
+    radial-gradient(2px 2px at 88% 78%, rgba(255, 170, 130, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 18% 72%, rgba(200, 140, 200, 0.4), transparent),
+    radial-gradient(1px 1px at 48% 38%, rgba(255, 160, 120, 0.5), transparent),
+    radial-gradient(2px 2px at 92% 18%, rgba(230, 150, 210, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 28% 88%, rgba(255, 170, 140, 0.5), transparent),
+    radial-gradient(1px 1px at 62% 52%, rgba(210, 140, 210, 0.6), transparent),
+    radial-gradient(2px 2px at 78% 28%, rgba(255, 180, 150, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 8% 48%, rgba(220, 160, 220, 0.5), transparent);
+  background-size: 100% 100%;
+  animation: ubuntuStars 8s ease-in-out infinite alternate;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes ubuntuStars {
+  0%   { opacity: 0.6; transform: translateY(0px); }
+  50%  { opacity: 1.0; transform: translateY(-3px); }
+  100% { opacity: 0.7; transform: translateY(2px); }
+}
+
+/* ── h1: Ubuntu Glow ── */
+#ubuntu-server {
+  color: #ff8c5a !important;
+  text-shadow:
+    0 0 10px rgba(233, 84, 32, 0.6),
+    0 0 25px rgba(233, 84, 32, 0.4),
+    0 0 50px rgba(233, 84, 32, 0.2),
+    0 0 80px rgba(119, 41, 83, 0.15);
+  font-size: 2.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(233, 84, 32, 0.3);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── h2: Section Headers ── */
+#ubuntu-server ~ .md-content h2 {
+  color: #ffaa88 !important;
+  text-shadow: 0 0 12px rgba(233, 84, 32, 0.35), 0 0 30px rgba(119, 41, 83, 0.15);
+  font-size: 1.9rem !important;
+  font-weight: 600 !important;
+  border-left: 4px solid #E95420;
+  padding-left: 1rem;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+#ubuntu-server ~ .md-content h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 1rem;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(233, 84, 32, 0.5), transparent);
+}
+
+/* ── h3: Sub-Sections ── */
+#ubuntu-server ~ .md-content h3 {
+  color: #dd99cc !important;
+  text-shadow: 0 0 8px rgba(119, 41, 83, 0.25);
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  margin-top: 2rem;
+}
+
+/* ── Paragraphs ── */
+#ubuntu-server ~ .md-content p {
+  color: #e8e0e5 !important;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+/* ── Links ── */
+#ubuntu-server ~ .md-content a {
+  color: #ffaa77 !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(233, 84, 32, 0.3);
+  transition: all 0.3s ease;
+}
+
+#ubuntu-server ~ .md-content a:hover {
+  color: #ffccaa !important;
+  text-shadow: 0 0 10px rgba(233, 84, 32, 0.5);
+  border-bottom-color: rgba(233, 84, 32, 0.8);
+}
+
+/* ── Lists (ul/li) ── */
+#ubuntu-server ~ .md-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#ubuntu-server ~ .md-content ul li {
+  color: #e8e0e5 !important;
+  padding-left: 1.8rem;
+  position: relative;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+#ubuntu-server ~ .md-content ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #E95420;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px rgba(233, 84, 32, 0.5);
+}
+
+/* ── Strong / Bold ── */
+#ubuntu-server ~ .md-content strong {
+  color: #ffbb99 !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(233, 84, 32, 0.2);
+}
+
+/* ── Em / Italic ── */
+#ubuntu-server ~ .md-content em {
+  color: #dd99bb !important;
+  font-style: italic;
+}
+
+/* ── Horizontal Rule ── */
+#ubuntu-server ~ .md-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(233, 84, 32, 0.4), transparent);
+  margin: 2rem 0;
+}
+
+/* ── Tables ── */
+#ubuntu-server ~ .md-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: rgba(20, 10, 18, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(233, 84, 32, 0.1);
+}
+
+#ubuntu-server ~ .md-content table thead {
+  background: linear-gradient(135deg, rgba(233, 84, 32, 0.25), rgba(119, 41, 83, 0.2));
+}
+
+#ubuntu-server ~ .md-content table th {
+  color: #ffccbb !important;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(233, 84, 32, 0.4);
+  text-shadow: 0 0 8px rgba(233, 84, 32, 0.2);
+}
+
+#ubuntu-server ~ .md-content table td {
+  color: #e8e0e5 !important;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(233, 84, 32, 0.1);
+}
+
+#ubuntu-server ~ .md-content table tbody tr:hover {
+  background: rgba(233, 84, 32, 0.08);
+  transition: background 0.3s ease;
+}
+
+/* ── Blockquotes ── */
+#ubuntu-server ~ .md-content blockquote {
+  border-left: 4px solid #E95420;
+  background: rgba(233, 84, 32, 0.08);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  color: #e8e0e5 !important;
+  box-shadow: 0 0 15px rgba(233, 84, 32, 0.1);
+}
+
+/* ── Code Inline ── */
+#ubuntu-server ~ .md-content code {
+  background: rgba(233, 84, 32, 0.12) !important;
+  color: #ffbb99 !important;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(233, 84, 32, 0.2);
+}
+
+/* ── Code Blocks ── */
+#ubuntu-server ~ .md-content pre {
+  background: linear-gradient(135deg, #0f080d, #1a0f14) !important;
+  border: 1px solid rgba(233, 84, 32, 0.25);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(233, 84, 32, 0.1), inset 0 0 30px rgba(0,0,0,0.5);
+  padding: 1.2rem;
+  overflow-x: auto;
+}
+
+#ubuntu-server ~ .md-content pre code {
+  background: transparent !important;
+  border: none;
+  color: #e8e0e5 !important;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ── Admonitions ── */
+#ubuntu-server ~ .md-content .admonition {
+  background: rgba(20, 10, 16, 0.6);
+  border: 1px solid rgba(233, 84, 32, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(233, 84, 32, 0.08);
+}
+
+#ubuntu-server ~ .md-content .admonition-title {
+  background: linear-gradient(90deg, rgba(233, 84, 32, 0.2), transparent);
+  color: #ffccbb !important;
+  font-weight: 600;
+}
+
+/* ── Scrollbar Styling ── */
+#ubuntu-server ~ .md-content ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+#ubuntu-server ~ .md-content ::-webkit-scrollbar-track {
+  background: rgba(20, 10, 16, 0.5);
+  border-radius: 4px;
+}
+
+#ubuntu-server ~ .md-content ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #E95420, #772953);
+  border-radius: 4px;
+}
+
+#ubuntu-server ~ .md-content ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff6b35, #993d7a);
+}
