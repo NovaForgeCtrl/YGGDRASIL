@@ -48,7 +48,7 @@ extra_css:
   - assets/css/docker.css
   - assets/css/storage.css
   - assets/cssvirtualization.css
-
+  - assets/css/layout-fix.css
 
 
 extra:
