@@ -1,0 +1,574 @@
+/* ============================================================
+   🎵 AZURACAST — Der Sender
+   Sanfte Equalizer-Beleuchtung für Midgard
+   ============================================================ */
+
+/* ========== SOUNDWELLEN / EQUALIZER-NODES ========== */
+.md-content__inner:has(#azuracast-main)::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(2px 2px at 50px 40px, #db2777, transparent),
+    radial-gradient(1px 1px at 120px 90px, #06b6d4, transparent),
+    radial-gradient(2px 2px at 200px 150px, #f59e0b, transparent),
+    radial-gradient(1px 1px at 280px 60px, #db2777, transparent),
+    radial-gradient(2px 2px at 350px 180px, #06b6d4, transparent),
+    radial-gradient(1px 1px at 420px 110px, #f59e0b, transparent),
+    radial-gradient(2px 2px at 500px 40px, #db2777, transparent),
+    radial-gradient(1px 1px at 580px 160px, #06b6d4, transparent),
+    radial-gradient(2px 2px at 650px 80px, #f59e0b, transparent),
+    radial-gradient(1px 1px at 720px 190px, #db2777, transparent),
+    radial-gradient(2px 2px at 800px 50px, #06b6d4, transparent),
+    radial-gradient(1px 1px at 880px 130px, #f59e0b, transparent),
+    radial-gradient(2px 2px at 950px 70px, #db2777, transparent),
+    radial-gradient(1px 1px at 1020px 170px, #06b6d4, transparent),
+    radial-gradient(2px 2px at 1100px 30px, #f59e0b, transparent),
+    radial-gradient(1px 1px at 1180px 140px, #db2777, transparent),
+    radial-gradient(2px 2px at 1250px 90px, #06b6d4, transparent),
+    radial-gradient(1px 1px at 1320px 200px, #f59e0b, transparent),
+    radial-gradient(2px 2px at 1400px 60px, #db2777, transparent),
+    radial-gradient(1px 1px at 1480px 150px, #06b6d4, transparent),
+    radial-gradient(2px 2px at 1550px 100px, #f59e0b, transparent),
+    radial-gradient(1px 1px at 1620px 180px, #db2777, transparent),
+    radial-gradient(2px 2px at 1700px 40px, #06b6d4, transparent),
+    radial-gradient(1px 1px at 1780px 120px, #f59e0b, transparent),
+    radial-gradient(2px 2px at 1850px 80px, #db2777, transparent);
+  background-repeat: repeat;
+  background-size: 1920px 220px;
+  animation: azuracastWaves 100s linear infinite;
+  opacity: 0.15;
+}
+
+@keyframes azuracastWaves {
+  0% { transform: translateY(0) scaleY(1); }
+  25% { transform: translateY(-55px) scaleY(1.2); }
+  50% { transform: translateY(-110px) scaleY(0.9); }
+  75% { transform: translateY(-165px) scaleY(1.1); }
+  100% { transform: translateY(-220px) scaleY(1); }
+}
+
+/* ========== TITEL - EQUALIZER GLOW ========== */
+#azuracast-main {
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: #db2777 !important;
+  text-shadow:
+    0 0 8px rgba(219, 39, 119, 0.5),
+    0 0 16px rgba(219, 39, 119, 0.3),
+    0 0 32px rgba(219, 39, 119, 0.2),
+    0 0 64px rgba(6, 182, 212, 0.15) !important;
+  animation: azuracastPulse 3s ease-in-out infinite;
+  border: none !important;
+  margin-bottom: 1rem !important;
+  position: relative !important;
+  padding-top: 1rem !important;
+}
+
+@keyframes azuracastPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(219, 39, 119, 0.5), 0 0 16px rgba(219, 39, 119, 0.3), 0 0 32px rgba(219, 39, 119, 0.2), 0 0 64px rgba(6, 182, 212, 0.15) !important;
+    filter: brightness(1);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(219, 39, 119, 0.6), 0 0 24px rgba(219, 39, 119, 0.4), 0 0 48px rgba(219, 39, 119, 0.25), 0 0 80px rgba(6, 182, 212, 0.2) !important;
+    filter: brightness(1.15);
+  }
+}
+
+/* Emoji */
+#azuracast-main::after {
+  content: '🎵' !important;
+  display: inline-block !important;
+  margin-left: 0.15em !important;
+  font-size: 0.7em !important;
+  animation: azuracastFloat 3s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 12px rgba(219, 39, 119, 0.4)) !important;
+}
+
+@keyframes azuracastFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg) scale(1); }
+  25% { transform: translateY(-6px) rotate(3deg) scale(1.05); }
+  50% { transform: translateY(-10px) rotate(-2deg) scale(1.08); }
+  75% { transform: translateY(-6px) rotate(4deg) scale(1.05); }
+}
+
+/* RGB Shift */
+#azuracast-main::before {
+  content: 'AZURACAST' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  color: transparent !important;
+  text-shadow: -2px 0 #06b6d4, 2px 0 #db2777 !important;
+  opacity: 0 !important;
+  animation: azuracastRgbShift 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+  letter-spacing: 0.15em !important;
+}
+
+@keyframes azuracastRgbShift {
+  0%, 88%, 100% { opacity: 0; transform: translateX(0); }
+  90% { opacity: 0.3; transform: translateX(-3px); }
+  92% { opacity: 0.5; transform: translateX(3px); }
+  94% { opacity: 0.3; transform: translateX(-2px); }
+  96% { opacity: 0.15; transform: translateX(2px); }
+  98% { opacity: 0; transform: translateX(0); }
+}
+
+/* ========== UNTERTITEL ========== */
+#azuracast-main + blockquote {
+  border-left: 3px solid rgba(219, 39, 119, 0.25) !important;
+  background: linear-gradient(90deg, rgba(219, 39, 119, 0.04) 0%, transparent 100%) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1rem 1.5rem !important;
+  color: #06b6d4 !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 0 12px rgba(219, 39, 119, 0.04) !important;
+}
+
+/* ========== SECTION HEADERS ========== */
+#azuracast-main ~ h2 {
+  color: #db2777 !important;
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  letter-spacing: 0.1em !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 0 8px rgba(219, 39, 119, 0.3) !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important;
+}
+
+#azuracast-main ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 60% !important;
+  height: 2px !important;
+  margin: 0.5rem auto 0 !important;
+  background: linear-gradient(90deg, transparent, #db2777, #06b6d4, #f59e0b, #06b6d4, #db2777, transparent) !important;
+  opacity: 0.5 !important;
+}
+
+/* ========== WELTEN-BOXEN (H3) ========== */
+#azuracast-main ~ h3 {
+  background: linear-gradient(135deg, #140510 0%, #1a0818 50%, #140510 100%) !important;
+  border: 1px solid rgba(219, 39, 119, 0.25) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem 2rem !important;
+  margin: 1.5rem 0 0.5rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(219, 39, 119, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  color: #db2777 !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  animation: azuracastBoxFloat 6s ease-in-out infinite !important;
+}
+
+#azuracast-main ~ h3:nth-of-type(1) { animation-delay: 0s !important; }
+#azuracast-main ~ h3:nth-of-type(2) { animation-delay: -1s !important; }
+#azuracast-main ~ h3:nth-of-type(3) { animation-delay: -2s !important; }
+#azuracast-main ~ h3:nth-of-type(4) { animation-delay: -3s !important; }
+#azuracast-main ~ h3:nth-of-type(5) { animation-delay: -4s !important; }
+#azuracast-main ~ h3:nth-of-type(6) { animation-delay: -5s !important; }
+#azuracast-main ~ h3:nth-of-type(7) { animation-delay: -0.5s !important; }
+
+@keyframes azuracastBoxFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+#azuracast-main ~ h3:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: #db2777 !important;
+  box-shadow:
+    0 16px 50px rgba(0,0,0,0.6),
+    0 0 24px rgba(219, 39, 119, 0.25),
+    0 0 48px rgba(219, 39, 119, 0.1),
+    0 0 72px rgba(6, 182, 212, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.1) !important;
+}
+
+/* Farbiger Rand oben */
+#azuracast-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #db2777, #06b6d4, #f59e0b, #06b6d4, #db2777) !important;
+  background-size: 300% 100% !important;
+  animation: azuracastRainbow 4s linear infinite !important;
+  opacity: 0.7 !important;
+}
+
+@keyframes azuracastRainbow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Scanline */
+#azuracast-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(219, 39, 119, 0.06), transparent) !important;
+  animation: azuracastScanline 5s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes azuracastScanline {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+/* ========== BESCHREIBUNGSTEXT ========== */
+#azuracast-main ~ h3 + p {
+  color: #06b6d4 !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.8rem !important;
+  padding-left: 0.5rem !important;
+}
+
+/* ========== LINKS ========== */
+#azuracast-main ~ p a,
+#azuracast-main ~ p a.world-link {
+  display: inline-block !important;
+  background: linear-gradient(135deg, rgba(219, 39, 119, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%) !important;
+  border: 1px solid rgba(219, 39, 119, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0.25rem !important;
+  color: #db2777 !important;
+  text-decoration: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 12px rgba(219, 39, 119, 0.06) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#azuracast-main ~ p a::before,
+#azuracast-main ~ p a.world-link::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(219, 39, 119, 0.25), transparent) !important;
+  transition: left 0.6s ease !important;
+}
+
+#azuracast-main ~ p a:hover::before,
+#azuracast-main ~ p a.world-link:hover::before {
+  left: 100% !important;
+}
+
+#azuracast-main ~ p a:hover,
+#azuracast-main ~ p a.world-link:hover {
+  background: linear-gradient(135deg, rgba(219, 39, 119, 0.2) 0%, rgba(6, 182, 212, 0.12) 100%) !important;
+  border-color: #db2777 !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 12px rgba(219, 39, 119, 0.3),
+    0 0 24px rgba(219, 39, 119, 0.15),
+    0 0 36px rgba(6, 182, 212, 0.1) !important;
+  transform: translateY(-3px) !important;
+  animation: azuracastGlitch 0.3s ease !important;
+}
+
+@keyframes azuracastGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* ========== PARTIKEL ========== */
+.md-content__inner:has(#azuracast-main)::after {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background:
+    radial-gradient(2px 2px at 80px 180px, #06b6d4, transparent),
+    radial-gradient(1px 1px at 250px 350px, #f59e0b, transparent),
+    radial-gradient(2px 2px at 450px 80px, #06b6d4, transparent),
+    radial-gradient(1px 1px at 650px 280px, #f59e0b, transparent),
+    radial-gradient(2px 2px at 850px 450px, #06b6d4, transparent),
+    radial-gradient(1px 1px at 1050px 180px, #f59e0b, transparent),
+    radial-gradient(2px 2px at 1250px 380px, #06b6d4, transparent),
+    radial-gradient(1px 1px at 1450px 90px, #f59e0b, transparent) !important;
+  background-repeat: repeat !important;
+  background-size: 1600px 550px !important;
+  animation: azuracastParticles 25s linear infinite !important;
+  opacity: 0.12 !important;
+}
+
+@keyframes azuracastParticles {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-550px) rotate(360deg); }
+}
+
+/* ========== TRENNLINIE ========== */
+#azuracast-main ~ hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #db2777, #06b6d4, #f59e0b, #06b6d4, #db2777, transparent) !important;
+  margin: 2.5rem 0 !important;
+  opacity: 0.5 !important;
+  box-shadow: 0 0 12px rgba(219, 39, 119, 0.2) !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+#azuracast-main ~ hr::after {
+  content: '🎵' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #db2777 !important;
+  font-size: 1.2rem !important;
+  text-shadow: 0 0 8px rgba(219, 39, 119, 0.4) !important;
+  background: #0a0a0f !important;
+  padding: 0 1rem !important;
+}
+
+/* ========== TABELLE ========== */
+#azuracast-main ~ table {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(219, 39, 119, 0.2) !important;
+  background: linear-gradient(135deg, #140510 0%, #1a0818 100%) !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(219, 39, 119, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  margin: 1.5rem 0 !important;
+}
+
+#azuracast-main ~ table thead {
+  background: linear-gradient(180deg, rgba(219, 39, 119, 0.15) 0%, rgba(6, 182, 212, 0.06) 100%) !important;
+}
+
+#azuracast-main ~ table th {
+  color: #db2777 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.15em !important;
+  border-bottom: 2px solid #db2777 !important;
+  padding: 1.2rem 1.5rem !important;
+  text-shadow: 0 0 6px rgba(219, 39, 119, 0.3) !important;
+}
+
+#azuracast-main ~ table td {
+  border-bottom: 1px solid rgba(219, 39, 119, 0.15) !important;
+  padding: 1rem 1.5rem !important;
+  color: #f0e6ec !important;
+  transition: all 0.3s ease !important;
+}
+
+#azuracast-main ~ table tr:hover {
+  background: linear-gradient(90deg, rgba(219, 39, 119, 0.1) 0%, transparent 100%) !important;
+}
+
+#azuracast-main ~ table tr:hover td {
+  color: #db2777 !important;
+  text-shadow: 0 0 6px rgba(219, 39, 119, 0.25) !important;
+}
+
+/* ========== CODE BLOCKS ========== */
+#azuracast-main ~ pre {
+  background: linear-gradient(135deg, #140510 0%, #1a0818 100%) !important;
+  border: 1px solid rgba(6, 182, 212, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(6, 182, 212, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  overflow-x: auto !important;
+}
+
+#azuracast-main ~ pre code {
+  background: none !important;
+  border: none !important;
+  color: #06b6d4 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9rem !important;
+  line-height: 1.7 !important;
+}
+
+/* ========== ZITAT ========== */
+#azuracast-main ~ blockquote:last-of-type {
+  border-left: 4px solid #db2777 !important;
+  background: linear-gradient(90deg, rgba(219, 39, 119, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 16px 16px 0 !important;
+  padding: 2rem 2.5rem !important;
+  font-style: italic !important;
+  color: #f0e6ec !important;
+  text-align: center !important;
+  box-shadow:
+    0 0 20px rgba(219, 39, 119, 0.06),
+    inset 0 0 20px rgba(219, 39, 119, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-top: 2rem !important;
+}
+
+#azuracast-main ~ blockquote:last-of-type::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: -15px !important;
+  left: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(219, 39, 119, 0.12) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+#azuracast-main ~ blockquote:last-of-type::after {
+  content: '"' !important;
+  position: absolute !important;
+  bottom: -25px !important;
+  right: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(219, 39, 119, 0.12) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+/* ========== CODE INLINE ========== */
+#azuracast-main ~ p code:not(pre code) {
+  background: linear-gradient(135deg, rgba(219, 39, 119, 0.15) 0%, rgba(6, 182, 212, 0.08) 100%) !important;
+  color: #db2777 !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(219, 39, 119, 0.15) !important;
+  font-size: 0.9em !important;
+  box-shadow: 0 0 6px rgba(219, 39, 119, 0.1) !important;
+}
+
+/* ========== ADMONITION / NOTE ========== */
+#azuracast-main ~ .admonition,
+#azuracast-main ~ div.admonition,
+#azuracast-main ~ .admonition.note {
+  background: linear-gradient(135deg, #140510 0%, #1a0818 100%) !important;
+  border: 1px solid rgba(219, 39, 119, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(219, 39, 119, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#azuracast-main ~ .admonition::before,
+#azuracast-main ~ div.admonition::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #db2777, #06b6d4, #f59e0b, #06b6d4, #db2777) !important;
+  background-size: 300% 100% !important;
+  animation: azuracastRainbow 4s linear infinite !important;
+  opacity: 0.7 !important;
+}
+
+#azuracast-main ~ .admonition .admonition-title,
+#azuracast-main ~ div.admonition .admonition-title {
+  color: #db2777 !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 0.75rem !important;
+  text-shadow: 0 0 6px rgba(219, 39, 119, 0.25) !important;
+}
+
+#azuracast-main ~ .admonition p,
+#azuracast-main ~ div.admonition p {
+  color: #f0e6ec !important;
+  margin: 0.4rem 0 !important;
+}
+
+/* ========== LISTEN ========== */
+#azuracast-main ~ ul li,
+#azuracast-main ~ ol li {
+  color: #f0e6ec !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#azuracast-main ~ ul li::marker {
+  color: #db2777 !important;
+}
+
+#azuracast-main ~ ol li::marker {
+  color: #06b6d4 !important;
+  font-weight: bold !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #azuracast-main {
+    font-size: 2.2rem !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  #azuracast-main ~ h2 {
+    font-size: 1.4rem !important;
+  }
+
+  #azuracast-main ~ h3 {
+    padding: 1.2rem 1.5rem !important;
+    font-size: 1.2rem !important;
+  }
+
+  #azuracast-main ~ p a,
+  #azuracast-main ~ p a.world-link {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
+    margin: 0.15rem !important;
+  }
+
+  .md-content__inner:has(#azuracast-main)::before {
+    opacity: 0.15 !important;
+  }
+}

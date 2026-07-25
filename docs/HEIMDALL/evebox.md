@@ -1,33 +1,35 @@
-# 📊 EveBox — Allgemeine Einführung
+# 📊 EVEBOX — Der Visualisierer {: #evebox-main }
 
-> *"A web-based event viewer and alert management tool for Suricata."*
-
----
-
-## Was ist EveBox?
-
-**EveBox** ist eine Open-Source Web-Anwendung zur Visualisierung und Verwaltung von Suricata-Ereignissen. Es liest die `eve.json`-Logs von Suricata ein und stellt sie in einer übersichtlichen, interaktiven Web-Oberfläche dar — vergleichbar mit einem Mini-SIEM, das speziell auf Netzwerk-IDS-Events zugeschnitten ist.
-
-EveBox wurde von **Jason Ish** entwickelt und ist in **Go** (Backend) und **Vue.js** (Frontend) geschrieben. Es ist leichtgewichtig, schnell zu installieren und benötigt keine komplexe Infrastruktur wie Elasticsearch oder eine Datenbank-Cluster.
+> *"A web-based event viewer and alert management tool for Suricata. Jeder Alert erzählt eine Geschichte — EveBox macht sie sichtbar."*
 
 ---
 
-## Für wen ist EveBox gedacht?
+## 📋 Systeminformationen
 
-| Zielgruppe | Einsatzzweck |
-|-----------|--------------|
-| **SOC-Teams** | Schnelle Übersicht über Suricata-Alerts |
-| **Blue Teams** | Netzwerk-Threat-Hunting, Alert-Analyse |
-| **Netzwerkadministratoren** | Überwachung des Netzwerkverkehrs ohne komplexes SIEM |
-| **Homelab-Enthusiasten** | Schönes Dashboard für das IDS-Lab |
-| **Incident Responder** | Ereignis-Timeline, Alert-Details, Eskalation |
-| **MSSP** | Mehrere Suricata-Instanzen zentral überwachen |
+| Attribut | Wert |
+|----------|------|
+| **Status** | 🟢 Aktiv |
+| **Version** | 0.x |
+| **Erstellt** | 2016 (Jason Ish) |
+| **Zuletzt geändert** | 2026-07 |
+| **Lizenz** | Open Source (MIT) |
+| **Sprache** | Go + Vue.js |
 
 ---
 
-## Kernkonzept
+## 🎯 Ziel / Zweck
 
-EveBox vereinfacht die Arbeit mit Suricata-Logs erheblich:
+EveBox ist eine Open-Source Web-Anwendung zur Visualisierung und Verwaltung von Suricata-Ereignissen. Es liest die `eve.json`-Logs von Suricata ein und stellt sie in einer übersichtlichen, interaktiven Web-Oberfläche dar — vergleichbar mit einem Mini-SIEM, das speziell auf Netzwerk-IDS-Events zugeschnitten ist.
+
+---
+
+## 🛠️ Komponenten
+
+[EVE-JSON Import](evebox-import.md){: .world-link } · [Inbox Workflow](evebox-inbox.md){: .world-link } · [Suche & Filter](evebox-search.md){: .world-link } · [Reports](evebox-reports.md){: .world-link }
+
+---
+
+## 🏗️ Architektur
 
 ```
 ┌─────────────────┐
@@ -48,32 +50,19 @@ EveBox vereinfacht die Arbeit mit Suricata-Logs erheblich:
 └─────────────────┘
 ```
 
-### Was EveBox kann
-
-| Funktion | Beschreibung |
-|----------|--------------|
-| **Echtzeit-Alerts** | Live-Anzeige eingehender Suricata-Alerts |
-| **Ereignis-Timeline** | Chronologische Darstellung aller Events |
-| **Filter & Suche** | Nach IP, Port, Signature, Severity filtern |
-| **Alert-Details** | Vollständige JSON-Daten jedes Events |
-| **Inbox-Workflow** | Alerts als "Neu", "Archiviert", "Eskaliert" markieren |
-| **Kommentare** | Notizen zu einzelnen Alerts hinterlegen |
-| **Reports** | Übersichten über Top-Alerts, Trends |
-| **Multi-Input** | Mehrere Suricata-Instanzen gleichzeitig |
-
 ---
 
-## Hauptfunktionen
+## 🔍 Hauptfunktionen
 
-### 📥 EVE-JSON Import
+### EVE-JSON Import
 
 EveBox liest Suricatas `eve.json` direkt ein:
 
 - **File-based** — Überwacht die Log-Datei auf neue Zeilen
 - **Event-getrieben** — Zeigt neue Alerts nahezu in Echtzeit an
-- **SQLite-Backend** — Eigene, eingebettete Datenbank (kein externer Server nötig)
+- **SQLite-Backend** — Eigene, eingebettete Datenbank
 
-### 🔍 Suche & Filter
+### Suche & Filter
 
 Schnelle Suche über alle Events:
 
@@ -84,7 +73,7 @@ Schnelle Suche über alle Events:
 - Nach **Severity**
 - Nach **Zeitraum**
 
-### 📬 Inbox-Workflow
+### Inbox-Workflow
 
 EveBox bringt ein einfaches Ticket-System mit:
 
@@ -94,14 +83,14 @@ EveBox bringt ein einfaches Ticket-System mit:
 | **Archived** | Geprüft und harmlos |
 | **Escalated** | Weiterleitung an SOC/Senior-Analyst |
 
-### 📈 Statistiken & Reports
+### Statistiken & Reports
 
 - Top-Alerts nach Häufigkeit
 - Alerts über Zeit (Trends)
 - Verteilung nach Kategorien
 - Quell- und Ziel-IP-Übersichten
 
-### 🌐 Web-Oberfläche
+### Web-Oberfläche
 
 - Responsive Design (Desktop & Mobile)
 - Keine Installation auf Client-Seite nötig
@@ -109,26 +98,7 @@ EveBox bringt ein einfaches Ticket-System mit:
 
 ---
 
-## Architektur
-
-EveBox ist bewusst schlank gehalten:
-
-```
-┌─────────────────────────────────────────┐
-│              EveBox Server               │
-│  ┌─────────────┐  ┌─────────────────┐   │
-│  │   Go-API    │  │   SQLite-DB     │   │
-│  │  (Backend)  │  │  (Embedded)     │   │
-│  └──────┬──────┘  └─────────────────┘   │
-│         │                                │
-│  ┌──────┴──────┐  ┌─────────────────┐   │
-│  │  Vue.js UI  │  │  EVE-JSON Input │   │
-│  │  (Frontend) │  │  (File Watcher) │   │
-│  └─────────────┘  └─────────────────┘   │
-└─────────────────────────────────────────┘
-```
-
-### Datenbank-Optionen
+## 📊 Datenbank-Optionen
 
 | Backend | Beschreibung | Einsatz |
 |---------|--------------|---------|
@@ -138,38 +108,7 @@ EveBox ist bewusst schlank gehalten:
 
 ---
 
-## Integration in den Security-Stack
-
-EveBox ergänzt Suricata und andere Tools ideal:
-
-```
-┌─────────────────────────────────────────────┐
-│           Netzwerk-Monitoring                │
-├─────────────┬─────────────┬─────────────────┤
-│  Suricata   │   EveBox    │   Wazuh         │
-│  (Erkennung)│  (Dashboard)│  (SIEM)         │
-├─────────────┼─────────────┼─────────────────┤
-│  eve.json   │   SQLite    │   Alerts        │
-│  fast.log   │   Web-UI    │   FIM           │
-└─────────────┴─────────────┴─────────────────┘
-              │
-              ▼
-        ┌─────────────┐
-        │   Analyst   │
-        └─────────────┘
-```
-
-### Typische Workflows
-
-| Workflow | Beschreibung |
-|----------|--------------|
-| **Suricata + EveBox** | Schnelle Alert-Übersicht ohne SIEM-Komplexität |
-| **Suricata + EveBox + Wazuh** | EveBox für schnelle Checks, Wazuh für tiefe Analyse |
-| **Suricata + EveBox + Elasticsearch** | Langzeit-Speicherung + Echtzeit-Dashboard |
-
----
-
-## Vorteile von EveBox
+## ✅ Vorteile
 
 | Vorteil | Beschreibung |
 |---------|--------------|
@@ -184,7 +123,7 @@ EveBox ergänzt Suricata und andere Tools ideal:
 
 ---
 
-## Vergleich mit anderen Tools
+## 📊 Vergleich mit anderen Tools
 
 | Kriterium | EveBox | Kibana | Wazuh Dashboard | SGUIL |
 |-----------|--------|--------|-----------------|-------|
@@ -194,12 +133,11 @@ EveBox ergänzt Suricata und andere Tools ideal:
 | **Ressourcen** | Sehr gering | Hoch | Mittel | Mittel |
 | **Echtzeit** | ✅ Ja | ✅ Ja | ✅ Ja | ⚠️ Verzögert |
 | **Inbox-Workflow** | ✅ Ja | ❌ Nein | ⚠️ Begrenzt | ✅ Ja |
-| **Alert-Management** | ✅ Ja | ❌ Nein | ✅ Ja | ✅ Ja |
 | **Ideal für** | Schnelle Übersicht | Big Data Analyse | Voll-SIEM | Classic IDS |
 
 ---
 
-## Typische Use Cases
+## 🎯 Typische Use Cases
 
 ### 🏠 Homelab / IDS-Lab
 
@@ -227,19 +165,14 @@ EveBox ergänzt Suricata und andere Tools ideal:
 
 ---
 
-## Zusammenfassung
+## 📝 Notizen
 
-EveBox ist das **perfekte Dashboard für Suricata** — schlank, schnell und auf den Punkt gebracht:
-
-- ✅ **Visualisierung** — Übersichtliche Darstellung von Suricata-Alerts
-- ✅ **Echtzeit** — Nahezu live-Anzeige neuer Events
-- ✅ **Management** — Inbox-Workflow für Alert-Triage
-- ✅ **Einfachheit** — Keine komplexe Infrastruktur nötig
-- ✅ **Flexibilität** — SQLite, PostgreSQL oder Elasticsearch
-- ✅ **Integration** — Ergänzt Wazuh, Kibana oder steht allein
-
-Wenn du Suricata betreibst und eine schnelle, schöne Möglichkeit suchst, die Alerts zu sehen und zu verwalten — ohne ein vollwertiges SIEM aufzusetzen — ist EveBox genau das Richtige.
+!!! note "Wichtig"
+    - SQLite reicht für die meisten Homelabs
+    - Für Enterprise: PostgreSQL oder Elasticsearch empfohlen
+    - Regelmäßige Backups der EveBox-Datenbank
+    - Suricata eve.json-Format muss kompatibel sein
 
 ---
 
-*Allgemeine Einführung zu EveBox*
+> *"Ein Bild sagt mehr als tausend Logs. EveBox verwandelt rohe Daten in Erkenntnisse."*

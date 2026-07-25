@@ -1,313 +1,301 @@
-﻿# Bestandteil von Midgard.
+# 🎵 AZURACAST — Der Sender {: #azuracast-main }
 
-**Midgard** ist die sichtbare Welt deines Homelabs. Folgende Dienste laufen hier:
-
-- **AzuraCast** – Webradio‑Plattform  
-- **Shortwave** – (optionaler Client)  
-- **Gitea** – Git‑Hosting  
-- **Passbolt** – Passwortmanager  
-- **Mailserver** – E‑Mail‑Dienst  
-- **Docker Services** – weitere containerisierte Anwendungen  
+> *"Jede Frequenz erzählt eine Geschichte. Jeder Stream verbindet Welten."*
 
 ---
 
-## Projektübersicht
+## 📋 Systeminformationen
 
-**MapOS Wave – Webradio mit AzuraCast**
-
-Ziel ist die Installation und Konfiguration einer selbst gehosteten Webradio-Plattform mit **AzuraCast** auf **Ubuntu Server 26.04 LTS**.  
-
-Die Plattform ermöglicht:
-
-- Verwaltung einer eigenen Radiostation  
-- Verwaltung einer Musikbibliothek  
-- Automatische Musikwiedergabe über den AutoDJ  
-- Streaming im lokalen Netzwerk oder über das Internet  
-- Verwaltung über eine komfortable Weboberfläche  
+| Attribut | Wert |
+|----------|------|
+| **Status** | 🟢 Aktiv |
+| **Version** | Stable |
+| **Erstellt** | 2026 |
+| **Zuletzt geändert** | 2026-07 |
+| **Lizenz** | Open Source (Apache 2.0) |
 
 ---
 
-## Systemumgebung
+## 🎯 Ziel / Zweck
+
+Installation und Konfiguration einer selbst gehosteten Webradio-Plattform mit AzuraCast auf Ubuntu Server 26.04 LTS. Die Plattform ermöglicht das Verwalten von Musik, automatisches Abspielen per AutoDJ sowie das Bereitstellen eines Livestreams über das Netzwerk oder das Internet.
+
+---
+
+## 🛠️ Komponenten
+
+[Icecast Server](icecast.md){: .world-link } · [Liquidsoap AutoDJ](liquidsoap.md){: .world-link } · [Docker Engine](docker.md){: .world-link } · [Weboberfläche](webui.md){: .world-link }
+
+---
+
+## 🏗️ Systemumgebung
 
 | Komponente | Beschreibung |
-| :--- | :--- |
-| Betriebssystem | Ubuntu Server 26.04 LTS |
-| Virtualisierung | Eigenes Homelab |
-| Hostname | `azuracast` |
-| Containerisierung | Docker |
-| Orchestrierung | Docker Compose v2 |
-| Software | AzuraCast Stable |
-| Streamingserver | Icecast 2.4 |
-| AutoDJ | Liquidsoap |
-| Musikformat | MP3 |
-| Radiostation | MapOS Wave |
-| Stationsname | `mapos_wave` |
+|------------|--------------|
+| **Betriebssystem** | Ubuntu Server 26.04 LTS |
+| **Virtualisierung** | Eigenes Homelab |
+| **Benutzer** | `<BENUTZER>` |
+| **Hostname** | `<HOSTNAME>` |
+| **Software** | Docker Engine |
+| **Container** | AzuraCast (Stable) |
+| **Streamingserver** | Icecast 2.4 |
+| **AutoDJ** | Liquidsoap |
+| **Musikbibliothek** | MP3-Dateien |
+| **Station** | Demo Station |
+| **Stations-Kurzname** | demo_station |
 
 ---
 
-## Voraussetzungen
+## 🔧 Voraussetzungen
 
-- Ubuntu Server 26.04 LTS installiert  
-- System vollständig aktualisiert  
-- Docker installiert  
-- Docker Compose v2 installiert  
-- Netzwerkverbindung vorhanden  
+- Ubuntu Server 26.04 LTS installiert
+- System aktualisiert
+- Docker installiert
+- Docker Compose v2 installiert
+- Server besitzt Netzwerkverbindung
 
 ---
 
-## System aktualisieren
+## 🚀 Installation
+
+### Hostname konfigurieren
 
 ```bash
-sudo apt update
-sudo apt upgrade -y
-
-Hostname konfigurieren
-bash
-
-sudo hostnamectl set-hostname azuracast
+sudo hostnamectl set-hostname <HOSTNAME>
 hostnamectl
+```
 
-Installationsverzeichnis erstellen
-bash
+### Installationsverzeichnis erstellen
 
+```bash
 sudo mkdir -p /var/azuracast
 cd /var/azuracast
+```
 
-AzuraCast installieren
-bash
+### Installationsskript herunterladen
 
+```bash
 sudo curl -fsSL https://raw.githubusercontent.com/AzuraCast/AzuraCast/main/docker.sh -o docker.sh
 sudo chmod +x docker.sh
+```
+
+### Installation starten
+
+```bash
 sudo ./docker.sh install
+```
 
-Installationsoptionen
-Einstellung	Wert
-Sprache	Deutsch (de_DE)
-Release Channel	Stable
-Docker Images	Aktiviert
-Automatische Updates	Aktiviert
-Bot-Schutz	Aktiviert
-Standardports	Ja
-Netzwerkports
-Dienst	Port
-HTTP	80
-HTTPS	443
-SFTP	2022
-Icecast	8000–8496
-Installation erfolgreich
+---
 
-Nach Abschluss des Installationsskripts sind alle Container gestartet.
-Du kannst nun die Weboberfläche unter http://<DEINE_SERVER_IP> aufrufen.
-Die Standard-Anmeldedaten werden im Terminal während der Installation angezeigt.
-Ersteinrichtung
+## ⚙️ Installationsoptionen
 
-    Rufe http://<DEINE_SERVER_IP> im Browser auf.
+### Sprache
 
-    Lege den Administrator‑Account an (Benutzername, E‑Mail, Passwort).
+`de_DE`
 
-    Nach der Anmeldung gelangst du in das Dashboard.
+### Release Channel
 
-Radiostation konfigurieren
+`Stable`
 
-Nach der Erstanmeldung erstellst du deine erste Radiostation:
-Einstellung	Wert
-Name	MapOS Wave
-Kurzname	mapos_wave
-Streamingserver	Icecast 2.4
-AutoDJ	Liquidsoap
+### Ports
 
-Streaming‑Quelle:
+| Dienst | Port |
+|--------|------|
+| HTTP | 80 |
+| HTTPS | 443 |
+| SFTP | 2022 |
+| Radio | 8000–8496 |
 
-    Der Server stellt automatisch einen Icecast‑Mountpunkt bereit.
+### Docker Image Updates
 
-    Standard‑Mount: /radio.mp3
+`Ja`
 
-    Der Stream ist unter http://<SERVER_IP>:8000/radio.mp3 erreichbar.
+### Bots blockieren
 
-AutoDJ konfigurieren
+`Ja`
 
-Der AutoDJ (Liquidsoap) verwaltet die automatische Musikwiedergabe:
-Einstellung	Wert
-Crossfade	Smart Mode
-Überblendzeit	5 Sekunden
-Queue	5 Titel
-Leistungsprofil	Ausgeglichen
+### System-URL
 
-Zusätzliche Optionen (in der Weboberfläche unter Einstellungen → AutoDJ):
+Während der Installation: `http://<ÖFFENTLICHE-IP>`
 
-    ReplayGain – automatische Lautstärkeanpassung
+Später z. B.: `https://radio.example.de`
 
-    Duplikaterkennung – vermeidet doppelte Titel innerhalb der letzten X Songs
+---
 
-    Fallback‑Playlist – wird abgespielt, wenn keine aktuelle Playlist verfügbar ist
+## ✅ Installation erfolgreich
 
-Musikbibliothek
+```text
+[OK] AzuraCast-Installation abgeschlossen!
+```
 
-Die Musikbibliothek kann auf verschiedene Weisen befüllt werden:
+Container prüfen:
 
-    Weboberfläche – Einzelne Dateien hochladen
+```bash
+sudo docker ps
+```
 
-    SFTP – Zugriff auf /var/azuracast/stations/mapos_wave/media (Port 2022)
+---
 
-    Drag & Drop – im Dateimanager der Weboberfläche
+## 🎛️ Ersteinrichtung
 
-Unterstützte Formate: MP3, FLAC, AAC, OGG, WAV.
-Nach dem Hochladen werden die Metadaten automatisch analysiert und indiziert.
-Playlist konfigurieren
+Weboberfläche: `http://<SERVER-IP>`
 
-Erstelle Playlists für verschiedene Einsatzzwecke:
+Administrator anlegen.
 
-    Standard‑Playlist – läuft im normalen Betrieb
+---
 
-    Fallback‑Playlist – bei Leerstand oder Fehlern
+## 📻 Erste Radiostation
 
-    Schedule‑Playlist – zeitgesteuerte Sendungen (z. B. Nachrichten zur vollen Stunde)
+| Einstellung | Wert |
+|-------------|------|
+| **Name** | Demo Station |
+| **Kurzname** | demo_station |
+| **Streamingserver** | Icecast 2.4 |
+| **AutoDJ** | Liquidsoap |
 
-Tipps:
+---
 
-    Vergib aussagekräftige Namen (z. B. Main_Rotation, Schlager, Rock)
+## 🎚️ AutoDJ-Konfiguration
 
-    Lege die Gewichtung fest (häufigkeit der Songs aus dieser Playlist)
+| Einstellung | Wert |
+|-------------|------|
+| **Dienst** | Liquidsoap |
+| **Crossfade** | Smart Mode |
+| **Überblendungszeit** | 5 Sekunden |
+| **AutoCue** | Deaktiviert |
+| **ReplayGain** | Deaktiviert |
+| **Post Processing** | Keine Nachbearbeitung |
+| **Queue** | 5 Titel |
+| **Zeichensatz** | UTF-8 |
+| **Leistungsoptimierung** | Ausgeglichen |
+| **Wiederholungsvermeidung** | 60 Minuten |
 
-    Aktiviere „Shuffle“ für zufällige Reihenfolge
+---
 
-Öffentliche Stationsseite
+## 🎶 Musik hinzufügen
 
-AzuraCast generiert automatisch eine öffentliche Seite für deine Station.
-Diese ist unter http://<SERVER_IP>/station/mapos_wave erreichbar.
+- Weboberfläche
+- SFTP
+- Drag & Drop
 
-Du kannst das Aussehen anpassen:
+---
 
-    Logo – hochladen (PNG oder JPG)
+## 📋 Playlist
 
-    Farben – im Theme‑Editor anpassen
+| Einstellung | Wert |
+|-------------|------|
+| **Name** | default |
+| **Typ** | Allgemeine Rotation |
 
-    Widgets – z. B. „Jetzt läuft“, „Nächste Titel“, „Playlist“ ein‑/ausblenden
+---
 
-Für die Einbindung auf einer externen Webseite stellt AzuraCast fertige Embed‑Codes bereit (iFrame, JavaScript-Widget).
-Systemprüfung
+## 🔍 Dienste überprüfen
 
-Überprüfe den Status aller Dienste:
-bash
+```bash
+sudo docker exec azuracast supervisorctl status
+```
 
-sudo docker compose -f /var/azuracast/docker-compose.yml ps
+Wichtige Dienste:
 
-Oder in der Weboberfläche: System → Status – dort siehst du alle Container mit ihrem Zustand.
+- mariadb
+- redis
+- nginx
+- php-fpm
+- station_1_backend
+- station_1_frontend
 
-Sollte ein Dienst nicht laufen, hilft:
-bash
+---
 
-sudo docker compose -f /var/azuracast/docker-compose.yml logs <dienstname>
+## 🌐 Zugriff
 
-Zugriff
-Zweck	Adresse / Methode
-Weboberfläche (Admin)	http://<SERVER_IP>
-Öffentliche Station	http://<SERVER_IP>/station/mapos_wave
-Stream (MP3)	http://<SERVER_IP>:8000/radio.mp3
-SFTP (Musik)	sftp://<SERVER_IP>:2022 (Benutzer: azuracast, Passwort: siehe Installation)
-API (für Entwickler)	http://<SERVER_IP>/api
-Sicherheitsmaßnahmen
+`http://<SERVER-IP>`
 
-    Firewall – öffne nur die benötigten Ports (80, 443, 2022, 8000–8496)
+Beispiel: `http://<LOKALE-IP>`
 
-    HTTPS – richte Let's Encrypt über die Weboberfläche ein (unter System → SSL)
+---
 
-    Regelmäßige Updates – aktiviere automatische Updates (in den Installationsoptionen bereits gesetzt)
+## 🔒 Sicherheitsmaßnahmen
 
-    Starke Passwörter – für Admin, SFTP und Icecast‑Mountpunkte
+Aktiviert:
 
-    Backup – siehe nächster Punkt
+- Stable Release
+- automatische Docker-Updates
+- Bot-Schutz
+- UTF-8
+- Docker-Container
+- getrennte Streamingdienste
 
-Empfohlene Erweiterungen
+Empfohlen:
 
-    Monitoring – Prometheus + Grafana zur Überwachung von CPU, RAM und Netzwerk
+- HTTPS mit Let's Encrypt
+- Firewall-Regeln
+- regelmäßige Backups
+- Reverse Proxy
+- Monitoring mit Uptime Kuma
 
-    Log‑Analyse – ELK‑Stack oder Graylog für zentrale Logauswertung
+---
 
-    Zusätzliche Stream‑Ausgaben – z. B. AAC‑ oder OGG‑Stream über Icecast konfigurieren
+## 💾 Backup
 
-    Mobile App – eigene App mit der öffentlichen API von AzuraCast
-
-Backup
-
-Erstelle regelmäßig ein vollständiges Backup:
-bash
-
+```bash
 cd /var/azuracast
 sudo ./docker.sh backup
+```
 
-Das Backup enthält:
+---
 
-    Datenbank (MariaDB)
+## 🔧 Wartung
 
-    Konfigurationsdateien (Icecast, Liquidsoap)
-
-    Station‑spezifische Einstellungen
-
-    (optional) die Musikbibliothek – diese kann separat gesichert werden (z. B. mit rsync)
-
-Wiederherstellung:
-bash
-
-sudo ./docker.sh restore /pfad/zum/backup.tar.gz
-
-Wartung
-
-Regelmäßige Wartungsaufgaben:
-bash
-
+```bash
 cd /var/azuracast
-
-# Updates einspielen
 sudo ./docker.sh update
-
-# Container neu starten (z.B. nach Konfigurationsänderungen)
 sudo docker compose restart
-
-# Logs anzeigen (alle Dienste)
 sudo docker compose logs -f
+```
 
-# Nur Logs eines bestimmten Dienstes (z.B. AutoDJ)
-sudo docker compose logs -f azuracast_auto_dj
+---
 
-Fehlerbehebung
-Problem	Mögliche Lösung
-Stream ist nicht erreichbar	Prüfe sudo docker ps – läuft Icecast?
-Prüfe ss -tulpn | grep 8000 – ist der Port offen?
-AutoDJ spielt keine Musik	Checke die Musikbibliothek – sind Titel vorhanden?
-Prüfe sudo docker exec azuracast supervisorctl status
-Weboberfläche langsam	Erhöhe den Arbeitsspeicher für Docker oder skaliere Container neu
-Fehler beim Hochladen von Musik	Stelle sicher, dass die SFTP‑Zugangsdaten korrekt sind und genügend Speicherplatz vorhanden ist
-Allgemeine Loginschwierigkeiten	Setze das Admin‑Passwort über das Terminal zurück: sudo ./docker.sh reset-admin
-Projektfazit
+## 🛠️ Fehlerbehebung
 
-Mit AzuraCast wurde erfolgreich eine moderne Docker-basierte Webradio-Plattform aufgebaut.
-Das Projekt eignet sich hervorragend als Homelab- und Lernprojekt für Linux, Docker, Streaming-Technologien und Serveradministration.
+```bash
+sudo docker exec azuracast supervisorctl status
+sudo docker ps
+ss -tulpn
+```
 
-Highlights:
+Backend und Frontend müssen den Status **RUNNING** besitzen.
 
-    Einfache Installation dank Docker
+---
 
-    Umfangreiche Verwaltung über eine intuitive Weboberfläche
+## 📝 Notizen
 
-    Flexibilität durch zahlreiche Konfigurationsoptionen
+!!! note "Wichtig"
+    - Container regelmäßig aktualisieren
+    - Backups vor Updates erstellen
+    - Ports im Router freigeben für externen Stream
+    - Firewall-Regeln für Radio-Ports prüfen
 
-    Stabilität durch erprobte Komponenten (Icecast, Liquidsoap)
+---
 
-Erreichte Projektziele
+## 🏆 Projektfazit
 
-    ✅ Installation von AzuraCast auf Ubuntu Server 26.04 LTS
+Mit AzuraCast wurde erfolgreich eine moderne Webradio-Plattform auf Ubuntu Server 26.04 LTS installiert. Die Installation basiert vollständig auf Docker und kombiniert den Streamingserver Icecast mit dem AutoDJ Liquidsoap. Durch die Containerisierung ist das System leicht wartbar, einfach zu sichern und gut skalierbar.
 
-    ✅ Einrichtung einer eigenen Radiostation „MapOS Wave“
+---
 
-    ✅ Konfiguration des AutoDJ mit Crossfade und Playlist‑Steuerung
+## ✅ Erreichte Projektziele
 
-    ✅ Einrichtung der Musikbibliothek mit Upload‑Möglichkeiten (Web, SFTP)
+- Erfolgreiche Installation von AzuraCast
+- Docker-basierter Betrieb
+- Einrichtung einer Radiostation
+- AutoDJ mit Liquidsoap eingerichtet
+- Icecast erfolgreich konfiguriert
+- Musikbibliothek aufgebaut
+- Playlist erstellt
+- Stream erfolgreich getestet
+- Weboberfläche funktionsfähig
+- Grundlage für einen dauerhaft betriebenen Radioserver geschaffen
 
-    ✅ Bereitstellung eines öffentlichen Streams im lokalen Netzwerk
+---
 
-    ✅ Grundlegende Sicherheitsmaßnahmen (Firewall, HTTPS geplant)
-
-    ✅ Backup‑ und Wartungsroutine implementiert
-
-    ✅ Dokumentation der gesamten Installation und Konfiguration
+> *"Der Rhythmus verbindet. Der Beat bleibt. Der Stream fließt ewig."*
