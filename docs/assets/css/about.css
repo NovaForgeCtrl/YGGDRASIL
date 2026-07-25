@@ -1,0 +1,572 @@
+/* ============================================================
+   🛠️ DER BAUMEISTER — Der Architekt
+   Warmes Schmiede- & Wurzel-Theme
+   Farbpalette: Bronze · Gold · Waldgrün
+   ============================================================ */
+
+/* ========== WURZELN & STEIN-NODES ========== */
+.md-content__inner:has(#baumeister-main)::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(2px 2px at 50px 40px, #cd7f32, transparent),
+    radial-gradient(1px 1px at 120px 90px, #d4af37, transparent),
+    radial-gradient(2px 2px at 200px 150px, #4a7c2f, transparent),
+    radial-gradient(1px 1px at 280px 60px, #cd7f32, transparent),
+    radial-gradient(2px 2px at 350px 180px, #d4af37, transparent),
+    radial-gradient(1px 1px at 420px 110px, #4a7c2f, transparent),
+    radial-gradient(2px 2px at 500px 40px, #cd7f32, transparent),
+    radial-gradient(1px 1px at 580px 160px, #d4af37, transparent),
+    radial-gradient(2px 2px at 650px 80px, #4a7c2f, transparent),
+    radial-gradient(1px 1px at 720px 190px, #cd7f32, transparent),
+    radial-gradient(2px 2px at 800px 50px, #d4af37, transparent),
+    radial-gradient(1px 1px at 880px 130px, #4a7c2f, transparent),
+    radial-gradient(2px 2px at 950px 70px, #cd7f32, transparent),
+    radial-gradient(1px 1px at 1020px 170px, #d4af37, transparent),
+    radial-gradient(2px 2px at 1100px 30px, #4a7c2f, transparent),
+    radial-gradient(1px 1px at 1180px 140px, #cd7f32, transparent),
+    radial-gradient(2px 2px at 1250px 90px, #d4af37, transparent),
+    radial-gradient(1px 1px at 1320px 200px, #4a7c2f, transparent),
+    radial-gradient(2px 2px at 1400px 60px, #cd7f32, transparent),
+    radial-gradient(1px 1px at 1480px 150px, #d4af37, transparent),
+    radial-gradient(2px 2px at 1550px 100px, #4a7c2f, transparent),
+    radial-gradient(1px 1px at 1620px 180px, #cd7f32, transparent),
+    radial-gradient(2px 2px at 1700px 40px, #d4af37, transparent),
+    radial-gradient(1px 1px at 1780px 120px, #4a7c2f, transparent),
+    radial-gradient(2px 2px at 1850px 80px, #cd7f32, transparent);
+  background-repeat: repeat;
+  background-size: 1920px 220px;
+  animation: baumeisterRoots 120s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes baumeisterRoots {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-220px); }
+}
+
+/* ========== TITEL - SCHMIEDE-GLOW ========== */
+#baumeister-main {
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: #cd7f32 !important;
+  text-shadow:
+    0 0 8px rgba(205, 127, 50, 0.5),
+    0 0 16px rgba(205, 127, 50, 0.3),
+    0 0 32px rgba(205, 127, 50, 0.2),
+    0 0 64px rgba(212, 175, 55, 0.15) !important;
+  animation: baumeisterPulse 3.5s ease-in-out infinite;
+  border: none !important;
+  margin-bottom: 1rem !important;
+  position: relative !important;
+  padding-top: 1rem !important;
+}
+
+@keyframes baumeisterPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(205, 127, 50, 0.5), 0 0 16px rgba(205, 127, 50, 0.3), 0 0 32px rgba(205, 127, 50, 0.2), 0 0 64px rgba(212, 175, 55, 0.15) !important;
+    filter: brightness(1);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(205, 127, 50, 0.6), 0 0 24px rgba(205, 127, 50, 0.4), 0 0 48px rgba(205, 127, 50, 0.25), 0 0 80px rgba(212, 175, 55, 0.2) !important;
+    filter: brightness(1.15);
+  }
+}
+
+/* Emoji */
+#baumeister-main::after {
+  content: '🛠️' !important;
+  display: inline-block !important;
+  margin-left: 0.15em !important;
+  font-size: 0.7em !important;
+  animation: baumeisterFloat 4s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 12px rgba(205, 127, 50, 0.5)) !important;
+}
+
+@keyframes baumeisterFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg) scale(1); }
+  25% { transform: translateY(-6px) rotate(3deg) scale(1.05); }
+  50% { transform: translateY(-10px) rotate(-2deg) scale(1.08); }
+  75% { transform: translateY(-6px) rotate(4deg) scale(1.05); }
+}
+
+/* RGB Shift */
+#baumeister-main::before {
+  content: 'BAUMEISTER' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  color: transparent !important;
+  text-shadow: -2px 0 #d4af37, 2px 0 #cd7f32 !important;
+  opacity: 0 !important;
+  animation: baumeisterRgbShift 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+  letter-spacing: 0.15em !important;
+}
+
+@keyframes baumeisterRgbShift {
+  0%, 88%, 100% { opacity: 0; transform: translateX(0); }
+  90% { opacity: 0.3; transform: translateX(-3px); }
+  92% { opacity: 0.5; transform: translateX(3px); }
+  94% { opacity: 0.3; transform: translateX(-2px); }
+  96% { opacity: 0.15; transform: translateX(2px); }
+  98% { opacity: 0; transform: translateX(0); }
+}
+
+/* ========== UNTERTITEL ========== */
+#baumeister-main + blockquote {
+  border-left: 3px solid rgba(205, 127, 50, 0.25) !important;
+  background: linear-gradient(90deg, rgba(205, 127, 50, 0.04) 0%, transparent 100%) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1rem 1.5rem !important;
+  color: #d4af37 !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 0 12px rgba(205, 127, 50, 0.04) !important;
+}
+
+/* ========== SECTION HEADERS ========== */
+#baumeister-main ~ h2 {
+  color: #cd7f32 !important;
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  letter-spacing: 0.1em !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 0 8px rgba(205, 127, 50, 0.3) !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important;
+}
+
+#baumeister-main ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 60% !important;
+  height: 2px !important;
+  margin: 0.5rem auto 0 !important;
+  background: linear-gradient(90deg, transparent, #cd7f32, #d4af37, #4a7c2f, #d4af37, #cd7f32, transparent) !important;
+  opacity: 0.5 !important;
+}
+
+/* ========== WELTEN-BOXEN (H3) ========== */
+#baumeister-main ~ h3 {
+  background: linear-gradient(135deg, #12100c 0%, #1a1610 50%, #12100c 100%) !important;
+  border: 1px solid rgba(205, 127, 50, 0.25) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem 2rem !important;
+  margin: 1.5rem 0 0.5rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(205, 127, 50, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  color: #cd7f32 !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  animation: baumeisterBoxFloat 6s ease-in-out infinite !important;
+}
+
+#baumeister-main ~ h3:nth-of-type(1) { animation-delay: 0s !important; }
+#baumeister-main ~ h3:nth-of-type(2) { animation-delay: -1s !important; }
+#baumeister-main ~ h3:nth-of-type(3) { animation-delay: -2s !important; }
+#baumeister-main ~ h3:nth-of-type(4) { animation-delay: -3s !important; }
+#baumeister-main ~ h3:nth-of-type(5) { animation-delay: -4s !important; }
+#baumeister-main ~ h3:nth-of-type(6) { animation-delay: -5s !important; }
+#baumeister-main ~ h3:nth-of-type(7) { animation-delay: -0.5s !important; }
+
+@keyframes baumeisterBoxFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+#baumeister-main ~ h3:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: #cd7f32 !important;
+  box-shadow:
+    0 16px 50px rgba(0,0,0,0.6),
+    0 0 24px rgba(205, 127, 50, 0.25),
+    0 0 48px rgba(205, 127, 50, 0.1),
+    0 0 72px rgba(212, 175, 55, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.1) !important;
+}
+
+/* Farbiger Rand oben */
+#baumeister-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #cd7f32, #d4af37, #4a7c2f, #d4af37, #cd7f32) !important;
+  background-size: 300% 100% !important;
+  animation: baumeisterRainbow 5s linear infinite !important;
+  opacity: 0.7 !important;
+}
+
+@keyframes baumeisterRainbow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Scanline */
+#baumeister-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(205, 127, 50, 0.06), transparent) !important;
+  animation: baumeisterScanline 5s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes baumeisterScanline {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+/* ========== BESCHREIBUNGSTEXT ========== */
+#baumeister-main ~ h3 + p {
+  color: #d4af37 !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.8rem !important;
+  padding-left: 0.5rem !important;
+}
+
+/* ========== LINKS ========== */
+#baumeister-main ~ p a,
+#baumeister-main ~ p a.world-link {
+  display: inline-block !important;
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%) !important;
+  border: 1px solid rgba(205, 127, 50, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0.25rem !important;
+  color: #cd7f32 !important;
+  text-decoration: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 12px rgba(205, 127, 50, 0.06) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#baumeister-main ~ p a::before,
+#baumeister-main ~ p a.world-link::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(205, 127, 50, 0.25), transparent) !important;
+  transition: left 0.6s ease !important;
+}
+
+#baumeister-main ~ p a:hover::before,
+#baumeister-main ~ p a.world-link:hover::before {
+  left: 100% !important;
+}
+
+#baumeister-main ~ p a:hover,
+#baumeister-main ~ p a.world-link:hover {
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.2) 0%, rgba(212, 175, 55, 0.12) 100%) !important;
+  border-color: #cd7f32 !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 12px rgba(205, 127, 50, 0.3),
+    0 0 24px rgba(205, 127, 50, 0.15),
+    0 0 36px rgba(212, 175, 55, 0.1) !important;
+  transform: translateY(-3px) !important;
+  animation: baumeisterGlitch 0.3s ease !important;
+}
+
+@keyframes baumeisterGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* ========== PARTIKEL ========== */
+.md-content__inner:has(#baumeister-main)::after {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background:
+    radial-gradient(2px 2px at 80px 180px, #d4af37, transparent),
+    radial-gradient(1px 1px at 250px 350px, #4a7c2f, transparent),
+    radial-gradient(2px 2px at 450px 80px, #d4af37, transparent),
+    radial-gradient(1px 1px at 650px 280px, #4a7c2f, transparent),
+    radial-gradient(2px 2px at 850px 450px, #d4af37, transparent),
+    radial-gradient(1px 1px at 1050px 180px, #4a7c2f, transparent),
+    radial-gradient(2px 2px at 1250px 380px, #d4af37, transparent),
+    radial-gradient(1px 1px at 1450px 90px, #4a7c2f, transparent) !important;
+  background-repeat: repeat !important;
+  background-size: 1600px 550px !important;
+  animation: baumeisterParticles 30s linear infinite !important;
+  opacity: 0.1 !important;
+}
+
+@keyframes baumeisterParticles {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-550px) rotate(360deg); }
+}
+
+/* ========== TRENNLINIE ========== */
+#baumeister-main ~ hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #cd7f32, #d4af37, #4a7c2f, #d4af37, #cd7f32, transparent) !important;
+  margin: 2.5rem 0 !important;
+  opacity: 0.5 !important;
+  box-shadow: 0 0 12px rgba(205, 127, 50, 0.2) !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+#baumeister-main ~ hr::after {
+  content: '🛠️' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #cd7f32 !important;
+  font-size: 1.2rem !important;
+  text-shadow: 0 0 8px rgba(205, 127, 50, 0.4) !important;
+  background: #0a0a0f !important;
+  padding: 0 1rem !important;
+}
+
+/* ========== TABELLE ========== */
+#baumeister-main ~ table {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(205, 127, 50, 0.2) !important;
+  background: linear-gradient(135deg, #12100c 0%, #1a1610 100%) !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(205, 127, 50, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  margin: 1.5rem 0 !important;
+}
+
+#baumeister-main ~ table thead {
+  background: linear-gradient(180deg, rgba(205, 127, 50, 0.15) 0%, rgba(212, 175, 55, 0.06) 100%) !important;
+}
+
+#baumeister-main ~ table th {
+  color: #cd7f32 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.15em !important;
+  border-bottom: 2px solid #cd7f32 !important;
+  padding: 1.2rem 1.5rem !important;
+  text-shadow: 0 0 6px rgba(205, 127, 50, 0.3) !important;
+}
+
+#baumeister-main ~ table td {
+  border-bottom: 1px solid rgba(205, 127, 50, 0.15) !important;
+  padding: 1rem 1.5rem !important;
+  color: #f0ece0 !important;
+  transition: all 0.3s ease !important;
+}
+
+#baumeister-main ~ table tr:hover {
+  background: linear-gradient(90deg, rgba(205, 127, 50, 0.1) 0%, transparent 100%) !important;
+}
+
+#baumeister-main ~ table tr:hover td {
+  color: #cd7f32 !important;
+  text-shadow: 0 0 6px rgba(205, 127, 50, 0.25) !important;
+}
+
+/* ========== CODE BLOCKS ========== */
+#baumeister-main ~ pre {
+  background: linear-gradient(135deg, #12100c 0%, #1a1610 100%) !important;
+  border: 1px solid rgba(74, 124, 47, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(74, 124, 47, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  overflow-x: auto !important;
+}
+
+#baumeister-main ~ pre code {
+  background: none !important;
+  border: none !important;
+  color: #4a7c2f !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9rem !important;
+  line-height: 1.7 !important;
+}
+
+/* ========== ZITAT ========== */
+#baumeister-main ~ blockquote:last-of-type {
+  border-left: 4px solid #cd7f32 !important;
+  background: linear-gradient(90deg, rgba(205, 127, 50, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 16px 16px 0 !important;
+  padding: 2rem 2.5rem !important;
+  font-style: italic !important;
+  color: #f0ece0 !important;
+  text-align: center !important;
+  box-shadow:
+    0 0 20px rgba(205, 127, 50, 0.06),
+    inset 0 0 20px rgba(205, 127, 50, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-top: 2rem !important;
+}
+
+#baumeister-main ~ blockquote:last-of-type::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: -15px !important;
+  left: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(205, 127, 50, 0.12) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+#baumeister-main ~ blockquote:last-of-type::after {
+  content: '"' !important;
+  position: absolute !important;
+  bottom: -25px !important;
+  right: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(205, 127, 50, 0.12) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+/* ========== CODE INLINE ========== */
+#baumeister-main ~ p code:not(pre code) {
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.15) 0%, rgba(212, 175, 55, 0.08) 100%) !important;
+  color: #cd7f32 !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(205, 127, 50, 0.15) !important;
+  font-size: 0.9em !important;
+  box-shadow: 0 0 6px rgba(205, 127, 50, 0.1) !important;
+}
+
+/* ========== ADMONITION / NOTE ========== */
+#baumeister-main ~ .admonition,
+#baumeister-main ~ div.admonition,
+#baumeister-main ~ .admonition.note {
+  background: linear-gradient(135deg, #12100c 0%, #1a1610 100%) !important;
+  border: 1px solid rgba(205, 127, 50, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(205, 127, 50, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#baumeister-main ~ .admonition::before,
+#baumeister-main ~ div.admonition::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #cd7f32, #d4af37, #4a7c2f, #d4af37, #cd7f32) !important;
+  background-size: 300% 100% !important;
+  animation: baumeisterRainbow 5s linear infinite !important;
+  opacity: 0.7 !important;
+}
+
+#baumeister-main ~ .admonition .admonition-title,
+#baumeister-main ~ div.admonition .admonition-title {
+  color: #cd7f32 !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 0.75rem !important;
+  text-shadow: 0 0 6px rgba(205, 127, 50, 0.25) !important;
+}
+
+#baumeister-main ~ .admonition p,
+#baumeister-main ~ div.admonition p {
+  color: #f0ece0 !important;
+  margin: 0.4rem 0 !important;
+}
+
+/* ========== LISTEN ========== */
+#baumeister-main ~ ul li,
+#baumeister-main ~ ol li {
+  color: #f0ece0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#baumeister-main ~ ul li::marker {
+  color: #cd7f32 !important;
+}
+
+#baumeister-main ~ ol li::marker {
+  color: #d4af37 !important;
+  font-weight: bold !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #baumeister-main {
+    font-size: 2.2rem !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  #baumeister-main ~ h2 {
+    font-size: 1.4rem !important;
+  }
+
+  #baumeister-main ~ h3 {
+    padding: 1.2rem 1.5rem !important;
+    font-size: 1.2rem !important;
+  }
+
+  #baumeister-main ~ p a,
+  #baumeister-main ~ p a.world-link {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
+    margin: 0.15rem !important;
+  }
+
+  .md-content__inner:has(#baumeister-main)::before {
+    opacity: 0.15 !important;
+  }
+}

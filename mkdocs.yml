@@ -59,6 +59,7 @@ extra_css:
   - assets/css/suricata.css
   - assets/css/yara.css
   - assets/css/azuracast.css
+  - assets/css/about.css
 
 
 extra:
