@@ -54,6 +54,10 @@ extra_css:
   - assets/css/storage.css
   - assets/cssvirtualization.css
   - assets/css/layout-fix.css
+  - assets/css/wazuh.css
+  - assets/css/evebox.css
+  - assets/css/suricata.css
+  - assets/css/yara.css
 
 
 extra:
