@@ -60,6 +60,7 @@ extra_css:
   - assets/css/yara.css
   - assets/css/azuracast.css
   - assets/css/about.css
+  - assets/css/erpnext.css
 
 
 extra:
@@ -124,6 +125,7 @@ nav:
     - Passbolt: MIDGARD/passbolt.md
     - Mailserver: MIDGARD/mailserver.md
     - Docker Services: MIDGARD/docker-services.md
+    - ERP Next: MIDGARD/erpnext.md
   - HUGINN & MUNINN:
     - huginn-muninn.md
     - Ollama: HUGINN-MUNINN/ollama.md

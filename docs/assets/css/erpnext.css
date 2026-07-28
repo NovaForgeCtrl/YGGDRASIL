@@ -1,0 +1,628 @@
+/* ═════════════════════════════════════════════════════════════════════════════
+   🏢 ERPNext v15 — Debian 12 Installations-Guide
+   DokuWiki Custom CSS — Seiten-spezifisch via :has(#erpnext-main)
+   Version: 3.0 — "Neon Overdrive Edition"
+   ═════════════════════════════════════════════════════════════════════════════ */
+
+/* ═══════ SEITEN-SELEKTOR ═══════ */
+/* Aktiviert ALLE Styles nur wenn die Seite #erpnext-main enthält */
+
+/* ── MATRIX / NEON-PARTIKEL HINTERGRUND ── */
+.md-content__inner:has(#erpnext-main)::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(1.5px 1.5px at 40px 30px, rgba(6,182,212,0.8), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(56,189,248,0.6), transparent),
+    radial-gradient(2px 2px at 220px 140px, rgba(251,146,60,0.7), transparent),
+    radial-gradient(1px 1px at 310px 50px, rgba(6,182,212,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 400px 190px, rgba(56,189,248,0.6), transparent),
+    radial-gradient(1px 1px at 490px 100px, rgba(251,146,60,0.7), transparent),
+    radial-gradient(2px 2px at 580px 210px, rgba(6,182,212,0.8), transparent),
+    radial-gradient(1px 1px at 670px 60px, rgba(56,189,248,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 760px 170px, rgba(251,146,60,0.7), transparent),
+    radial-gradient(1px 1px at 850px 40px, rgba(6,182,212,0.8), transparent),
+    radial-gradient(2px 2px at 940px 150px, rgba(56,189,248,0.6), transparent),
+    radial-gradient(1px 1px at 1030px 90px, rgba(251,146,60,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 1120px 200px, rgba(6,182,212,0.8), transparent),
+    radial-gradient(1px 1px at 1210px 70px, rgba(56,189,248,0.6), transparent),
+    radial-gradient(2px 2px at 1300px 180px, rgba(251,146,60,0.7), transparent),
+    radial-gradient(1px 1px at 1390px 110px, rgba(6,182,212,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 1480px 30px, rgba(56,189,248,0.6), transparent),
+    radial-gradient(1px 1px at 1570px 160px, rgba(251,146,60,0.7), transparent),
+    radial-gradient(2px 2px at 1660px 80px, rgba(6,182,212,0.8), transparent),
+    radial-gradient(1px 1px at 1750px 190px, rgba(56,189,248,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 1840px 50px, rgba(251,146,60,0.7), transparent);
+  background-repeat: repeat;
+  background-size: 1920px 250px;
+  animation: erpnextMatrixRain 80s linear infinite;
+  opacity: 0.25;
+}
+
+@keyframes erpnextMatrixRain {
+  0% { transform: translateY(0) scaleY(1); filter: hue-rotate(0deg); }
+  25% { transform: translateY(-62px) scaleY(1.15); filter: hue-rotate(15deg); }
+  50% { transform: translateY(-125px) scaleY(0.95); filter: hue-rotate(0deg); }
+  75% { transform: translateY(-187px) scaleY(1.1); filter: hue-rotate(-15deg); }
+  100% { transform: translateY(-250px) scaleY(1); filter: hue-rotate(0deg); }
+}
+
+/* ── SEKUNDÄRE PARTIKEL-EBENE ── */
+.md-content__inner:has(#erpnext-main)::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(2px 2px at 90px 220px, rgba(251,146,60,0.6), transparent),
+    radial-gradient(1px 1px at 280px 420px, rgba(6,182,212,0.5), transparent),
+    radial-gradient(2px 2px at 470px 120px, rgba(56,189,248,0.6), transparent),
+    radial-gradient(1px 1px at 660px 380px, rgba(251,146,60,0.5), transparent),
+    radial-gradient(2px 2px at 850px 280px, rgba(6,182,212,0.6), transparent),
+    radial-gradient(1px 1px at 1040px 480px, rgba(56,189,248,0.5), transparent),
+    radial-gradient(2px 2px at 1230px 180px, rgba(251,146,60,0.6), transparent),
+    radial-gradient(1px 1px at 1420px 430px, rgba(6,182,212,0.5), transparent),
+    radial-gradient(2px 2px at 1610px 320px, rgba(56,189,248,0.6), transparent),
+    radial-gradient(1px 1px at 1800px 520px, rgba(251,146,60,0.5), transparent);
+  background-repeat: repeat;
+  background-size: 2000px 600px;
+  animation: erpnextParticlesDrift 35s linear infinite;
+  opacity: 0.15;
+}
+
+@keyframes erpnextParticlesDrift {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-600px) rotate(360deg); }
+}
+
+/* ═══════ HAUPTTITEL — NEON GLOW ═══════ */
+#erpnext-main {
+  font-size: clamp(2.2rem, 5.5vw, 4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: #06b6d4 !important;
+  text-shadow:
+    0 0 10px rgba(6, 182, 212, 0.6),
+    0 0 20px rgba(6, 182, 212, 0.4),
+    0 0 40px rgba(6, 182, 212, 0.25),
+    0 0 80px rgba(56, 189, 248, 0.15),
+    0 0 120px rgba(56, 189, 248, 0.08) !important;
+  animation: erpnextTitlePulse 2.5s ease-in-out infinite, erpnextTitleFlicker 5s ease-in-out infinite !important;
+  border: none !important;
+  margin-bottom: 1rem !important;
+  position: relative !important;
+  padding-top: 1.2rem !important;
+}
+
+@keyframes erpnextTitlePulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(6,182,212,0.6), 0 0 20px rgba(6,182,212,0.4), 0 0 40px rgba(6,182,212,0.25), 0 0 80px rgba(56,189,248,0.15), 0 0 120px rgba(56,189,248,0.08) !important;
+    filter: brightness(1);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(6,182,212,0.8), 0 0 30px rgba(6,182,212,0.5), 0 0 60px rgba(6,182,212,0.3), 0 0 100px rgba(56,189,248,0.2), 0 0 150px rgba(56,189,248,0.1) !important;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes erpnextTitleFlicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
+}
+
+/* Emoji */
+#erpnext-main::after {
+  content: '🏢' !important;
+  display: inline-block !important;
+  margin-left: 0.2em !important;
+  font-size: 0.6em !important;
+  animation: erpnextEmojiFloat 3.5s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.5)) !important;
+}
+
+@keyframes erpnextEmojiFloat {
+  0%, 100% { transform: translateY(0) rotate(-8deg) scale(1); }
+  25% { transform: translateY(-8px) rotate(5deg) scale(1.06); }
+  50% { transform: translateY(-12px) rotate(-3deg) scale(1.1); }
+  75% { transform: translateY(-6px) rotate(6deg) scale(1.06); }
+}
+
+/* RGB Chromatic Aberration */
+#erpnext-main::before {
+  content: 'ERPNext v15' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  color: transparent !important;
+  text-shadow: -3px 0 #fb923c, 3px 0 #06b6d4 !important;
+  opacity: 0 !important;
+  animation: erpnextChromatic 3.5s ease-in-out infinite !important;
+  pointer-events: none !important;
+  letter-spacing: 0.12em !important;
+}
+
+@keyframes erpnextChromatic {
+  0%, 85%, 100% { opacity: 0; transform: translateX(0); }
+  87% { opacity: 0.4; transform: translateX(-4px); }
+  89% { opacity: 0.6; transform: translateX(4px); }
+  91% { opacity: 0.3; transform: translateX(-2px); }
+  93% { opacity: 0.5; transform: translateX(2px); }
+  95% { opacity: 0.2; transform: translateX(0); }
+  97% { opacity: 0; }
+}
+
+/* ═══════ UNTERTITEL / BLOCKQUOTE ─────── */
+#erpnext-main + blockquote {
+  border-left: 3px solid rgba(6, 182, 212, 0.3) !important;
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, transparent 100%) !important;
+  border-radius: 0 14px 14px 0 !important;
+  padding: 1.2rem 1.8rem !important;
+  color: #38bdf8 !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: 2.5rem !important;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.06) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#erpnext-main + blockquote::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, #06b6d4, #fb923c, #06b6d4, transparent) !important;
+  background-size: 300% 100% !important;
+  animation: erpnextRainbowLine 3s linear infinite !important;
+}
+
+@keyframes erpnextRainbowLine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* ═══════ SECTION HEADERS (H2) ═══════ */
+#erpnext-main ~ h2 {
+  color: #06b6d4 !important;
+  font-size: 1.9rem !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  letter-spacing: 0.1em !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 0 12px rgba(6, 182, 212, 0.35) !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important;
+}
+
+#erpnext-main ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 70% !important;
+  height: 2px !important;
+  margin: 0.6rem auto 0 !important;
+  background: linear-gradient(90deg, transparent, #06b6d4, #fb923c, #38bdf8, #fb923c, #06b6d4, transparent) !important;
+  background-size: 400% 100% !important;
+  animation: erpnextRainbowLine 4s linear infinite !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.2) !important;
+}
+
+/* ═══════ STEP-CARDS / WELTEN-BOXEN (H3) ═══════ */
+#erpnext-main ~ h3 {
+  background: linear-gradient(135deg, #0a1118 0%, #0f1720 50%, #0a1118 100%) !important;
+  border: 1px solid rgba(6, 182, 212, 0.2) !important;
+  border-radius: 18px !important;
+  padding: 1.6rem 2.2rem !important;
+  margin: 1.8rem 0 0.6rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(6, 182, 212, 0.06),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  color: #06b6d4 !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  animation: erpnextBoxFloat 5s ease-in-out infinite !important;
+}
+
+#erpnext-main ~ h3:nth-of-type(1) { animation-delay: 0s !important; }
+#erpnext-main ~ h3:nth-of-type(2) { animation-delay: -0.7s !important; }
+#erpnext-main ~ h3:nth-of-type(3) { animation-delay: -1.4s !important; }
+#erpnext-main ~ h3:nth-of-type(4) { animation-delay: -2.1s !important; }
+#erpnext-main ~ h3:nth-of-type(5) { animation-delay: -2.8s !important; }
+#erpnext-main ~ h3:nth-of-type(6) { animation-delay: -3.5s !important; }
+#erpnext-main ~ h3:nth-of-type(7) { animation-delay: -4.2s !important; }
+#erpnext-main ~ h3:nth-of-type(8) { animation-delay: -0.35s !important; }
+#erpnext-main ~ h3:nth-of-type(9) { animation-delay: -1.05s !important; }
+#erpnext-main ~ h3:nth-of-type(10) { animation-delay: -1.75s !important; }
+
+@keyframes erpnextBoxFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+#erpnext-main ~ h3:hover {
+  transform: translateY(-10px) scale(1.02) !important;
+  border-color: #06b6d4 !important;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 30px rgba(6, 182, 212, 0.2),
+    0 0 60px rgba(6, 182, 212, 0.1),
+    0 0 90px rgba(56, 189, 248, 0.06),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* Farbiger Neon-Rand oben */
+#erpnext-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #06b6d4, #38bdf8, #fb923c, #38bdf8, #06b6d4) !important;
+  background-size: 300% 100% !important;
+  animation: erpnextRainbowLine 3.5s linear infinite !important;
+  opacity: 0.8 !important;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.3) !important;
+}
+
+/* Scanline-Effekt */
+#erpnext-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.08), transparent) !important;
+  animation: erpnextScanline 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes erpnextScanline {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+/* ═══════ BESCHREIBUNGSTEXT ═══════ */
+#erpnext-main ~ h3 + p {
+  color: #38bdf8 !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.8rem !important;
+  padding-left: 0.5rem !important;
+}
+
+/* ═══════ CODE BLOCKS ═══════ */
+#erpnext-main ~ pre {
+  background: linear-gradient(135deg, #0a1118 0%, #0f1720 100%) !important;
+  border: 1px solid rgba(6, 182, 212, 0.18) !important;
+  border-radius: 18px !important;
+  padding: 1.8rem !important;
+  margin: 1.5rem 0 !important;
+  box-shadow:
+    0 4px 30px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(6, 182, 212, 0.06),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  overflow-x: auto !important;
+  position: relative !important;
+}
+
+#erpnext-main ~ pre::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #06b6d4, #38bdf8, #fb923c, #38bdf8, #06b6d4) !important;
+  background-size: 300% 100% !important;
+  animation: erpnextRainbowLine 3s linear infinite !important;
+  opacity: 0.7 !important;
+  border-radius: 18px 18px 0 0 !important;
+}
+
+#erpnext-main ~ pre code {
+  background: none !important;
+  border: none !important;
+  color: #22d3ee !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.88rem !important;
+  line-height: 1.7 !important;
+}
+
+/* ═══════ INLINE CODE ═══════ */
+#erpnext-main ~ p code:not(pre code) {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(56, 189, 248, 0.08) 100%) !important;
+  color: #06b6d4 !important;
+  padding: 0.25rem 0.7rem !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(6, 182, 212, 0.18) !important;
+  font-size: 0.88em !important;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
+#erpnext-main ~ p code:not(pre code):hover {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2) !important;
+  border-color: rgba(6, 182, 212, 0.3) !important;
+}
+
+/* ═══════ TABELLEN ═══════ */
+#erpnext-main ~ table {
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(6, 182, 212, 0.15) !important;
+  background: linear-gradient(135deg, #0a1118 0%, #0f1720 100%) !important;
+  box-shadow:
+    0 4px 30px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(6, 182, 212, 0.06),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  margin: 1.5rem 0 !important;
+}
+
+#erpnext-main ~ table thead {
+  background: linear-gradient(180deg, rgba(6, 182, 212, 0.12) 0%, rgba(56, 189, 248, 0.04) 100%) !important;
+}
+
+#erpnext-main ~ table th {
+  color: #06b6d4 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.15em !important;
+  border-bottom: 2px solid #06b6d4 !important;
+  padding: 1.3rem 1.8rem !important;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.3) !important;
+}
+
+#erpnext-main ~ table td {
+  border-bottom: 1px solid rgba(6, 182, 212, 0.1) !important;
+  padding: 1.1rem 1.8rem !important;
+  color: #e2e8f0 !important;
+  transition: all 0.3s ease !important;
+}
+
+#erpnext-main ~ table tr:hover {
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.08) 0%, transparent 100%) !important;
+}
+
+#erpnext-main ~ table tr:hover td {
+  color: #06b6d4 !important;
+  text-shadow: 0 0 6px rgba(6, 182, 212, 0.2) !important;
+}
+
+/* ═══════ LINKS ═══════ */
+#erpnext-main ~ p a {
+  display: inline-block !important;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(251, 146, 60, 0.04) 100%) !important;
+  border: 1px solid rgba(6, 182, 212, 0.18) !important;
+  border-radius: 10px !important;
+  padding: 0.5rem 1.2rem !important;
+  margin: 0.25rem !important;
+  color: #06b6d4 !important;
+  text-decoration: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.06) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#erpnext-main ~ p a::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent) !important;
+  transition: left 0.6s ease !important;
+}
+
+#erpnext-main ~ p a:hover::before {
+  left: 100% !important;
+}
+
+#erpnext-main ~ p a:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.18) 0%, rgba(251, 146, 60, 0.1) 100%) !important;
+  border-color: #06b6d4 !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 15px rgba(6, 182, 212, 0.25),
+    0 0 30px rgba(6, 182, 212, 0.15),
+    0 0 45px rgba(56, 189, 248, 0.1) !important;
+  transform: translateY(-3px) !important;
+  animation: erpnextGlitch 0.3s ease !important;
+}
+
+@keyframes erpnextGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* ═══════ HORIZONTAL RULE ═══════ */
+#erpnext-main ~ hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #06b6d4, #fb923c, #38bdf8, #fb923c, #06b6d4, transparent) !important;
+  background-size: 400% 100% !important;
+  animation: erpnextRainbowLine 4s linear infinite !important;
+  margin: 2.5rem 0 !important;
+  opacity: 0.5 !important;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2) !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+#erpnext-main ~ hr::after {
+  content: '📘' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #06b6d4 !important;
+  font-size: 1.3rem !important;
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.4) !important;
+  background: #0a0f14 !important;
+  padding: 0 1rem !important;
+}
+
+/* ═══════ ZITAT / BLOCKQUOTE ═══════ */
+#erpnext-main ~ blockquote {
+  border-left: 4px solid #06b6d4 !important;
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.05) 0%, transparent 100%) !important;
+  border-radius: 0 18px 18px 0 !important;
+  padding: 2rem 2.5rem !important;
+  font-style: italic !important;
+  color: #e2e8f0 !important;
+  text-align: center !important;
+  box-shadow:
+    0 0 25px rgba(6, 182, 212, 0.06),
+    inset 0 0 25px rgba(6, 182, 212, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-top: 2rem !important;
+}
+
+#erpnext-main ~ blockquote::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: -20px !important;
+  left: 25px !important;
+  font-size: 5.5rem !important;
+  color: rgba(6, 182, 212, 0.1) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+#erpnext-main ~ blockquote::after {
+  content: '"' !important;
+  position: absolute !important;
+  bottom: -30px !important;
+  right: 25px !important;
+  font-size: 5.5rem !important;
+  color: rgba(6, 182, 212, 0.1) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+/* ═══════ ADMONITION / NOTE BOXES ═══════ */
+#erpnext-main ~ .admonition,
+#erpnext-main ~ div.admonition {
+  background: linear-gradient(135deg, #0a1118 0%, #0f1720 100%) !important;
+  border: 1px solid rgba(6, 182, 212, 0.15) !important;
+  border-radius: 18px !important;
+  padding: 1.8rem !important;
+  margin: 1.5rem 0 !important;
+  box-shadow:
+    0 4px 30px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(6, 182, 212, 0.06),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#erpnext-main ~ .admonition::before,
+#erpnext-main ~ div.admonition::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #06b6d4, #38bdf8, #fb923c, #38bdf8, #06b6d4) !important;
+  background-size: 300% 100% !important;
+  animation: erpnextRainbowLine 3s linear infinite !important;
+  opacity: 0.8 !important;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.2) !important;
+}
+
+#erpnext-main ~ .admonition .admonition-title,
+#erpnext-main ~ div.admonition .admonition-title {
+  color: #06b6d4 !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 0.75rem !important;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.25) !important;
+}
+
+#erpnext-main ~ .admonition p,
+#erpnext-main ~ div.admonition p {
+  color: #e2e8f0 !important;
+  margin: 0.4rem 0 !important;
+}
+
+/* ═══════ LISTEN ═══════ */
+#erpnext-main ~ ul li,
+#erpnext-main ~ ol li {
+  color: #e2e8f0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#erpnext-main ~ ul li::marker {
+  color: #06b6d4 !important;
+}
+
+#erpnext-main ~ ol li::marker {
+  color: #fb923c !important;
+  font-weight: bold !important;
+}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media (max-width: 768px) {
+  #erpnext-main {
+    font-size: 2rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  #erpnext-main ~ h2 {
+    font-size: 1.4rem !important;
+  }
+
+  #erpnext-main ~ h3 {
+    padding: 1.2rem 1.5rem !important;
+    font-size: 1.15rem !important;
+  }
+
+  #erpnext-main ~ p a {
+    padding: 0.4rem 0.9rem !important;
+    font-size: 0.8rem !important;
+    margin: 0.15rem !important;
+  }
+
+  .md-content__inner:has(#erpnext-main)::before {
+    opacity: 0.2 !important;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   END OF STYLESHEET — ERPNext Neon Overdrive v3.0
+   ═════════════════════════════════════════════════════════════════════════════ */
