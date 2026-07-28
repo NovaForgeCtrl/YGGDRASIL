@@ -61,6 +61,7 @@ extra_css:
   - assets/css/azuracast.css
   - assets/css/about.css
   - assets/css/erpnext.css
+  - assets/css/peertube.css
 
 
 extra:
@@ -126,6 +127,7 @@ nav:
     - Mailserver: MIDGARD/mailserver.md
     - Docker Services: MIDGARD/docker-services.md
     - ERP Next: MIDGARD/erpnext.md
+    - Peertube: MIDGARD/peertube.md
   - HUGINN & MUNINN:
     - huginn-muninn.md
     - Ollama: HUGINN-MUNINN/ollama.md
