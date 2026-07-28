@@ -61,8 +61,8 @@ mydestination =
   $mydomain
 
 mynetworks =
-  127.0.0.0/8,
-  192.168.1.0/24
+  xxx.xxx.xxx.xxx/8,
+  xxx.xxx.xxx.xxx/24
 
 Damit akzeptiert Postfix Mails aus dem lokalen Netzwerk.
 
@@ -219,7 +219,7 @@ sudo chown -R anna:anna /home/anna/Maildir
 
 | Feld | Wert |
 |------|------|
-| Server | 192.168.1.10 |
+| Server | xxx.xxx.xxx.xxx |
 | Port | 993 |
 | Verbindung | SSL/TLS |
 | Authentifizierung | Passwort normal |
@@ -229,7 +229,7 @@ sudo chown -R anna:anna /home/anna/Maildir
 
 | Feld | Wert |
 |------|------|
-| Server | 192.168.1.10 |
+| Server | xxx.xxx.xxx.xxx |
 | Port | 25 |
 | Verbindung | Keine |
 | Authentifizierung | Keine |

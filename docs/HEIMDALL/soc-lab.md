@@ -1358,7 +1358,7 @@ und bildet damit eine solide Grundlage für ein Blue-Team Labor.
 ## 4. Wazuh SOC-Lab Security Monitoring & Incident Response
 
 > Blue-Team Homelab mit Orientierung an NIS2 und BSI IT-Grundschutz  
-> **Server:** `wazuh-server` (`192.168.x.xxx`)  
+> **Server:** `wazuh-server` (`xxx.xxx.xxx.xxx`)  
 > **OS:** Ubuntu Server 26.04  
 > **Wazuh Version:** 4.x
 

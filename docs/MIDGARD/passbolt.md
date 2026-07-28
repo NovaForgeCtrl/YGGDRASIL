@@ -17,7 +17,7 @@
 | Datenbank        | MariaDB 10.11                 |
 | Webserver        | Nginx (innerhalb des Containers) |
 | Zugriff          | HTTPS über interne IP-Adresse |
-| Server-IP        | `192.168.x.xxx`               |
+| Server-IP        | `xxx.xxx.xxx.xxx`               |
 | Zugriffs-URL     | `https://xxx.xxx.xxx.xxx`       |
 
 ---

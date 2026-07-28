@@ -311,7 +311,7 @@ http://SERVER-IP:3000
 
 **Beispiel:**
 ```
-http://192.168.1.10:3000
+http://xxx.xxx.xxx.xxx:3000
 ```
 
 ---
@@ -329,10 +329,10 @@ http://192.168.1.10:3000
 
 | Einstellung   | Wert                          |
 |---------------|-------------------------------|
-| Server Domain | `192.168.1.10`                |
+| Server Domain | `xxx.xxx.xxx.xxx                |
 | SSH Port      | `2222`                        |
 | HTTP Port     | `3000`                        |
-| Basis URL     | `http://192.168.1.10:3000/`   |
+| Basis URL     | `http://xxx.xxx.xxx.xxx:3000/`   |
 
 ---
 
@@ -397,7 +397,7 @@ git commit -m "Initial Commit"
 ### Remote hinzufügen
 
 ```bash
-git remote add origin ssh://git@192.168.1.10:2222/benutzer/Projekt.git
+git remote add origin ssh://git@1xxx.xxx.xxx.xxx:2222/benutzer/Projekt.git
 ```
 
 ### Push
