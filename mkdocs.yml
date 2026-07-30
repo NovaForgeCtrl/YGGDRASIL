@@ -63,6 +63,7 @@ extra_css:
   - assets/css/erpnext.css
   - assets/css/peertube.css
   - assets/css/ollama.css
+  - assets/css/soc-lab2.css
 
 
 extra:
@@ -112,6 +113,8 @@ nav:
     - EveBox: HEIMDALL/evebox.md
     - YARA: HEIMDALL/yara.md
     - SOC Lab: HEIMDALL/soc-lab.md
+    - SOC Lab Teil 2: HEIMDALL/soc-lab-teil2.md
+
   - BIFROST:
     - bifrost.md
     - OPNsense: BIFROST/opnsense.md

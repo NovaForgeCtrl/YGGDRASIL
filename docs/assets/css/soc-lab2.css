@@ -1,0 +1,566 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SOC-LAB TEIL 2 – YARA × WAZUH INTEGRATION
+   Stil: Cyberpunk Neon Noir
+   Scope: NUR für Seiten mit #soc-lab-teil2
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+/* ═══ MATRIX / NEON HINTERGRUND (nur auf dieser Seite) ═══ */
+.md-content__inner:has(#soc-lab-teil2)::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(1px 1px at 30px 50px, rgba(0, 240, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 80px 120px, rgba(255, 0, 160, 0.3), transparent),
+    radial-gradient(2px 2px at 150px 80px, rgba(57, 255, 20, 0.4), transparent),
+    radial-gradient(1px 1px at 220px 180px, rgba(0, 240, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 300px 40px, rgba(255, 0, 160, 0.5), transparent),
+    radial-gradient(2px 2px at 380px 150px, rgba(0, 240, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 450px 90px, rgba(57, 255, 20, 0.5), transparent),
+    radial-gradient(1px 1px at 520px 200px, rgba(255, 0, 160, 0.3), transparent),
+    radial-gradient(2px 2px at 600px 60px, rgba(0, 240, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 680px 170px, rgba(57, 255, 20, 0.4), transparent),
+    radial-gradient(1px 1px at 750px 110px, rgba(255, 0, 160, 0.5), transparent),
+    radial-gradient(2px 2px at 820px 30px, rgba(0, 240, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 900px 140px, rgba(57, 255, 20, 0.6), transparent),
+    radial-gradient(1px 1px at 980px 70px, rgba(255, 0, 160, 0.4), transparent),
+    radial-gradient(2px 2px at 1050px 190px, rgba(0, 240, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 1120px 100px, rgba(57, 255, 20, 0.3), transparent),
+    radial-gradient(1px 1px at 1200px 50px, rgba(255, 0, 160, 0.6), transparent),
+    radial-gradient(2px 2px at 1280px 160px, rgba(0, 240, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 1350px 120px, rgba(57, 255, 20, 0.5), transparent),
+    radial-gradient(1px 1px at 1420px 40px, rgba(255, 0, 160, 0.3), transparent),
+    radial-gradient(2px 2px at 1500px 180px, rgba(0, 240, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 1580px 90px, rgba(57, 255, 20, 0.4), transparent),
+    radial-gradient(1px 1px at 1650px 130px, rgba(255, 0, 160, 0.5), transparent),
+    radial-gradient(2px 2px at 1720px 60px, rgba(0, 240, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 1800px 170px, rgba(57, 255, 20, 0.6), transparent),
+    radial-gradient(1px 1px at 1880px 110px, rgba(255, 0, 160, 0.4), transparent);
+  background-repeat: repeat;
+  background-size: 1920px 220px;
+  animation: neonRain 10s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes neonRain {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-220px); }
+}
+
+/* ═══ SCANLINE OVERLAY ═══ */
+.md-content__inner:has(#soc-lab-teil2)::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 240, 255, 0.02) 2px,
+    rgba(0, 240, 255, 0.02) 4px
+  );
+  opacity: 0.6;
+}
+
+/* ═══ HAUPTTITEL – NEON GLOW ═══ */
+#soc-lab-teil2 {
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: #00f0ff !important;
+  font-family: 'Orbitron', 'JetBrains Mono', monospace !important;
+  text-shadow:
+    0 0 5px rgba(0, 240, 255, 0.8),
+    0 0 10px rgba(0, 240, 255, 0.6),
+    0 0 20px rgba(0, 240, 255, 0.4),
+    0 0 40px rgba(0, 240, 255, 0.2) !important;
+  animation: terminalFlicker 4s ease-in-out infinite;
+  border: none !important;
+  margin-bottom: 1rem !important;
+  position: relative !important;
+  padding-top: 1rem !important;
+}
+
+@keyframes terminalFlicker {
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  5% { opacity: 0.8; filter: brightness(1.2); }
+  10% { opacity: 1; filter: brightness(1); }
+  15% { opacity: 0.9; filter: brightness(1.1); }
+  20% { opacity: 1; filter: brightness(1); }
+  92% { opacity: 1; filter: brightness(1); }
+  93% { opacity: 0.3; filter: brightness(1.5); }
+  94% { opacity: 1; filter: brightness(1); }
+  96% { opacity: 0.5; filter: brightness(1.3); }
+  97% { opacity: 1; filter: brightness(1); }
+}
+
+/* Shield Emoji */
+#soc-lab-teil2::after {
+  content: '🛡️' !important;
+  display: inline-block !important;
+  margin-left: 0.15em !important;
+  font-size: 0.7em !important;
+  animation: shieldPulse 2s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8)) !important;
+}
+
+@keyframes shieldPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8)); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 25px rgba(0, 240, 255, 1)); }
+}
+
+/* Terminal Prompt über dem Titel */
+#soc-lab-teil2::before {
+  
+  position: absolute !important;
+  top: -5px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 0.35em !important;
+  color: #00f0ff !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  letter-spacing: 0.05em !important;
+  opacity: 0.7 !important;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.5) !important;
+  white-space: nowrap !important;
+}
+
+/* ═══ UNTERTITEL / BLOCKQUOTE ═══ */
+#soc-lab-teil2 + blockquote {
+  border-left: 3px solid rgba(0, 240, 255, 0.3) !important;
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.05) 0%, transparent 100%) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1rem 1.5rem !important;
+  color: #00ccdd !important;
+  font-style: normal !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.05) !important;
+  font-size: 0.9rem !important;
+}
+
+/* ═══ H2 HEADERS – PINK NEON ═══ */
+#soc-lab-teil2 ~ h2 {
+  color: #ff00a0 !important;
+  font-size: 1.6rem !important;
+  font-weight: 800 !important;
+  text-align: left !important;
+  letter-spacing: 0.05em !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 0 12px rgba(255, 0, 160, 0.4) !important;
+  font-family: 'Orbitron', 'JetBrains Mono', monospace !important;
+  position: relative !important;
+  padding-left: 1.5rem !important;
+  border: none !important;
+}
+
+#soc-lab-teil2 ~ h2::before {
+  content: '>' !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: #ff00a0 !important;
+  animation: blink 1s step-end infinite !important;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+#soc-lab-teil2 ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 100% !important;
+  height: 1px !important;
+  margin: 0.5rem 0 0 !important;
+  background: linear-gradient(90deg, #ff00a0, transparent) !important;
+  opacity: 0.4 !important;
+}
+
+/* ═══ H3 HEADERS – GREEN ALERT BOXEN ═══ */
+#soc-lab-teil2 ~ h3 {
+  background: linear-gradient(135deg, #0a0f17 0%, #0f1a12 50%, #0a0f17 100%) !important;
+  border: 1px solid rgba(57, 255, 20, 0.3) !important;
+  border-radius: 4px !important;
+  padding: 1.2rem 1.5rem !important;
+  margin: 1.5rem 0 0.5rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+  box-shadow:
+    0 0 10px rgba(57, 255, 20, 0.1),
+    inset 0 0 20px rgba(57, 255, 20, 0.02) !important;
+  color: #39ff14 !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  font-family: 'Orbitron', 'JetBrains Mono', monospace !important;
+}
+
+/* Alert indicator */
+#soc-lab-teil2 ~ h3::before {
+  content: '[ALERT]' !important;
+  position: absolute !important;
+  top: 8px !important;
+  right: 12px !important;
+  font-size: 0.6rem !important;
+  color: #ff3333 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  animation: alertBlink 2s ease-in-out infinite !important;
+  text-shadow: 0 0 5px rgba(255, 51, 51, 0.8) !important;
+}
+
+@keyframes alertBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Scanline overlay */
+#soc-lab-teil2 ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(57, 255, 20, 0.03) 2px,
+    rgba(57, 255, 20, 0.03) 4px
+  ) !important;
+  pointer-events: none !important;
+}
+
+#soc-lab-teil2 ~ h3:hover {
+  border-color: #39ff14 !important;
+  box-shadow:
+    0 0 20px rgba(57, 255, 20, 0.2),
+    0 0 40px rgba(57, 255, 20, 0.1),
+    inset 0 0 30px rgba(57, 255, 20, 0.05) !important;
+  transform: translateX(5px) !important;
+}
+
+/* ═══ H4 HEADERS – CYAN ═══ */
+#soc-lab-teil2 ~ h4 {
+  color: #00f0ff !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.3) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  margin-top: 1.5rem !important;
+}
+
+/* ═══ PARAGRAPHS ═══ */
+#soc-lab-teil2 ~ p {
+  color: #c8d6e5 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.75 !important;
+  margin-bottom: 1.2em !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+#soc-lab-teil2 ~ p strong {
+  color: #00f0ff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.2) !important;
+}
+
+#soc-lab-teil2 ~ p em {
+  color: #ff00a0 !important;
+  font-style: italic !important;
+}
+
+/* ═══ LINKS – NEON BUTTONS ═══ */
+#soc-lab-teil2 ~ p a {
+  display: inline-block !important;
+  background: rgba(0, 240, 255, 0.08) !important;
+  border: 1px solid rgba(0, 240, 255, 0.3) !important;
+  border-radius: 2px !important;
+  padding: 0.4rem 0.8rem !important;
+  margin: 0.2rem !important;
+  color: #00f0ff !important;
+  text-decoration: none !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#soc-lab-teil2 ~ p a::before {
+  content: '$ ' !important;
+  color: #00f0ff !important;
+  opacity: 0.7 !important;
+}
+
+#soc-lab-teil2 ~ p a:hover {
+  background: rgba(255, 0, 160, 0.2) !important;
+  border-color: #ff00a0 !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 15px rgba(255, 0, 160, 0.3),
+    0 0 30px rgba(255, 0, 160, 0.15) !important;
+  transform: translateX(3px) !important;
+}
+
+/* ═══ CODE INLINE ═══ */
+#soc-lab-teil2 ~ p code:not(pre code) {
+  background: rgba(0, 240, 255, 0.1) !important;
+  color: #00f0ff !important;
+  padding: 0.15rem 0.4rem !important;
+  border-radius: 2px !important;
+  border: 1px solid rgba(0, 240, 255, 0.2) !important;
+  font-size: 0.85em !important;
+  box-shadow: 0 0 5px rgba(0, 240, 255, 0.1) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ═══ PRE / CODE BLOCKS ═══ */
+#soc-lab-teil2 ~ pre {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%) !important;
+  border: 1px solid rgba(0, 240, 255, 0.2) !important;
+  border-left: 3px solid #00f0ff !important;
+  border-radius: 8px !important;
+  padding: 1.4em !important;
+  margin: 1.5em 0 !important;
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.08),
+    inset 0 0 30px rgba(0, 0, 0, 0.3) !important;
+  overflow-x: auto !important;
+  position: relative !important;
+}
+
+#soc-lab-teil2 ~ pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-size: 0.7rem;
+  letter-spacing: 6px;
+  color: #ff00a0;
+  opacity: 0.6;
+}
+
+#soc-lab-teil2 ~ pre code {
+  background: transparent !important;
+  border: none !important;
+  color: #a5b4fc !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.9em !important;
+  line-height: 1.6 !important;
+}
+
+/* ═══ BLOCKQUOTES ═══ */
+#soc-lab-teil2 ~ blockquote {
+  border-left: 4px solid #ff00a0 !important;
+  background: linear-gradient(90deg, rgba(255, 0, 160, 0.06), transparent) !important;
+  color: #ff99cc !important;
+  padding: 1em 1.4em !important;
+  border-radius: 0 10px 10px 0 !important;
+  margin: 1.5em 0 !important;
+  font-style: italic !important;
+  position: relative !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+#soc-lab-teil2 ~ blockquote::before {
+  content: '>>> ' !important;
+  color: #ff00a0 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 0 5px rgba(255, 0, 160, 0.8) !important;
+}
+
+/* ═══ HORIZONTAL RULES ═══ */
+#soc-lab-teil2 ~ hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, #00f0ff, #ff00a0, #39ff14, transparent) !important;
+  margin: 2.5rem 0 !important;
+  opacity: 0.5 !important;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2) !important;
+  position: relative !important;
+}
+
+#soc-lab-teil2 ~ hr::after {
+  content: '--- LOG SEPARATOR ---' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #00f0ff !important;
+  font-size: 0.6rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.8) !important;
+  background: #0a0e17 !important;
+  padding: 0 1rem !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* ═══ TABLES – LOG VIEWER ═══ */
+#soc-lab-teil2 ~ table {
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(0, 240, 255, 0.2) !important;
+  background: #0a0e17 !important;
+  box-shadow:
+    0 0 15px rgba(0, 240, 255, 0.1),
+    inset 0 0 20px rgba(0, 240, 255, 0.02) !important;
+  margin: 1.5rem 0 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+
+#soc-lab-teil2 ~ table thead {
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.15) 0%, rgba(255, 0, 160, 0.08) 100%) !important;
+}
+
+#soc-lab-teil2 ~ table th {
+  color: #00f0ff !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.1em !important;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3) !important;
+  padding: 1rem 1.2rem !important;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.4) !important;
+  font-family: 'Orbitron', 'JetBrains Mono', monospace !important;
+}
+
+#soc-lab-teil2 ~ table td {
+  border-bottom: 1px solid rgba(0, 240, 255, 0.1) !important;
+  padding: 0.8rem 1.2rem !important;
+  color: #c8d6e5 !important;
+  transition: all 0.2s ease !important;
+  font-size: 0.85rem !important;
+}
+
+#soc-lab-teil2 ~ table tr:nth-child(even) {
+  background: rgba(15, 23, 42, 0.6) !important;
+}
+
+#soc-lab-teil2 ~ table tr:hover {
+  background: rgba(0, 240, 255, 0.05) !important;
+}
+
+#soc-lab-teil2 ~ table tr:hover td {
+  color: #00f0ff !important;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.3) !important;
+}
+
+/* ═══ LISTS ═══ */
+#soc-lab-teil2 ~ ul,
+#soc-lab-teil2 ~ ol {
+  padding-left: 1.8em !important;
+  margin: 1em 0 !important;
+}
+
+#soc-lab-teil2 ~ li {
+  margin-bottom: 0.5em !important;
+  color: #c8d6e5 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+#soc-lab-teil2 ~ li::marker {
+  color: #00f0ff !important;
+}
+
+/* ═══ IMAGES ═══ */
+#soc-lab-teil2 ~ img {
+  border-radius: 10px !important;
+  border: 1px solid rgba(0, 240, 255, 0.2) !important;
+  box-shadow:
+    0 0 30px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(0, 240, 255, 0.03) !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 1.5em auto !important;
+  transition: all 0.3s ease !important;
+}
+
+#soc-lab-teil2 ~ img:hover {
+  box-shadow:
+    0 0 40px rgba(0, 240, 255, 0.1),
+    0 0 80px rgba(0, 240, 255, 0.05) !important;
+  transform: scale(1.01) !important;
+}
+
+/* ═══ ASCII ART PRE BLOCKS ═══ */
+#soc-lab-teil2 ~ div pre,
+#soc-lab-teil2 ~ pre:has(code:only-child) {
+  background: #0a0e17 !important;
+  border: 1px solid rgba(0, 240, 255, 0.15) !important;
+  color: #00f0ff !important;
+}
+
+/* ═══ SCROLLBAR ═══ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e17;
+  border-left: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f0ff, #ff00a0);
+  border-radius: 5px;
+  border: 2px solid #0a0e17;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff00a0, #39ff14);
+  box-shadow: 0 0 10px rgba(255, 0, 160, 0.3);
+}
+
+/* ═══ SELECTION ═══ */
+::selection {
+  background: rgba(0, 240, 255, 0.25);
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  #soc-lab-teil2 {
+    font-size: 1.6rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  #soc-lab-teil2 ~ h2 {
+    font-size: 1.3rem !important;
+  }
+
+  #soc-lab-teil2 ~ h3 {
+    padding: 1rem 1.2rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  #soc-lab-teil2 ~ p a {
+    padding: 0.3rem 0.6rem !important;
+    font-size: 0.75rem !important;
+    margin: 0.15rem !important;
+  }
+
+  .md-content__inner:has(#soc-lab-teil2)::before {
+    opacity: 0.15 !important;
+  }
+}
