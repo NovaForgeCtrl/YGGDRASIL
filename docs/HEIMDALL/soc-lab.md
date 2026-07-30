@@ -77,10 +77,10 @@ network:
     ens18:
       dhcp4: no
       addresses:
-        - 192.168.x.xxx/24
+        - xxx.xxx.xxx.xxx/24
       routes:
         - to: default
-          via: 192.168.x.1
+          via: xxx.xxx.xxx.xxx
       nameservers:
         addresses:
           - 8.8.8.8
@@ -335,8 +335,8 @@ Der Agent sammelt Informationen von Clients und sendet diese an den Manager.
 | Komponente | Wert |
 |------------|------|
 | Agent | `Agent-Name` |
-| Agent IP | `192.168.x.xxx` |
-| Manager | `192.168.x.xxx` |
+| Agent IP | `xxx.xxx.xxx.xxx` |
+| Manager | `xxx.xxx.xxx.xxx` |
 
 ---
 
@@ -474,9 +474,9 @@ Ziel des Labs:
 | Komponente | Rolle | IP-Adresse |
 |------------|-------|------------|
 | Kali Linux | Angreifer-Simulation | – |
-| Zielsystem | Angriffsziel | `192.168.x.xxx` |
-| Ubuntu Server (Wazuh) | Wazuh + Suricata | `192.168.x.xxx` |
-| Agent-System | Wazuh Agent | `192.168.x.xxx` |
+| Zielsystem | Angriffsziel | `xxx.xxx.xxx.xxx` |
+| Ubuntu Server (Wazuh) | Wazuh + Suricata | `xxx.xxx.xxx.xxx` |
+| Agent-System | Wazuh Agent | `xxx.xxx.xxx.xxx` |
 
 Datenfluss: `Kali Linux → Zielsystem → Suricata IDS → Wazuh Manager → Wazuh Dashboard`
 
@@ -489,20 +489,20 @@ Datenfluss: `Kali Linux → Zielsystem → Suricata IDS → Wazuh Manager → Wa
 | Attribut | Wert |
 |----------|------|
 | Hostname | `wazuh-server` |
-| IP-Adresse | `192.168.x.xxx` |
+| IP-Adresse | `xxx.xxx.xxx.xxx` |
 
 #### Zielsystem
 
 | Attribut | Wert |
 |----------|------|
-| IP-Adresse | `192.168.x.xxx` |
+| IP-Adresse | `xxx.xxx.xxx.xxx` |
 
 #### Wazuh Agent
 
 | Attribut | Wert |
 |----------|------|
 | Hostname | `agent-host` |
-| IP-Adresse | `192.168.x.xxx` |
+| IP-Adresse | `xxx.xxx.xxx.xxx` |
 
 ---
 
@@ -523,10 +523,10 @@ network:
     ens18:
       dhcp4: no
       addresses:
-        - 192.168.x.xxx/24
+        - xxx.xxx.xxx.xxx/24
       routes:
         - to: default
-          via: 192.168.x.1
+          via: xxx.xxx.xxx.xxx
       nameservers:
         addresses:
           - 8.8.8.8
@@ -582,7 +582,7 @@ Agents melden sich beim Wazuh Manager an.
 
 | Agent | IP | Manager |
 |-------|-----|---------|
-| `agent-host` | `192.168.x.xxx` | `192.168.x.xxx` |
+| `agent-host` | `xxx.xxx.xxx.xxx` | `xxx.xxx.xxx.xxx` |
 
 Erfolgreiche Registrierung im Log:
 
@@ -708,7 +708,7 @@ event_type = alert
 
 Kali Linux wird als kontrolliertes Red-Team-System verwendet.
 
-Ziel: `192.168.x.xxx`
+Ziel: `xxx.xxx.xxx.xxx`
 
 ---
 
@@ -717,7 +717,7 @@ Ziel: `192.168.x.xxx`
 #### Host Discovery
 
 ```bash
-sudo nmap -sn 192.168.x.0/24
+sudo nmap -sn xxx.xxx.xxx.xxx/24
 ```
 
 Erkennt aktive Systeme im Netzwerk.
@@ -727,7 +727,7 @@ MITRE ATT&CK: `T1018` Remote System Discovery
 #### Portscan
 
 ```bash
-sudo nmap -sS 192.168.x.xxx
+sudo nmap -sS xxx.xxx.xxx.xxx
 ```
 
 Erkennt offene Ports.
@@ -735,7 +735,7 @@ Erkennt offene Ports.
 #### Service Detection
 
 ```bash
-sudo nmap -sV 192.168.x.xxx
+sudo nmap -sV xxx.xxx.xxx.xxx
 ```
 
 Erkennt:
@@ -747,7 +747,7 @@ Erkennt:
 #### Erweiterter Scan
 
 ```bash
-sudo nmap -A 192.168.x.xxx
+sudo nmap -A xxx.xxx.xxx.xxx
 ```
 
 Erkennt:
@@ -763,13 +763,13 @@ Erkennt:
 SSH-Verbindung:
 
 ```bash
-ssh user@192.168.x.xxx
+ssh user@xxx.xxx.xxx.xxx
 ```
 
 Fehlversuche:
 
 ```bash
-ssh testuser@192.168.x.xxx
+ssh testuser@xxx.xxx.xxx.xxx
 ```
 
 Wazuh kann erkennen:
@@ -787,10 +787,10 @@ tcpdump zeigt den Rohverkehr.
 
 | Befehl | Beschreibung |
 |--------|--------------|
-| `sudo tcpdump -i eth0 host 192.168.x.xxx` | Grundlegender Verkehr |
-| `sudo tcpdump -i eth0 -nn -vv host 192.168.x.xxx` | Mehr Details |
-| `sudo tcpdump -i eth0 -nn host 192.168.x.xxx and port 22` | Nur SSH beobachten |
-| `sudo tcpdump -i eth0 host 192.168.x.xxx -w test.pcap` | Paketmitschnitt speichern |
+| `sudo tcpdump -i eth0 host xxx.xxx.xxx.xxx` | Grundlegender Verkehr |
+| `sudo tcpdump -i eth0 -nn -vv host xxx.xxx.xxx.xxx` | Mehr Details |
+| `sudo tcpdump -i eth0 -nn host xxx.xxx.xxx.xxx and port 22` | Nur SSH beobachten |
+| `sudo tcpdump -i eth0 host xxx.xxx.xxx.xxx -w test.pcap` | Paketmitschnitt speichern |
 
 Analyse der PCAP-Datei: Wireshark
 
@@ -1518,7 +1518,7 @@ Blockt IPs automatisch bei SSH-Brute-Force.
 - IP-Blocking via `iptables -A INPUT -s <IP> -j DROP`
 - Auto-Unblock nach 1 Stunde (3600s)
 - Logging in `/var/ossec/logs/active-responses.log`
-- Whitelist für `127.0.0.1` und `192.168.x.xxx`
+- Whitelist für `xxx.xxx.xxx.xxx` und `xxx.xxx.xxx.xxx`
 
 #### Konfiguration in ossec.conf
 
@@ -1551,7 +1551,7 @@ In produktiven Umgebungen müssen vor automatisierten Maßnahmen zusätzliche Pr
 
 | Attribut | Wert |
 |----------|------|
-| Server | Postfix/Dovecot auf `192.168.x.xxx` |
+| Server | Postfix/Dovecot auf `xxx.xxx.xxx.xxx` |
 | Domain | `intern.local` |
 | Empfänger | `admin@intern.local` |
 
@@ -1560,7 +1560,7 @@ In produktiven Umgebungen müssen vor automatisierten Maßnahmen zusätzliche Pr
 ```xml
 <global>
     <email_notification>yes</email_notification>
-    <smtp_server>192.168.x.xxx</smtp_server>
+    <smtp_server>xxx.xxx.xxx.xxx</smtp_server>
     <email_from>wazuh@wazuh-server.intern.local</email_from>
     <email_to>admin@intern.local</email_to>
     <email_maxperhour>12</email_maxperhour>
@@ -1642,7 +1642,7 @@ sudo evebox server --config /etc/evebox/evebox.yaml --no-auth
 
 | Attribut | Wert |
 |----------|------|
-| URL | `http://192.168.x.xxx:5636` |
+| URL | `http://xxx.xxx.xxx.xxx:5636` |
 | Auth | Keine (für Homelab) |
 
 > Hinweis: EveBox wurde im Homelab ohne Authentifizierung betrieben. Für produktive Umgebungen sollte eine Zugriffskontrolle (z.B. Reverse Proxy mit Authentifizierung) vorgeschaltet werden.
@@ -1655,9 +1655,9 @@ sudo evebox server --config /etc/evebox/evebox.yaml --no-auth
 
 | Schritt | Befehl | Ergebnis |
 |---------|--------|----------|
-| 1 | `sudo /var/ossec/active-response/bin/firewall-drop add root 192.168.x.xxx 12345 100002 10 /var/log/auth.log` | ✅ IP geblockt |
+| 1 | `sudo /var/ossec/active-response/bin/firewall-drop add root xxx.xxx.xxx.xxx 12345 100002 10 /var/log/auth.log` | ✅ IP geblockt |
 | 2 | `sudo iptables -L INPUT -n | grep DROP` | ✅ DROP-Regel sichtbar |
-| 3 | `sudo /var/ossec/active-response/bin/firewall-drop delete root 192.168.x.xxx 12345 100002 10 /var/log/auth.log` | ✅ IP freigegeben |
+| 3 | `sudo /var/ossec/active-response/bin/firewall-drop delete root xxx.xxx.xxx.xxx 12345 100002 10 /var/log/auth.log` | ✅ IP freigegeben |
 
 #### Test 2: Email-Alerts
 
