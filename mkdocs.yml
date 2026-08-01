@@ -64,6 +64,7 @@ extra_css:
   - assets/css/peertube.css
   - assets/css/ollama.css
   - assets/css/soc-lab2.css
+  - assets/css/robotics-platform.css
 
 
 extra:
@@ -138,6 +139,8 @@ nav:
     - Open WebUI: HUGINN-MUNINN/open-webui.md
     - Automatisierung: HUGINN-MUNINN/automation.md
     - Experimente: HUGINN-MUNINN/experiments.md
+    - Robotics: HUGINN-MUNINN/robotics-platform.md
+
   - ODIN:
     - odin.md
     - Dokumentation: ODIN/documentation.md

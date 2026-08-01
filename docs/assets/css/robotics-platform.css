@@ -1,0 +1,391 @@
+/* ==========================================================================
+   🤖 Robotics Platform Documentation Styles
+   ID-Scope: #robotics-platform-docs-v02alpha
+   Version: 0.2-alpha
+   Purpose: Exclusive styling for the Robotics Platform markdown documentation
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   ROOT VARIABLES & THEME
+   -------------------------------------------------------------------------- */
+#robotics-platform-docs-v02alpha {
+  --rp-bg: #0d0f17;
+  --rp-bg-elevated: #161922;
+  --rp-bg-code: #1a1d27;
+  --rp-border: #2a2e3b;
+  --rp-text: #c9cdd9;
+  --rp-text-muted: #7a8199;
+  --rp-text-heading: #e8eaf2;
+  --rp-accent: #a855f7;
+  --rp-accent-dim: rgba(168, 85, 247, 0.12);
+  --rp-accent-glow: rgba(168, 85, 247, 0.25);
+  --rp-success: #22c55e;
+  --rp-danger: #ef4444;
+  --rp-warning: #f59e0b;
+  --rp-info: #3b82f6;
+  --rp-mono: 'SF Mono', 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+  --rp-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+  --rp-radius-sm: 6px;
+  --rp-radius: 10px;
+  --rp-radius-lg: 16px;
+  --rp-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --rp-shadow-glow: 0 0 40px var(--rp-accent-glow);
+  --rp-max-width: 960px;
+  --rp-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light mode support (auto-detect) */
+@media (prefers-color-scheme: light) {
+  #robotics-platform-docs-v02alpha {
+    --rp-bg: #f8f9fc;
+    --rp-bg-elevated: #ffffff;
+    --rp-bg-code: #f1f3f8;
+    --rp-border: #e2e5ed;
+    --rp-text: #2d3142;
+    --rp-text-muted: #6b6f80;
+    --rp-text-heading: #1a1c29;
+    --rp-accent: #7c3aed;
+    --rp-accent-dim: rgba(124, 58, 237, 0.08);
+    --rp-accent-glow: rgba(124, 58, 237, 0.15);
+    --rp-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --rp-shadow-glow: 0 0 40px var(--rp-accent-glow);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BASE LAYOUT
+   -------------------------------------------------------------------------- */
+#robotics-platform-docs-v02alpha {
+  font-family: var(--rp-sans);
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--rp-text);
+  background: var(--rp-bg);
+  max-width: var(--rp-max-width);
+  margin: 0 auto;
+  padding: 48px 28px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+#robotics-platform-docs-v02alpha h1,
+#robotics-platform-docs-v02alpha h2,
+#robotics-platform-docs-v02alpha h3,
+#robotics-platform-docs-v02alpha h4 {
+  color: var(--rp-text-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-top: 2.4em;
+  margin-bottom: 0.7em;
+}
+
+#robotics-platform-docs-v02alpha h1 {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.2em;
+  padding-bottom: 0.6em;
+  border-bottom: 2px solid var(--rp-accent);
+  position: relative;
+}
+
+#robotics-platform-docs-v02alpha h1::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 2px;
+  background: var(--rp-accent);
+  box-shadow: 0 0 12px var(--rp-accent-glow);
+}
+
+#robotics-platform-docs-v02alpha h2 {
+  font-size: 1.55rem;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--rp-border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#robotics-platform-docs-v02alpha h2::before {
+  content: '▸';
+  color: var(--rp-accent);
+  font-size: 0.85em;
+}
+
+#robotics-platform-docs-v02alpha h3 {
+  font-size: 1.2rem;
+  color: var(--rp-accent);
+  margin-top: 2em;
+}
+
+#robotics-platform-docs-v02alpha h4 {
+  font-size: 1.05rem;
+  color: var(--rp-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+#robotics-platform-docs-v02alpha p {
+  margin: 0.9em 0;
+}
+
+#robotics-platform-docs-v02alpha a {
+  color: var(--rp-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: var(--rp-transition);
+}
+
+#robotics-platform-docs-v02alpha a:hover {
+  border-bottom-color: var(--rp-accent);
+  text-shadow: 0 0 8px var(--rp-accent-glow);
+}
+
+#robotics-platform-docs-v02alpha strong {
+  color: var(--rp-text-heading);
+  font-weight: 600;
+}
+
+#robotics-platform-docs-v02alpha em {
+  color: var(--rp-text-muted);
+  font-style: italic;
+}
+
+#robotics-platform-docs-v02alpha blockquote {
+  margin: 1.4em 0;
+  padding: 1em 1.4em;
+  border-left: 3px solid var(--rp-accent);
+  background: var(--rp-accent-dim);
+  border-radius: 0 var(--rp-radius-sm) var(--rp-radius-sm) 0;
+  font-style: italic;
+}
+
+#robotics-platform-docs-v02alpha blockquote p {
+  margin: 0;
+}
+
+#robotics-platform-docs-v02alpha hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rp-border), transparent);
+  margin: 2.5em 0;
+}
+
+/* --------------------------------------------------------------------------
+   LISTS
+   -------------------------------------------------------------------------- */
+#robotics-platform-docs-v02alpha ul,
+#robotics-platform-docs-v02alpha ol {
+  padding-left: 1.6em;
+  margin: 0.8em 0;
+}
+
+#robotics-platform-docs-v02alpha li {
+  margin: 0.35em 0;
+}
+
+#robotics-platform-docs-v02alpha li::marker {
+  color: var(--rp-accent);
+}
+
+/* --------------------------------------------------------------------------
+   TABLES
+   -------------------------------------------------------------------------- */
+#robotics-platform-docs-v02alpha table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.4em 0;
+  font-size: 0.92em;
+  border-radius: var(--rp-radius);
+  overflow: hidden;
+  box-shadow: var(--rp-shadow);
+}
+
+#robotics-platform-docs-v02alpha thead {
+  background: var(--rp-accent-dim);
+}
+
+#robotics-platform-docs-v02alpha th {
+  color: var(--rp-accent);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--rp-border);
+  text-transform: uppercase;
+  font-size: 0.82em;
+  letter-spacing: 0.05em;
+}
+
+#robotics-platform-docs-v02alpha td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--rp-border);
+  vertical-align: top;
+}
+
+#robotics-platform-docs-v02alpha tbody tr {
+  background: var(--rp-bg-elevated);
+  transition: var(--rp-transition);
+}
+
+#robotics-platform-docs-v02alpha tbody tr:hover {
+  background: var(--rp-accent-dim);
+}
+
+#robotics-platform-docs-v02alpha tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   CODE
+   -------------------------------------------------------------------------- */
+#robotics-platform-docs-v02alpha code {
+  font-family: var(--rp-mono);
+  font-size: 0.88em;
+  background: var(--rp-bg-code);
+  padding: 2px 7px;
+  border-radius: var(--rp-radius-sm);
+  color: var(--rp-accent);
+  border: 1px solid var(--rp-border);
+}
+
+#robotics-platform-docs-v02alpha pre {
+  background: var(--rp-bg-code);
+  border: 1px solid var(--rp-border);
+  border-radius: var(--rp-radius);
+  padding: 20px 22px;
+  overflow-x: auto;
+  margin: 1.4em 0;
+  box-shadow: var(--rp-shadow);
+  position: relative;
+}
+
+#robotics-platform-docs-v02alpha pre::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rp-accent), var(--rp-info), var(--rp-success));
+  border-radius: var(--rp-radius) var(--rp-radius) 0 0;
+  opacity: 0.6;
+}
+
+#robotics-platform-docs-v02alpha pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--rp-text);
+  font-size: 0.85em;
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   TOC (TABLE OF CONTENTS)
+   -------------------------------------------------------------------------- */
+#robotics-platform-docs-v02alpha > ul:first-of-type {
+  background: var(--rp-bg-elevated);
+  border: 1px solid var(--rp-border);
+  border-radius: var(--rp-radius-lg);
+  padding: 20px 28px;
+  margin: 1.5em 0 2.5em 0;
+  box-shadow: var(--rp-shadow);
+  list-style: none;
+}
+
+#robotics-platform-docs-v02alpha > ul:first-of-type > li {
+  margin: 6px 0;
+}
+
+#robotics-platform-docs-v02alpha > ul:first-of-type > li > a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: var(--rp-radius-sm);
+  transition: var(--rp-transition);
+}
+
+#robotics-platform-docs-v02alpha > ul:first-of-type > li > a:hover {
+  background: var(--rp-accent-dim);
+  border-bottom-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   SCROLLBAR
+   -------------------------------------------------------------------------- */
+#robotics-platform-docs-v02alpha ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+#robotics-platform-docs-v02alpha ::-webkit-scrollbar-track {
+  background: var(--rp-bg);
+}
+
+#robotics-platform-docs-v02alpha ::-webkit-scrollbar-thumb {
+  background: var(--rp-border);
+  border-radius: 4px;
+}
+
+#robotics-platform-docs-v02alpha ::-webkit-scrollbar-thumb:hover {
+  background: var(--rp-accent);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  #robotics-platform-docs-v02alpha {
+    padding: 24px 16px;
+    font-size: 14.5px;
+  }
+
+  #robotics-platform-docs-v02alpha h1 {
+    font-size: 1.8rem;
+  }
+
+  #robotics-platform-docs-v02alpha h2 {
+    font-size: 1.25rem;
+  }
+
+  #robotics-platform-docs-v02alpha table {
+    font-size: 0.85em;
+  }
+
+  #robotics-platform-docs-v02alpha th,
+  #robotics-platform-docs-v02alpha td {
+    padding: 8px 10px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PRINT
+   -------------------------------------------------------------------------- */
+@media print {
+  #robotics-platform-docs-v02alpha {
+    background: #fff !important;
+    color: #000 !important;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  #robotics-platform-docs-v02alpha pre,
+  #robotics-platform-docs-v02alpha table {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+
+  #robotics-platform-docs-v02alpha a {
+    color: #000 !important;
+    text-decoration: underline !important;
+  }
+}
