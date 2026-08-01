@@ -1,391 +1,512 @@
-/* ==========================================================================
-   🤖 Robotics Platform Documentation Styles
-   ID-Scope: #robotics-platform-docs-v02alpha
-   Version: 0.2-alpha
-   Purpose: Exclusive styling for the Robotics Platform markdown documentation
-   ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   ROOT VARIABLES & THEME
-   -------------------------------------------------------------------------- */
-#robotics-platform-docs-v02alpha {
-  --rp-bg: #0d0f17;
-  --rp-bg-elevated: #161922;
-  --rp-bg-code: #1a1d27;
-  --rp-border: #2a2e3b;
-  --rp-text: #c9cdd9;
-  --rp-text-muted: #7a8199;
-  --rp-text-heading: #e8eaf2;
-  --rp-accent: #a855f7;
-  --rp-accent-dim: rgba(168, 85, 247, 0.12);
-  --rp-accent-glow: rgba(168, 85, 247, 0.25);
-  --rp-success: #22c55e;
-  --rp-danger: #ef4444;
-  --rp-warning: #f59e0b;
-  --rp-info: #3b82f6;
-  --rp-mono: 'SF Mono', 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
-  --rp-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
-  --rp-radius-sm: 6px;
-  --rp-radius: 10px;
-  --rp-radius-lg: 16px;
-  --rp-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-  --rp-shadow-glow: 0 0 40px var(--rp-accent-glow);
-  --rp-max-width: 960px;
-  --rp-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+---
+
+## 📄 `robotics-platform.css` – WAZUH HEIMDALL EDITION
+
+```css
+/* ============================================================
+   🤖 ROBOTICS PLATFORM – WAZUH HEIMDALL EDITION
+   Epische Glow-Effekte, Animationen & Wazuh-Farbschema
+   Nur aktiv innerhalb von #robotics-platform-main
+   ============================================================ */
+
+/* ========== CYBERNETISCHE RAUSCHWELLEN ========== */
+#robotics-platform-main {
+  font-size: clamp(2.2rem, 5vw, 3.8rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: #00a9e5 !important;
+  text-shadow:
+    0 0 8px rgba(0, 169, 229, 0.5),
+    0 0 16px rgba(0, 169, 229, 0.3),
+    0 0 32px rgba(0, 169, 229, 0.2),
+    0 0 64px rgba(47, 185, 134, 0.15) !important;
+  animation: roboticsPulse 3s ease-in-out infinite;
+  border: none !important;
+  margin-bottom: 1rem !important;
+  position: relative !important;
+  padding-top: 1rem !important;
 }
 
-/* Light mode support (auto-detect) */
-@media (prefers-color-scheme: light) {
-  #robotics-platform-docs-v02alpha {
-    --rp-bg: #f8f9fc;
-    --rp-bg-elevated: #ffffff;
-    --rp-bg-code: #f1f3f8;
-    --rp-border: #e2e5ed;
-    --rp-text: #2d3142;
-    --rp-text-muted: #6b6f80;
-    --rp-text-heading: #1a1c29;
-    --rp-accent: #7c3aed;
-    --rp-accent-dim: rgba(124, 58, 237, 0.08);
-    --rp-accent-glow: rgba(124, 58, 237, 0.15);
-    --rp-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    --rp-shadow-glow: 0 0 40px var(--rp-accent-glow);
+@keyframes roboticsPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 8px rgba(0, 169, 229, 0.5),
+      0 0 16px rgba(0, 169, 229, 0.3),
+      0 0 32px rgba(0, 169, 229, 0.2),
+      0 0 64px rgba(47, 185, 134, 0.15) !important;
+    filter: brightness(1);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(0, 169, 229, 0.7),
+      0 0 24px rgba(0, 169, 229, 0.5),
+      0 0 48px rgba(0, 169, 229, 0.3),
+      0 0 80px rgba(47, 185, 134, 0.25) !important;
+    filter: brightness(1.15);
   }
 }
 
-/* --------------------------------------------------------------------------
-   BASE LAYOUT
-   -------------------------------------------------------------------------- */
-#robotics-platform-docs-v02alpha {
-  font-family: var(--rp-sans);
-  font-size: 15.5px;
-  line-height: 1.7;
-  color: var(--rp-text);
-  background: var(--rp-bg);
-  max-width: var(--rp-max-width);
-  margin: 0 auto;
-  padding: 48px 28px;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+/* Emoji mit Float */
+#robotics-platform-main::after {
+  content: '🤖' !important;
+  display: inline-block !important;
+  margin-left: 0.15em !important;
+  font-size: 0.7em !important;
+  animation: roboticsFloat 3s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 12px rgba(0, 169, 229, 0.4)) !important;
 }
 
-/* --------------------------------------------------------------------------
-   TYPOGRAPHY
-   -------------------------------------------------------------------------- */
-#robotics-platform-docs-v02alpha h1,
-#robotics-platform-docs-v02alpha h2,
-#robotics-platform-docs-v02alpha h3,
-#robotics-platform-docs-v02alpha h4 {
-  color: var(--rp-text-heading);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  margin-top: 2.4em;
-  margin-bottom: 0.7em;
+@keyframes roboticsFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg) scale(1); }
+  25% { transform: translateY(-6px) rotate(2deg) scale(1.05); }
+  50% { transform: translateY(-10px) rotate(-2deg) scale(1.08); }
+  75% { transform: translateY(-6px) rotate(3deg) scale(1.05); }
 }
 
-#robotics-platform-docs-v02alpha h1 {
-  font-size: 2.4rem;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 1.2em;
-  padding-bottom: 0.6em;
-  border-bottom: 2px solid var(--rp-accent);
-  position: relative;
+/* RGB-Shift-Effekt */
+#robotics-platform-main::before {
+  content: 'ROBOTICS PLATFORM' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  color: transparent !important;
+  text-shadow: -2px 0 #2fb986, 2px 0 #00a9e5 !important;
+  opacity: 0 !important;
+  animation: roboticsRgbShift 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+  letter-spacing: 0.12em !important;
 }
 
-#robotics-platform-docs-v02alpha h1::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 2px;
-  background: var(--rp-accent);
-  box-shadow: 0 0 12px var(--rp-accent-glow);
+@keyframes roboticsRgbShift {
+  0%, 88%, 100% { opacity: 0; transform: translateX(0); }
+  90% { opacity: 0.3; transform: translateX(-3px); }
+  92% { opacity: 0.5; transform: translateX(3px); }
+  94% { opacity: 0.3; transform: translateX(-2px); }
+  96% { opacity: 0.15; transform: translateX(2px); }
+  98% { opacity: 0; transform: translateX(0); }
 }
 
-#robotics-platform-docs-v02alpha h2 {
-  font-size: 1.55rem;
-  padding-bottom: 0.35em;
-  border-bottom: 1px solid var(--rp-border);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* ========== SUBTITEL (Blockquote direkt nach Titel) ========== */
+#robotics-platform-main + blockquote {
+  border-left: 3px solid rgba(0, 169, 229, 0.25) !important;
+  background: linear-gradient(90deg, rgba(0, 169, 229, 0.04) 0%, transparent 100%) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 1rem 1.5rem !important;
+  color: #2fb986 !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 0 12px rgba(0, 169, 229, 0.04) !important;
 }
 
-#robotics-platform-docs-v02alpha h2::before {
-  content: '▸';
-  color: var(--rp-accent);
-  font-size: 0.85em;
+/* ========== H2 – CYBERNETISCHE SECTION-HEADER ========== */
+#robotics-platform-main ~ h2 {
+  color: #00a9e5 !important;
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  letter-spacing: 0.1em !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 0 8px rgba(0, 169, 229, 0.3) !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important;
 }
 
-#robotics-platform-docs-v02alpha h3 {
-  font-size: 1.2rem;
-  color: var(--rp-accent);
-  margin-top: 2em;
+#robotics-platform-main ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 60% !important;
+  height: 2px !important;
+  margin: 0.5rem auto 0 !important;
+  background: linear-gradient(90deg, transparent, #00a9e5, #2fb986, #00a9e5, transparent) !important;
+  opacity: 0.5 !important;
 }
 
-#robotics-platform-docs-v02alpha h4 {
-  font-size: 1.05rem;
-  color: var(--rp-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 600;
+/* ========== H3 – TECH-BOXEN ========== */
+#robotics-platform-main ~ h3 {
+  background: linear-gradient(135deg, #0f0f1a 0%, #15152a 50%, #0f0f1a 100%) !important;
+  border: 1px solid rgba(0, 169, 229, 0.25) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem 2rem !important;
+  margin: 1.5rem 0 0.5rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(0, 169, 229, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  color: #00a9e5 !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  animation: roboticsBoxFloat 6s ease-in-out infinite !important;
 }
 
-#robotics-platform-docs-v02alpha p {
-  margin: 0.9em 0;
+#robotics-platform-main ~ h3:nth-of-type(1) { animation-delay: 0s !important; }
+#robotics-platform-main ~ h3:nth-of-type(2) { animation-delay: -1s !important; }
+#robotics-platform-main ~ h3:nth-of-type(3) { animation-delay: -2s !important; }
+#robotics-platform-main ~ h3:nth-of-type(4) { animation-delay: -3s !important; }
+#robotics-platform-main ~ h3:nth-of-type(5) { animation-delay: -4s !important; }
+#robotics-platform-main ~ h3:nth-of-type(6) { animation-delay: -5s !important; }
+#robotics-platform-main ~ h3:nth-of-type(7) { animation-delay: -0.5s !important; }
+
+@keyframes roboticsBoxFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
-#robotics-platform-docs-v02alpha a {
-  color: var(--rp-accent);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: var(--rp-transition);
+#robotics-platform-main ~ h3:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: #00a9e5 !important;
+  box-shadow:
+    0 16px 50px rgba(0,0,0,0.6),
+    0 0 24px rgba(0, 169, 229, 0.25),
+    0 0 48px rgba(0, 169, 229, 0.1),
+    0 0 72px rgba(47, 185, 134, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.1) !important;
 }
 
-#robotics-platform-docs-v02alpha a:hover {
-  border-bottom-color: var(--rp-accent);
-  text-shadow: 0 0 8px var(--rp-accent-glow);
+/* Farbiger Rand oben */
+#robotics-platform-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #00a9e5, #2fb986, #00a9e5) !important;
+  background-size: 300% 100% !important;
+  animation: roboticsRainbow 4s linear infinite !important;
+  opacity: 0.7 !important;
 }
 
-#robotics-platform-docs-v02alpha strong {
-  color: var(--rp-text-heading);
-  font-weight: 600;
+@keyframes roboticsRainbow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
-#robotics-platform-docs-v02alpha em {
-  color: var(--rp-text-muted);
-  font-style: italic;
+/* Scanline */
+#robotics-platform-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 169, 229, 0.06), transparent) !important;
+  animation: roboticsScanline 5s ease-in-out infinite !important;
+  pointer-events: none !important;
 }
 
-#robotics-platform-docs-v02alpha blockquote {
-  margin: 1.4em 0;
-  padding: 1em 1.4em;
-  border-left: 3px solid var(--rp-accent);
-  background: var(--rp-accent-dim);
-  border-radius: 0 var(--rp-radius-sm) var(--rp-radius-sm) 0;
-  font-style: italic;
+@keyframes roboticsScanline {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
 }
 
-#robotics-platform-docs-v02alpha blockquote p {
-  margin: 0;
+/* ========== BESCHREIBUNGSTEXT ========== */
+#robotics-platform-main ~ h3 + p {
+  color: #2fb986 !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.8rem !important;
+  padding-left: 0.5rem !important;
 }
 
-#robotics-platform-docs-v02alpha hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--rp-border), transparent);
-  margin: 2.5em 0;
+/* ========== LINKS ========== */
+#robotics-platform-main ~ p a {
+  display: inline-block !important;
+  background: linear-gradient(135deg, rgba(0, 169, 229, 0.1) 0%, rgba(47, 185, 134, 0.05) 100%) !important;
+  border: 1px solid rgba(0, 169, 229, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0.25rem !important;
+  color: #00a9e5 !important;
+  text-decoration: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 12px rgba(0, 169, 229, 0.06) !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
-/* --------------------------------------------------------------------------
-   LISTS
-   -------------------------------------------------------------------------- */
-#robotics-platform-docs-v02alpha ul,
-#robotics-platform-docs-v02alpha ol {
-  padding-left: 1.6em;
-  margin: 0.8em 0;
+#robotics-platform-main ~ p a::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 169, 229, 0.25), transparent) !important;
+  transition: left 0.6s ease !important;
 }
 
-#robotics-platform-docs-v02alpha li {
-  margin: 0.35em 0;
+#robotics-platform-main ~ p a:hover::before {
+  left: 100% !important;
 }
 
-#robotics-platform-docs-v02alpha li::marker {
-  color: var(--rp-accent);
+#robotics-platform-main ~ p a:hover {
+  background: linear-gradient(135deg, rgba(0, 169, 229, 0.2) 0%, rgba(47, 185, 134, 0.12) 100%) !important;
+  border-color: #00a9e5 !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 12px rgba(0, 169, 229, 0.3),
+    0 0 24px rgba(0, 169, 229, 0.15),
+    0 0 36px rgba(47, 185, 134, 0.1) !important;
+  transform: translateY(-3px) !important;
+  animation: roboticsGlitch 0.3s ease !important;
 }
 
-/* --------------------------------------------------------------------------
-   TABLES
-   -------------------------------------------------------------------------- */
-#robotics-platform-docs-v02alpha table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 1.4em 0;
-  font-size: 0.92em;
-  border-radius: var(--rp-radius);
-  overflow: hidden;
-  box-shadow: var(--rp-shadow);
+@keyframes roboticsGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
 }
 
-#robotics-platform-docs-v02alpha thead {
-  background: var(--rp-accent-dim);
+/* ========== TABELLE ========== */
+#robotics-platform-main ~ table {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(0, 169, 229, 0.2) !important;
+  background: linear-gradient(135deg, #0f0f1a 0%, #15152a 100%) !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(0, 169, 229, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  margin: 1.5rem 0 !important;
 }
 
-#robotics-platform-docs-v02alpha th {
-  color: var(--rp-accent);
-  font-weight: 600;
-  text-align: left;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--rp-border);
-  text-transform: uppercase;
-  font-size: 0.82em;
-  letter-spacing: 0.05em;
+#robotics-platform-main ~ table thead {
+  background: linear-gradient(180deg, rgba(0, 169, 229, 0.15) 0%, rgba(47, 185, 134, 0.06) 100%) !important;
 }
 
-#robotics-platform-docs-v02alpha td {
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--rp-border);
-  vertical-align: top;
+#robotics-platform-main ~ table th {
+  color: #00a9e5 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.15em !important;
+  border-bottom: 2px solid #00a9e5 !important;
+  padding: 1.2rem 1.5rem !important;
+  text-shadow: 0 0 6px rgba(0, 169, 229, 0.3) !important;
 }
 
-#robotics-platform-docs-v02alpha tbody tr {
-  background: var(--rp-bg-elevated);
-  transition: var(--rp-transition);
+#robotics-platform-main ~ table td {
+  border-bottom: 1px solid rgba(0, 169, 229, 0.15) !important;
+  padding: 1rem 1.5rem !important;
+  color: #d0d0e0 !important;
+  transition: all 0.3s ease !important;
 }
 
-#robotics-platform-docs-v02alpha tbody tr:hover {
-  background: var(--rp-accent-dim);
+#robotics-platform-main ~ table tr:hover {
+  background: linear-gradient(90deg, rgba(0, 169, 229, 0.1) 0%, transparent 100%) !important;
 }
 
-#robotics-platform-docs-v02alpha tbody tr:last-child td {
-  border-bottom: none;
+#robotics-platform-main ~ table tr:hover td {
+  color: #00a9e5 !important;
+  text-shadow: 0 0 6px rgba(0, 169, 229, 0.25) !important;
 }
 
-/* --------------------------------------------------------------------------
-   CODE
-   -------------------------------------------------------------------------- */
-#robotics-platform-docs-v02alpha code {
-  font-family: var(--rp-mono);
-  font-size: 0.88em;
-  background: var(--rp-bg-code);
-  padding: 2px 7px;
-  border-radius: var(--rp-radius-sm);
-  color: var(--rp-accent);
-  border: 1px solid var(--rp-border);
+/* ========== CODE BLOCKS ========== */
+#robotics-platform-main ~ pre {
+  background: linear-gradient(135deg, #0f0f1a 0%, #15152a 100%) !important;
+  border: 1px solid rgba(47, 185, 134, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(47, 185, 134, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  overflow-x: auto !important;
+  position: relative !important;
 }
 
-#robotics-platform-docs-v02alpha pre {
-  background: var(--rp-bg-code);
-  border: 1px solid var(--rp-border);
-  border-radius: var(--rp-radius);
-  padding: 20px 22px;
-  overflow-x: auto;
-  margin: 1.4em 0;
-  box-shadow: var(--rp-shadow);
-  position: relative;
+#robotics-platform-main ~ pre::before {
+  content: '⚡' !important;
+  position: absolute !important;
+  top: 8px !important;
+  right: 12px !important;
+  font-size: 1.2rem !important;
+  opacity: 0.3 !important;
 }
 
-#robotics-platform-docs-v02alpha pre::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--rp-accent), var(--rp-info), var(--rp-success));
-  border-radius: var(--rp-radius) var(--rp-radius) 0 0;
-  opacity: 0.6;
+#robotics-platform-main ~ pre code {
+  background: none !important;
+  border: none !important;
+  color: #2fb986 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9rem !important;
+  line-height: 1.7 !important;
 }
 
-#robotics-platform-docs-v02alpha pre code {
-  background: none;
-  border: none;
-  padding: 0;
-  color: var(--rp-text);
-  font-size: 0.85em;
-  line-height: 1.65;
+/* ========== ZITAT ========== */
+#robotics-platform-main ~ blockquote:last-of-type {
+  border-left: 4px solid #00a9e5 !important;
+  background: linear-gradient(90deg, rgba(0, 169, 229, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 16px 16px 0 !important;
+  padding: 2rem 2.5rem !important;
+  font-style: italic !important;
+  color: #d0d0e0 !important;
+  text-align: center !important;
+  box-shadow:
+    0 0 20px rgba(0, 169, 229, 0.06),
+    inset 0 0 20px rgba(0, 169, 229, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-top: 2rem !important;
 }
 
-/* --------------------------------------------------------------------------
-   TOC (TABLE OF CONTENTS)
-   -------------------------------------------------------------------------- */
-#robotics-platform-docs-v02alpha > ul:first-of-type {
-  background: var(--rp-bg-elevated);
-  border: 1px solid var(--rp-border);
-  border-radius: var(--rp-radius-lg);
-  padding: 20px 28px;
-  margin: 1.5em 0 2.5em 0;
-  box-shadow: var(--rp-shadow);
-  list-style: none;
+#robotics-platform-main ~ blockquote:last-of-type::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: -15px !important;
+  left: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(0, 169, 229, 0.12) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
 }
 
-#robotics-platform-docs-v02alpha > ul:first-of-type > li {
-  margin: 6px 0;
+#robotics-platform-main ~ blockquote:last-of-type::after {
+  content: '"' !important;
+  position: absolute !important;
+  bottom: -25px !important;
+  right: 20px !important;
+  font-size: 5rem !important;
+  color: rgba(0, 169, 229, 0.12) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
 }
 
-#robotics-platform-docs-v02alpha > ul:first-of-type > li > a {
-  display: block;
-  padding: 6px 10px;
-  border-radius: var(--rp-radius-sm);
-  transition: var(--rp-transition);
+/* ========== CODE INLINE ========== */
+#robotics-platform-main ~ p code:not(pre code) {
+  background: linear-gradient(135deg, rgba(0, 169, 229, 0.15) 0%, rgba(47, 185, 134, 0.08) 100%) !important;
+  color: #00a9e5 !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(0, 169, 229, 0.15) !important;
+  font-size: 0.9em !important;
+  box-shadow: 0 0 6px rgba(0, 169, 229, 0.1) !important;
 }
 
-#robotics-platform-docs-v02alpha > ul:first-of-type > li > a:hover {
-  background: var(--rp-accent-dim);
-  border-bottom-color: transparent;
+/* ========== LISTEN ========== */
+#robotics-platform-main ~ ul li,
+#robotics-platform-main ~ ol li {
+  color: #d0d0e0 !important;
+  margin-bottom: 0.5rem !important;
 }
 
-/* --------------------------------------------------------------------------
-   SCROLLBAR
-   -------------------------------------------------------------------------- */
-#robotics-platform-docs-v02alpha ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+#robotics-platform-main ~ ul li::marker {
+  color: #00a9e5 !important;
 }
 
-#robotics-platform-docs-v02alpha ::-webkit-scrollbar-track {
-  background: var(--rp-bg);
+#robotics-platform-main ~ ol li::marker {
+  color: #2fb986 !important;
+  font-weight: bold !important;
 }
 
-#robotics-platform-docs-v02alpha ::-webkit-scrollbar-thumb {
-  background: var(--rp-border);
-  border-radius: 4px;
+/* ========== TRENNLINIE ========== */
+#robotics-platform-main ~ hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #00a9e5, #2fb986, #00a9e5, transparent) !important;
+  margin: 2.5rem 0 !important;
+  opacity: 0.5 !important;
+  box-shadow: 0 0 12px rgba(0, 169, 229, 0.2) !important;
+  position: relative !important;
+  overflow: visible !important;
 }
 
-#robotics-platform-docs-v02alpha ::-webkit-scrollbar-thumb:hover {
-  background: var(--rp-accent);
+#robotics-platform-main ~ hr::after {
+  content: '🤖' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: #00a9e5 !important;
+  font-size: 1.2rem !important;
+  text-shadow: 0 0 8px rgba(0, 169, 229, 0.4) !important;
+  background: #0f0f1a !important;
+  padding: 0 1rem !important;
 }
 
-/* --------------------------------------------------------------------------
-   RESPONSIVE
-   -------------------------------------------------------------------------- */
-@media (max-width: 640px) {
-  #robotics-platform-docs-v02alpha {
-    padding: 24px 16px;
-    font-size: 14.5px;
+/* ========== ADMONITION / NOTE ========== */
+#robotics-platform-main ~ .admonition,
+#robotics-platform-main ~ div.admonition,
+#robotics-platform-main ~ .admonition.note {
+  background: linear-gradient(135deg, #0f0f1a 0%, #15152a 100%) !important;
+  border: 1px solid rgba(47, 185, 134, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(47, 185, 134, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#robotics-platform-main ~ .admonition::before,
+#robotics-platform-main ~ div.admonition::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #00a9e5, #2fb986, #00a9e5) !important;
+  background-size: 300% 100% !important;
+  animation: roboticsRainbow 4s linear infinite !important;
+  opacity: 0.7 !important;
+}
+
+#robotics-platform-main ~ .admonition .admonition-title,
+#robotics-platform-main ~ div.admonition .admonition-title {
+  color: #00a9e5 !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 0.75rem !important;
+  text-shadow: 0 0 6px rgba(0, 169, 229, 0.25) !important;
+}
+
+#robotics-platform-main ~ .admonition p,
+#robotics-platform-main ~ div.admonition p {
+  color: #d0d0e0 !important;
+  margin: 0.4rem 0 !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #robotics-platform-main {
+    font-size: 2.2rem !important;
+    letter-spacing: 0.1em !important;
   }
 
-  #robotics-platform-docs-v02alpha h1 {
-    font-size: 1.8rem;
+  #robotics-platform-main ~ h2 {
+    font-size: 1.4rem !important;
   }
 
-  #robotics-platform-docs-v02alpha h2 {
-    font-size: 1.25rem;
+  #robotics-platform-main ~ h3 {
+    padding: 1.2rem 1.5rem !important;
+    font-size: 1.2rem !important;
   }
 
-  #robotics-platform-docs-v02alpha table {
-    font-size: 0.85em;
-  }
-
-  #robotics-platform-docs-v02alpha th,
-  #robotics-platform-docs-v02alpha td {
-    padding: 8px 10px;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   PRINT
-   -------------------------------------------------------------------------- */
-@media print {
-  #robotics-platform-docs-v02alpha {
-    background: #fff !important;
-    color: #000 !important;
-    max-width: 100%;
-    padding: 20px;
-  }
-
-  #robotics-platform-docs-v02alpha pre,
-  #robotics-platform-docs-v02alpha table {
-    box-shadow: none !important;
-    border: 1px solid #ccc !important;
-  }
-
-  #robotics-platform-docs-v02alpha a {
-    color: #000 !important;
-    text-decoration: underline !important;
+  #robotics-platform-main ~ p a {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
+    margin: 0.15rem !important;
   }
 }
