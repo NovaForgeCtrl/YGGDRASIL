@@ -65,6 +65,7 @@ extra_css:
   - assets/css/ollama.css
   - assets/css/soc-lab2.css
   - assets/css/robotics-platform.css
+  - assets/css/robotics-platform-teil2.css
 
 
 extra:
@@ -140,6 +141,7 @@ nav:
     - Automatisierung: HUGINN-MUNINN/automation.md
     - Experimente: HUGINN-MUNINN/experiments.md
     - Robotics: HUGINN-MUNINN/robotics-platform.md
+    - Robotics Teil 2: HUGINN-MUNINN/robotics-platform-teil2.md
 
   - ODIN:
     - odin.md

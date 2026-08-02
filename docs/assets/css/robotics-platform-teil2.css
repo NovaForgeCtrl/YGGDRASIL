@@ -1,0 +1,660 @@
+/* ============================================================
+   🤖 ROBOTICS PLATFORM TEIL 2 – TERMINATOR EDITION
+   Aggressiver Robotic-Stil mit HUD-Elementen, stärkeren
+   Glitch-Effekten, Scanlines & mechanischen Details.
+   Nur aktiv innerhalb von #robotics-platform-teil2-main
+   ============================================================ */
+
+/* ========== ROOT VARIABLEN ========== */
+:root {
+  --robot-cyan:        #00d4ff;
+  --robot-cyan-dim:    rgba(0, 212, 255, 0.15);
+  --robot-red:         #ff3366;
+  --robot-red-dim:     rgba(255, 51, 102, 0.15);
+  --robot-green:       #00ff88;
+  --robot-green-dim:   rgba(0, 255, 136, 0.15);
+  --robot-bg:          #050510;
+  --robot-bg-light:    #0a0a1a;
+  --robot-bg-card:     #0d0d20;
+  --robot-text:        #c0c0d8;
+  --robot-text-bright: #e0e0f0;
+  --robot-mono:        'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* ========== HAUPTTITEL – CYBERNETIC CORE ========== */
+#robotics-platform-teil2-main {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: var(--robot-cyan) !important;
+  text-shadow:
+    0 0 6px  rgba(0, 212, 255, 0.6),
+    0 0 12px rgba(0, 212, 255, 0.4),
+    0 0 24px rgba(0, 212, 255, 0.25),
+    0 0 48px rgba(255, 51, 102, 0.2),
+    0 0 80px rgba(0, 212, 255, 0.1) !important;
+  animation: roboticCorePulse 2.5s ease-in-out infinite;
+  border: none !important;
+  margin-bottom: 1.2rem !important;
+  position: relative !important;
+  padding-top: 1.2rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+@keyframes roboticCorePulse {
+  0%, 100% {
+    text-shadow:
+      0 0 6px  rgba(0, 212, 255, 0.6),
+      0 0 12px rgba(0, 212, 255, 0.4),
+      0 0 24px rgba(0, 212, 255, 0.25),
+      0 0 48px rgba(255, 51, 102, 0.2),
+      0 0 80px rgba(0, 212, 255, 0.1) !important;
+    filter: brightness(1);
+    letter-spacing: 0.18em;
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(0, 212, 255, 0.9),
+      0 0 20px rgba(0, 212, 255, 0.6),
+      0 0 40px rgba(0, 212, 255, 0.35),
+      0 0 60px rgba(255, 51, 102, 0.3),
+      0 0 100px rgba(0, 212, 255, 0.15) !important;
+    filter: brightness(1.25);
+    letter-spacing: 0.22em;
+  }
+}
+
+/* Mechanische Rahmenlinien unter dem Titel */
+#robotics-platform-teil2-main::after {
+  content: '' !important;
+  display: block !important;
+  width: 80% !important;
+  height: 3px !important;
+  margin: 0.8rem auto 0 !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--robot-red) 15%,
+    var(--robot-cyan) 50%,
+    var(--robot-red) 85%,
+    transparent 100%
+  ) !important;
+  box-shadow:
+    0 0 8px  rgba(0, 212, 255, 0.5),
+    0 0 16px rgba(255, 51, 102, 0.3) !important;
+  animation: roboticBorderPulse 3s ease-in-out infinite !important;
+}
+
+@keyframes roboticBorderPulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+/* Aggressiver RGB-Shift / Glitch */
+#robotics-platform-teil2-main::before {
+  content: 'ROBOTICS PLATFORM' !important;
+  position: absolute !important;
+  top: 1.2rem !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  color: transparent !important;
+  text-shadow:
+    -3px 0 var(--robot-red),
+     3px 0 var(--robot-cyan) !important;
+  opacity: 0 !important;
+  animation: roboticGlitchShift 3s ease-in-out infinite !important;
+  pointer-events: none !important;
+  letter-spacing: 0.18em !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+}
+
+@keyframes roboticGlitchShift {
+  0%, 85%, 100% { opacity: 0; transform: translateX(0); }
+  86% { opacity: 0.6; transform: translateX(-4px); }
+  87% { opacity: 0.8; transform: translateX(4px); }
+  88% { opacity: 0.4; transform: translateX(-2px); }
+  89% { opacity: 0.7; transform: translateX(3px); }
+  90% { opacity: 0;  transform: translateX(0); }
+  91% { opacity: 0.5; transform: translateX(-3px); }
+  92% { opacity: 0;  transform: translateX(0); }
+}
+
+/* ========== SUBTITEL / BLOCKQUOTE ========== */
+#robotics-platform-teil2-main + blockquote {
+  border-left: 4px solid var(--robot-red) !important;
+  background: linear-gradient(90deg, rgba(255, 51, 102, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 14px 14px 0 !important;
+  padding: 1.2rem 1.8rem !important;
+  color: var(--robot-green) !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: 2.5rem !important;
+  box-shadow:
+    0 0 20px rgba(255, 51, 102, 0.06),
+    inset 0 0 20px rgba(0, 212, 255, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#robotics-platform-teil2-main + blockquote::before {
+  content: '◄ SYSTEM ONLINE ►' !important;
+  display: block !important;
+  font-family: var(--robot-mono) !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.3em !important;
+  color: var(--robot-red) !important;
+  margin-bottom: 0.5rem !important;
+  text-shadow: 0 0 6px rgba(255, 51, 102, 0.4) !important;
+}
+
+/* ========== H2 – SECTOR HEADERS ========== */
+#robotics-platform-teil2-main ~ h2 {
+  color: var(--robot-cyan) !important;
+  font-size: 1.9rem !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  letter-spacing: 0.12em !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1.8rem !important;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.35) !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+}
+
+#robotics-platform-teil2-main ~ h2::before {
+  content: '▌' !important;
+  color: var(--robot-red) !important;
+  margin-right: 0.5rem !important;
+  text-shadow: 0 0 8px rgba(255, 51, 102, 0.5) !important;
+}
+
+#robotics-platform-teil2-main ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 70% !important;
+  height: 2px !important;
+  margin: 0.6rem auto 0 !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--robot-red),
+    var(--robot-cyan),
+    var(--robot-green),
+    var(--robot-cyan),
+    var(--robot-red),
+    transparent
+  ) !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.2) !important;
+}
+
+/* ========== H3 – ARMORED TECH PANELS ========== */
+#robotics-platform-teil2-main ~ h3 {
+  background: linear-gradient(135deg, var(--robot-bg) 0%, var(--robot-bg-card) 50%, var(--robot-bg) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.3) !important;
+  border-radius: 4px !important;
+  padding: 1.6rem 2.2rem !important;
+  margin: 2rem 0 0.6rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 6px 30px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(0, 212, 255, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  color: var(--robot-cyan) !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  ) !important;
+}
+
+/* Staggered Float */
+#robotics-platform-teil2-main ~ h3:nth-of-type(1) { animation: roboticPanelFloat 5s ease-in-out infinite; animation-delay: 0s; }
+#robotics-platform-teil2-main ~ h3:nth-of-type(2) { animation: roboticPanelFloat 5s ease-in-out infinite; animation-delay: -0.8s; }
+#robotics-platform-teil2-main ~ h3:nth-of-type(3) { animation: roboticPanelFloat 5s ease-in-out infinite; animation-delay: -1.6s; }
+#robotics-platform-teil2-main ~ h3:nth-of-type(4) { animation: roboticPanelFloat 5s ease-in-out infinite; animation-delay: -2.4s; }
+#robotics-platform-teil2-main ~ h3:nth-of-type(5) { animation: roboticPanelFloat 5s ease-in-out infinite; animation-delay: -3.2s; }
+#robotics-platform-teil2-main ~ h3:nth-of-type(6) { animation: roboticPanelFloat 5s ease-in-out infinite; animation-delay: -4.0s; }
+#robotics-platform-teil2-main ~ h3:nth-of-type(7) { animation: roboticPanelFloat 5s ease-in-out infinite; animation-delay: -0.4s; }
+#robotics-platform-teil2-main ~ h3:nth-of-type(8) { animation: roboticPanelFloat 5s ease-in-out infinite; animation-delay: -1.2s; }
+
+@keyframes roboticPanelFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+#robotics-platform-teil2-main ~ h3:hover {
+  transform: translateY(-10px) scale(1.025) !important;
+  border-color: var(--robot-cyan) !important;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.7),
+    0 0 30px rgba(0, 212, 255, 0.3),
+    0 0 60px rgba(0, 212, 255, 0.12),
+    0 0 90px rgba(255, 51, 102, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* Eck-Markierungen (HUD-Corners) */
+#robotics-platform-teil2-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--robot-red), var(--robot-cyan), var(--robot-green), var(--robot-cyan), var(--robot-red)) !important;
+  background-size: 400% 100% !important;
+  animation: roboticHudScan 3s linear infinite !important;
+  opacity: 0.8 !important;
+}
+
+@keyframes roboticHudScan {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+/* Scanline-Effekt */
+#robotics-platform-teil2-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.08), transparent) !important;
+  animation: roboticScanSweep 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes roboticScanSweep {
+  0%, 100% { left: -100%; }
+  50%      { left: 100%; }
+}
+
+/* ========== BESCHREIBUNGSTEXT ========== */
+#robotics-platform-teil2-main ~ h3 + p {
+  color: var(--robot-green) !important;
+  font-size: 1rem !important;
+  line-height: 1.75 !important;
+  margin-bottom: 1rem !important;
+  padding-left: 0.6rem !important;
+  border-left: 2px solid rgba(0, 255, 136, 0.15) !important;
+  padding-left: 1rem !important;
+}
+
+/* ========== LINKS – TERMINAL BUTTONS ========== */
+#robotics-platform-teil2-main ~ p a {
+  display: inline-block !important;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(255, 51, 102, 0.04) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.25) !important;
+  border-radius: 2px !important;
+  padding: 0.55rem 1.1rem !important;
+  margin: 0.3rem !important;
+  color: var(--robot-cyan) !important;
+  text-decoration: none !important;
+  font-family: var(--robot-mono) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.08) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  ) !important;
+}
+
+#robotics-platform-teil2-main ~ p a::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent) !important;
+  transition: left 0.5s ease !important;
+}
+
+#robotics-platform-teil2-main ~ p a:hover::before {
+  left: 100% !important;
+}
+
+#robotics-platform-teil2-main ~ p a:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.18) 0%, rgba(255, 51, 102, 0.1) 100%) !important;
+  border-color: var(--robot-cyan) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 16px rgba(0, 212, 255, 0.35),
+    0 0 32px rgba(0, 212, 255, 0.18),
+    0 0 48px rgba(255, 51, 102, 0.1) !important;
+  transform: translateY(-4px) !important;
+  animation: roboticLinkGlitch 0.25s ease !important;
+}
+
+@keyframes roboticLinkGlitch {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-3px, 3px); }
+  40%  { transform: translate(-3px, -3px); }
+  60%  { transform: translate(3px, 3px); }
+  80%  { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+/* ========== TABELLE – HUD DATENMATRIX ========== */
+#robotics-platform-teil2-main ~ table {
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(0, 212, 255, 0.25) !important;
+  background: linear-gradient(135deg, var(--robot-bg) 0%, var(--robot-bg-card) 100%) !important;
+  box-shadow:
+    0 6px 35px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(0, 212, 255, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  margin: 2rem 0 !important;
+  font-family: var(--robot-mono) !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  ) !important;
+}
+
+#robotics-platform-teil2-main ~ table thead {
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.12) 0%, rgba(255, 51, 102, 0.05) 100%) !important;
+}
+
+#robotics-platform-teil2-main ~ table th {
+  color: var(--robot-cyan) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.2em !important;
+  border-bottom: 2px solid var(--robot-red) !important;
+  padding: 1.3rem 1.6rem !important;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.35) !important;
+}
+
+#robotics-platform-teil2-main ~ table td {
+  border-bottom: 1px solid rgba(0, 212, 255, 0.12) !important;
+  padding: 1.1rem 1.6rem !important;
+  color: var(--robot-text) !important;
+  transition: all 0.3s ease !important;
+  font-size: 0.9rem !important;
+}
+
+#robotics-platform-teil2-main ~ table tr:hover {
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.08) 0%, transparent 100%) !important;
+}
+
+#robotics-platform-teil2-main ~ table tr:hover td {
+  color: var(--robot-cyan) !important;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.3) !important;
+}
+
+/* ========== CODE BLOCKS – TERMINAL ========== */
+#robotics-platform-teil2-main ~ pre {
+  background: linear-gradient(135deg, var(--robot-bg) 0%, var(--robot-bg-card) 100%) !important;
+  border: 1px solid rgba(0, 255, 136, 0.25) !important;
+  border-radius: 4px !important;
+  padding: 1.8rem !important;
+  margin: 2rem 0 !important;
+  box-shadow:
+    0 6px 35px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(0, 255, 136, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  overflow-x: auto !important;
+  position: relative !important;
+  font-family: var(--robot-mono) !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  ) !important;
+}
+
+/* Terminal-Header */
+#robotics-platform-teil2-main ~ pre::before {
+  content: '● ● ●   TERMINAL OUTPUT' !important;
+  display: block !important;
+  font-family: var(--robot-mono) !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.25em !important;
+  color: var(--robot-red) !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.6rem !important;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.15) !important;
+  text-shadow: 0 0 6px rgba(255, 51, 102, 0.3) !important;
+}
+
+#robotics-platform-teil2-main ~ pre code {
+  background: none !important;
+  border: none !important;
+  color: var(--robot-green) !important;
+  font-family: var(--robot-mono) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.75 !important;
+}
+
+/* ========== BLOCKQUOTE (letztes) – SYSTEM MESSAGE ========== */
+#robotics-platform-teil2-main ~ blockquote:last-of-type {
+  border-left: 4px solid var(--robot-red) !important;
+  background: linear-gradient(90deg, rgba(255, 51, 102, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 18px 18px 0 !important;
+  padding: 2.2rem 2.8rem !important;
+  font-style: italic !important;
+  color: var(--robot-text-bright) !important;
+  text-align: center !important;
+  box-shadow:
+    0 0 25px rgba(255, 51, 102, 0.08),
+    inset 0 0 25px rgba(0, 212, 255, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-top: 2.5rem !important;
+}
+
+#robotics-platform-teil2-main ~ blockquote:last-of-type::before {
+  content: '❝' !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 18px !important;
+  font-size: 5.5rem !important;
+  color: rgba(0, 212, 255, 0.1) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+#robotics-platform-teil2-main ~ blockquote:last-of-type::after {
+  content: '❞' !important;
+  position: absolute !important;
+  bottom: -30px !important;
+  right: 18px !important;
+  font-size: 5.5rem !important;
+  color: rgba(0, 212, 255, 0.1) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+/* ========== INLINE CODE ========== */
+#robotics-platform-teil2-main ~ p code:not(pre code) {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.12) 0%, rgba(255, 51, 102, 0.06) 100%) !important;
+  color: var(--robot-cyan) !important;
+  padding: 0.2rem 0.65rem !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(0, 212, 255, 0.18) !important;
+  font-size: 0.88em !important;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.1) !important;
+  font-family: var(--robot-mono) !important;
+}
+
+/* ========== LISTEN ========== */
+#robotics-platform-teil2-main ~ ul li,
+#robotics-platform-teil2-main ~ ol li {
+  color: var(--robot-text) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.6 !important;
+}
+
+#robotics-platform-teil2-main ~ ul li::marker {
+  color: var(--robot-red) !important;
+  font-size: 1.1em !important;
+}
+
+#robotics-platform-teil2-main ~ ol li::marker {
+  color: var(--robot-green) !important;
+  font-weight: bold !important;
+  font-family: var(--robot-mono) !important;
+}
+
+/* ========== TRENNLINIE – CIRCUIT BREAK ========== */
+#robotics-platform-teil2-main ~ hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--robot-red),
+    var(--robot-cyan),
+    var(--robot-green),
+    var(--robot-cyan),
+    var(--robot-red),
+    transparent
+  ) !important;
+  margin: 3rem 0 !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.25) !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+#robotics-platform-teil2-main ~ hr::after {
+  content: '⚡' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: var(--robot-cyan) !important;
+  font-size: 1.3rem !important;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5) !important;
+  background: var(--robot-bg) !important;
+  padding: 0 1.2rem !important;
+}
+
+/* ========== ADMONITION / NOTE ========== */
+#robotics-platform-teil2-main ~ .admonition,
+#robotics-platform-teil2-main ~ div.admonition,
+#robotics-platform-teil2-main ~ .admonition.note {
+  background: linear-gradient(135deg, var(--robot-bg) 0%, var(--robot-bg-card) 100%) !important;
+  border: 1px solid rgba(0, 255, 136, 0.2) !important;
+  border-radius: 4px !important;
+  padding: 1.8rem !important;
+  margin: 2rem 0 !important;
+  box-shadow:
+    0 6px 35px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(0, 255, 136, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  ) !important;
+}
+
+#robotics-platform-teil2-main ~ .admonition::before,
+#robotics-platform-teil2-main ~ div.admonition::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--robot-red), var(--robot-cyan), var(--robot-green), var(--robot-cyan), var(--robot-red)) !important;
+  background-size: 400% 100% !important;
+  animation: roboticHudScan 3s linear infinite !important;
+  opacity: 0.8 !important;
+}
+
+#robotics-platform-teil2-main ~ .admonition .admonition-title,
+#robotics-platform-teil2-main ~ div.admonition .admonition-title {
+  color: var(--robot-cyan) !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 0.8rem !important;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.3) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+#robotics-platform-teil2-main ~ .admonition p,
+#robotics-platform-teil2-main ~ div.admonition p {
+  color: var(--robot-text) !important;
+  margin: 0.5rem 0 !important;
+}
+
+/* ========== PARAGRAPHS ========== */
+#robotics-platform-teil2-main ~ p {
+  color: var(--robot-text) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #robotics-platform-teil2-main {
+    font-size: 2rem !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  #robotics-platform-teil2-main ~ h2 {
+    font-size: 1.5rem !important;
+  }
+
+  #robotics-platform-teil2-main ~ h3 {
+    padding: 1.3rem 1.6rem !important;
+    font-size: 1.15rem !important;
+  }
+
+  #robotics-platform-teil2-main ~ p a {
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.78rem !important;
+    margin: 0.2rem !important;
+  }
+
+  #robotics-platform-teil2-main ~ table th,
+  #robotics-platform-teil2-main ~ table td {
+    padding: 0.9rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
+}
