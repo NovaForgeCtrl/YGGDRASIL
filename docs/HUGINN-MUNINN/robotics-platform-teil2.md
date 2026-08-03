@@ -91,7 +91,7 @@ POST /api/robots/:id/command
 
 ```bash
 curl -X POST \
-  http://192.168.2.220:3000/api/robots/1/command \
+  http://xxx.xxx.xxx.xxx:3000/api/robots/1/command \
   -H "Content-Type: application/json" \
   -d '
   {
