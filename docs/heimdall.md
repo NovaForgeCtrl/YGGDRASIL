@@ -22,7 +22,18 @@ Der allsehende Wächter am Horizont. Nichts entgeht seinem Blick — weder im Li
 
 ## 🛠️ Komponenten
 
-[Wazuh SIEM](wazuh.md){: .world-link } · [Suricata IDS](suricata.md){: .world-link } · [EveBox](evebox.md){: .world-link } · [YARA](yara.md){: .world-link } [Soc-Lab Teil 1 ](soc-lab.md){: .world-link } [Soc-Lab Teil 2 ](soc-lab-teil2.md){: .world-link }
+### - **Wazuh SIEM** — Zentrales Nervensystem für Log-Analyse & Alerting
+### - **Suricata IDS** — Network IDS/IPS für Echtzeit-Bedrohungserkennung
+### - **EveBox** — Web-Interface für Suricata-Events & Alert-Visualisierung
+### **YARA** — Regelbasierte Malware-Erkennung auf Dateiebene
+
+## 🛠️ Praxis
+
+### Soc-Lab Teil 1
+
+### Soc-Lab Teil 2
+
+
 
 
 ---

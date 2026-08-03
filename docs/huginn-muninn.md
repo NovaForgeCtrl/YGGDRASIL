@@ -22,7 +22,27 @@ Odins Raben, die über die Welt fliegen und Wissen sammeln. Alles lokal, alles u
 
 ## 🛠️ Komponenten
 
-[Ollama](ollama.md){: .world-link } · [Open WebUI](open-webui.md){: .world-link } · [Automatisierung](automation.md){: .world-link } · [Experimente](experiments.md){: .world-link }
+
+### **Ollama**
+Lokale LLM-Inferenz-Engine — führt KI-Modelle direkt auf eigener Hardware aus, ohne Daten nach draußen zu senden.
+
+
+
+### **Open WebUI**
+Chat-Oberfläche für Ollama — ermöglicht Gespräche mit lokalen KI-Modellen über einen modernen Browser-Client.
+
+
+
+### **Automatisierung**
+Skripte & Workflows — verbindet Dienste, triggert Aktionen und erledigt Routineaufgaben ohne menschliches Zutun.
+
+
+
+### **Experimente**
+Sandbox für neue Ideen — Testumgebung für Prototypen, Forschung und alles, was noch keinen festen Platz hat.
+
+
+
 
 ---
 
