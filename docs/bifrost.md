@@ -22,7 +22,7 @@ Das schimmernde Regenbogen-Tor zwischen den Welten. Die Pforte, die den Verkehr 
 
 ## 🛠️ Komponenten
 
-[OPNsense](opnsense.md){: .world-link } · [VLAN](vlan.md){: .world-link } · [Routing](routing.md){: .world-link } · [DNS & DHCP](dns-dhcp.md){: .world-link }
+[OPNsense](opnsense){: .world-link } · [VLAN](vlan){: .world-link } · [Routing](routing){: .world-link } · [DNS & DHCP](dns-dhcp){: .world-link }
 
 ---
 

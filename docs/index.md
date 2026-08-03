@@ -30,7 +30,7 @@ Das schimmernde Regenbogen-Tor zwischen den Welten. Die Pforte, die den Verkehr 
 ### 🏠 MIDGARD — Die sichtbare Welt
 Die Welt der Sterblichen — hier leben die Dienste, die das Netzwerk beleben und die Welten senden.
 
-[AzuraCast](MIDGARD/azuracast.md){: .world-link } · [Gitea](MIDGARD/gitea.md){: .world-link } · [Passbolt](MIDGARD/passbolt.md){: .world-link } · [Mailserver](MIDGARD/mailserver.md){: .world-link }
+[AzuraCast](MIDGARD/azuracast.md){: .world-link } · [Gitea](MIDGARD/gitea.md){: .world-link } · [Passbolt](MIDGARD/passbolt.md){: .world-link } · [Mailserver](MIDGARD/mailserver){: .world-link }
 
 ---
 

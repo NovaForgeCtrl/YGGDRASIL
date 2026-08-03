@@ -22,7 +22,7 @@ Die kleinen, flinken Boten des Weltenbaums. Funk, Wellen und Hardware-Experiment
 
 ## 🛠️ Komponenten
 
-[Raspberry Pi](raspberry-pi.md){: .world-link } · [Shortwave](shortwave.md){: .world-link } · [SDR](sdr.md){: .world-link }
+[Raspberry Pi](raspberry-pi){: .world-link }  · [SDR](sdr){: .world-link }
 
 ---
 

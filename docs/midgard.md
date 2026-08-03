@@ -22,7 +22,7 @@ Die Welt der Sterblichen — hier leben die Dienste, die das Netzwerk beleben un
 
 ## 🛠️ Komponenten
 
-[AzuraCast](azuracast.md){: .world-link } · [Gitea](gitea.md){: .world-link } · [Passbolt](passbolt.md){: .world-link } · [Mailserver](mailserver.md){: .world-link }
+[AzuraCast](azuracast){: .world-link } · [Gitea](gitea){: .world-link } · [Passbolt](passbolt){: .world-link } · [Mailserver](mailserver){: .world-link }
 
 ---
 

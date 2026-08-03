@@ -22,7 +22,8 @@ Der allsehende Wächter am Horizont. Nichts entgeht seinem Blick — weder im Li
 
 ## 🛠️ Komponenten
 
-[Wazuh SIEM](wazuh.md){: .world-link } · [Suricata IDS](suricata.md){: .world-link } · [EveBox](evebox.md){: .world-link } · [YARA](yara.md){: .world-link }
+[Wazuh SIEM](wazuh){: .world-link } · [Suricata IDS](suricata){: .world-link } · [EveBox](evebox){: .world-link } · [YARA](yara){: .world-link } [Soc-Lab Teil 1 ](soc-lab){: .world-link } [Soc-Lab Teil 2 ](soc-lab-teil2){: .world-link }
+
 
 ---
 

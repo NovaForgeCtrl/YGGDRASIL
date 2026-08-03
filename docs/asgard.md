@@ -25,22 +25,22 @@ ASGARD bildet das Fundament von YGGDRASIL — die physische und virtuelle Infras
 ### Proxmox VE
 Virtualisierungsplattform für alle VMs und Container.
 
-[Proxmox VE](proxmox.md){: .world-link }
+[Proxmox VE](proxmox){: .world-link }
 
 ### Ubuntu Server
 Betriebssystembasis für alle Dienste.
 
-[Ubuntu Server](ubuntu-server.md){: .world-link }
+[Ubuntu Server](ubuntu-server){: .world-link }
 
 ### Docker
 Container-Orchestrierung für isolierte Dienste.
 
-[Docker](docker.md){: .world-link }
+[Docker](docker){: .world-link }
 
 ### Storage
 ZFS-basierte Speicherlösung für VMs, Backups und Daten.
 
-[Storage](storage.md){: .world-link }
+[Storage](storage){: .world-link }
 
 ---
 

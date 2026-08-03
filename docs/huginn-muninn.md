@@ -22,7 +22,7 @@ Odins Raben, die über die Welt fliegen und Wissen sammeln. Alles lokal, alles u
 
 ## 🛠️ Komponenten
 
-[Ollama](ollama.md){: .world-link } · [Open WebUI](open-webui.md){: .world-link } · [Automatisierung](automation.md){: .world-link } · [Experimente](experiments.md){: .world-link }
+[Ollama](ollama){: .world-link } · [Open WebUI](open-webui){: .world-link } · [Automatisierung](automation){: .world-link } · [Experimente](experiments){: .world-link }
 
 ---
 

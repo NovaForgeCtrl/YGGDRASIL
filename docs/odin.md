@@ -22,7 +22,7 @@ Der Allvater der Verwaltung. Hier ruht das Gedächtnis von YGGDRASIL selbst — 
 
 ## 🛠️ Komponenten
 
-[Dokumentation](documentation.md){: .world-link } · [Backup](backup.md){: .world-link } · [Inventar](inventory.md){: .world-link } · [Wartung](maintenance.md){: .world-link }
+[Dokumentation](documentation){: .world-link } · [Backup](backup){: .world-link } · [Inventar](inventory){: .world-link } · [Wartung](maintenance){: .world-link }
 
 ---
 
