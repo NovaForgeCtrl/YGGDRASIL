@@ -22,7 +22,17 @@ Das schimmernde Regenbogen-Tor zwischen den Welten. Die Pforte, die den Verkehr 
 
 ## 🛠️ Komponenten
 
-[OPNsense](opnsense){: .world-link } · [VLAN](vlan){: .world-link } · [Routing](routing){: .world-link } · [DNS & DHCP](dns-dhcp){: .world-link }
+
+### OPNsense Open-Source Firewall & Router — Stateful Packet Inspection, NAT, VPN und Traffic-Shaping.
+
+
+### VLan Netzwerksegmentierung auf Layer 2 — trennt Welten, isoliert Broadcast-Domains.
+
+
+### Routing Layer-3-Pfadfindung — bestimmt, wie Pakete zwischen Subnetzen wandern.
+
+### DNS & DHCP Namensauflösung und automatische Adressvergabe für alle Hosts.
+
 
 ---
 

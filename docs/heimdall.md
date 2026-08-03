@@ -22,9 +22,9 @@ Der allsehende Wächter am Horizont. Nichts entgeht seinem Blick — weder im Li
 
 ## 🛠️ Komponenten
 
-### - **Wazuh SIEM** — Zentrales Nervensystem für Log-Analyse & Alerting
-### - **Suricata IDS** — Network IDS/IPS für Echtzeit-Bedrohungserkennung
-### - **EveBox** — Web-Interface für Suricata-Events & Alert-Visualisierung
+### **Wazuh SIEM** — Zentrales Nervensystem für Log-Analyse & Alerting
+### **Suricata IDS** — Network IDS/IPS für Echtzeit-Bedrohungserkennung
+### **EveBox** — Web-Interface für Suricata-Events & Alert-Visualisierung
 ### **YARA** — Regelbasierte Malware-Erkennung auf Dateiebene
 
 ## 🛠️ Praxis

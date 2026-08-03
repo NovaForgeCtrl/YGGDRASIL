@@ -22,7 +22,12 @@ Die Welt der Sterblichen — hier leben die Dienste, die das Netzwerk beleben un
 
 ## 🛠️ Komponenten
 
-[AzuraCast](azuracast){: .world-link } · [Gitea](gitea){: .world-link } · [Passbolt](passbolt){: .world-link } · [Mailserver](mailserver){: .world-link }
+
+### **AzuraCast** — Web-Radio Management Suite, streamt Musik 24/7
+### **Gitea** — Self-Hosted Git-Service für Repositories & CI/CD
+### **Passbolt** — Open-Source Passwort-Manager mit Team-Funktion
+### **Mailserver** — Postfix & Dovecot für interne/externe E-Mail
+
 
 ---
 
