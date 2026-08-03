@@ -66,6 +66,9 @@ extra_css:
   - assets/css/soc-lab2.css
   - assets/css/robotics-platform.css
   - assets/css/robotics-platform-teil2.css
+  - assets/css/shortwave.css
+  - assets/css/passbolt.css
+  - assets/css/gitea.css
 
 
 extra:
@@ -153,7 +156,6 @@ nav:
   - RAVEN:
     - raven.md
     - Raspberry Pi: RAVEN/raspberry-pi.md
-    - Shortwave: RAVEN/shortwave.md
     - SDR: RAVEN/sdr.md
 
   - DATENSCHUTZ: datenschutz.md

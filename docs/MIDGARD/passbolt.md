@@ -1,3 +1,5 @@
+# 🔐 Passbolt {: #passbolt-main }
+
 # Passbolt Community Edition – Installation auf Ubuntu Server 26.04 LTS
 
 > Diese Dokumentation beschreibt die Installation eines eigenen Passwortmanagers auf einem Ubuntu Server ohne öffentliche Domain. Der Zugriff erfolgt intern über die IP-Adresse.

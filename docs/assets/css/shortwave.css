@@ -1,0 +1,684 @@
+/* ============================================================
+   📻 SHORTWAVE – SIGNAL HUNTER EDITION
+   Vintage Radio-Feeling mit CRT-Phosphor, Scanlines,
+   Signal-Rauschen & Frequenz-Displays.
+   Nur aktiv innerhalb von #shortwave-main
+   ============================================================ */
+
+/* ========== ROOT VARIABLEN ========== */
+:root {
+  --sw-phosphor:       #33ff00;
+  --sw-phosphor-dim:   rgba(51, 255, 0, 0.15);
+  --sw-amber:          #ffb000;
+  --sw-amber-dim:      rgba(255, 176, 0, 0.15);
+  --sw-red:            #ff3333;
+  --sw-red-dim:        rgba(255, 51, 51, 0.15);
+  --sw-bg:             #0a0a06;
+  --sw-bg-panel:       #11110c;
+  --sw-bg-dark:        #050503;
+  --sw-text:           #c8c8b8;
+  --sw-text-bright:    #e8e8d8;
+  --sw-mono:           'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* ========== HAUPTTITEL – FREQUENCY DISPLAY ========== */
+#shortwave-main {
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: var(--sw-phosphor) !important;
+  text-shadow:
+    0 0 6px  rgba(51, 255, 0, 0.6),
+    0 0 12px rgba(51, 255, 0, 0.4),
+    0 0 24px rgba(51, 255, 0, 0.25),
+    0 0 48px rgba(255, 176, 0, 0.2),
+    0 0 80px rgba(51, 255, 0, 0.1) !important;
+  animation: swTuning 4s ease-in-out infinite;
+  border: none !important;
+  margin-bottom: 1.2rem !important;
+  position: relative !important;
+  padding-top: 1.2rem !important;
+  padding-bottom: 0.5rem !important;
+  font-family: var(--sw-mono) !important;
+  line-height: 1.3 !important;
+}
+
+@keyframes swTuning {
+  0%, 100% {
+    text-shadow:
+      0 0 6px  rgba(51, 255, 0, 0.6),
+      0 0 12px rgba(51, 255, 0, 0.4),
+      0 0 24px rgba(51, 255, 0, 0.25),
+      0 0 48px rgba(255, 176, 0, 0.2),
+      0 0 80px rgba(51, 255, 0, 0.1) !important;
+    filter: brightness(1);
+    letter-spacing: 0.22em;
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(51, 255, 0, 0.9),
+      0 0 20px rgba(51, 255, 0, 0.6),
+      0 0 40px rgba(51, 255, 0, 0.35),
+      0 0 60px rgba(255, 176, 0, 0.3),
+      0 0 100px rgba(51, 255, 0, 0.15) !important;
+    filter: brightness(1.2);
+    letter-spacing: 0.26em;
+  }
+}
+
+/* Frequenz-Skala unter dem Titel */
+#shortwave-main::after {
+  content: '' !important;
+  display: block !important;
+  width: 85% !important;
+  height: 3px !important;
+  margin: 0.8rem auto 0 !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--sw-red) 10%,
+    var(--sw-amber) 30%,
+    var(--sw-phosphor) 50%,
+    var(--sw-amber) 70%,
+    var(--sw-red) 90%,
+    transparent 100%
+  ) !important;
+  box-shadow:
+    0 0 8px  rgba(51, 255, 0, 0.4),
+    0 0 16px rgba(255, 176, 0, 0.3) !important;
+  animation: swSignalPulse 3s ease-in-out infinite !important;
+  position: relative !important;
+}
+
+#shortwave-main::after::before {
+  content: '▼' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: -8px !important;
+  color: var(--sw-phosphor) !important;
+  font-size: 0.7rem !important;
+  animation: swTuningNeedle 5s ease-in-out infinite !important;
+}
+
+@keyframes swSignalPulse {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+@keyframes swTuningNeedle {
+  0%, 100% { left: 20%; }
+  25%      { left: 60%; }
+  50%      { left: 45%; }
+  75%      { left: 80%; }
+}
+
+/* Static-Rausch-Effekt */
+#shortwave-main::before {
+  content: 'SHORTWAVE' !important;
+  position: absolute !important;
+  top: 1.2rem !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  color: transparent !important;
+  text-shadow:
+    -2px 0 var(--sw-red),
+     2px 0 var(--sw-amber) !important;
+  opacity: 0 !important;
+  animation: swStatic 3.5s ease-in-out infinite !important;
+  pointer-events: none !important;
+  letter-spacing: 0.08em !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+}
+
+@keyframes swStatic {
+  0%, 82%, 100% { opacity: 0; transform: translateX(0); }
+  83% { opacity: 0.5; transform: translateX(-3px); }
+  84% { opacity: 0.7; transform: translateX(3px); }
+  85% { opacity: 0.3; transform: translateX(-2px); }
+  86% { opacity: 0.6; transform: translateX(2px); }
+  87% { opacity: 0;  transform: translateX(0); }
+  88% { opacity: 0.4; transform: translateX(-3px); }
+  89% { opacity: 0;  transform: translateX(0); }
+}
+
+/* ========== SUBTITEL / BLOCKQUOTE ========== */
+#shortwave-main + blockquote {
+  border-left: 4px solid var(--sw-amber) !important;
+  background: linear-gradient(90deg, rgba(255, 176, 0, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 14px 14px 0 !important;
+  padding: 1.2rem 1.8rem !important;
+  color: var(--sw-phosphor) !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: 2.5rem !important;
+  box-shadow:
+    0 0 20px rgba(255, 176, 0, 0.06),
+    inset 0 0 20px rgba(51, 255, 0, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#shortwave-main + blockquote::before {
+  content: '◄ SIGNAL DETECTED ►' !important;
+  display: block !important;
+  font-family: var(--sw-mono) !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.3em !important;
+  color: var(--sw-amber) !important;
+  margin-bottom: 0.5rem !important;
+  text-shadow: 0 0 6px rgba(255, 176, 0, 0.4) !important;
+}
+
+/* ========== H2 – BAND HEADERS ========== */
+#shortwave-main ~ h2 {
+  color: var(--sw-phosphor) !important;
+  font-size: 1.9rem !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  letter-spacing: 0.12em !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1.8rem !important;
+  text-shadow: 0 0 10px rgba(51, 255, 0, 0.35) !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  font-family: var(--sw-mono) !important;
+}
+
+#shortwave-main ~ h2::before {
+  content: '▌' !important;
+  color: var(--sw-amber) !important;
+  margin-right: 0.5rem !important;
+  text-shadow: 0 0 8px rgba(255, 176, 0, 0.5) !important;
+}
+
+#shortwave-main ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 70% !important;
+  height: 2px !important;
+  margin: 0.6rem auto 0 !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--sw-red),
+    var(--sw-amber),
+    var(--sw-phosphor),
+    var(--sw-amber),
+    var(--sw-red),
+    transparent
+  ) !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 8px rgba(51, 255, 0, 0.2) !important;
+}
+
+/* ========== H3 – RADIO PANELS ========== */
+#shortwave-main ~ h3 {
+  background: linear-gradient(135deg, var(--sw-bg-dark) 0%, var(--sw-bg-panel) 50%, var(--sw-bg-dark) 100%) !important;
+  border: 1px solid rgba(51, 255, 0, 0.3) !important;
+  border-radius: 4px !important;
+  padding: 1.6rem 2.2rem !important;
+  margin: 2rem 0 0.6rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 6px 30px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(51, 255, 0, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  color: var(--sw-phosphor) !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  ) !important;
+  font-family: var(--sw-mono) !important;
+}
+
+/* Staggered Float */
+#shortwave-main ~ h3:nth-of-type(1) { animation: swPanelFloat 5s ease-in-out infinite; animation-delay: 0s; }
+#shortwave-main ~ h3:nth-of-type(2) { animation: swPanelFloat 5s ease-in-out infinite; animation-delay: -0.8s; }
+#shortwave-main ~ h3:nth-of-type(3) { animation: swPanelFloat 5s ease-in-out infinite; animation-delay: -1.6s; }
+#shortwave-main ~ h3:nth-of-type(4) { animation: swPanelFloat 5s ease-in-out infinite; animation-delay: -2.4s; }
+#shortwave-main ~ h3:nth-of-type(5) { animation: swPanelFloat 5s ease-in-out infinite; animation-delay: -3.2s; }
+#shortwave-main ~ h3:nth-of-type(6) { animation: swPanelFloat 5s ease-in-out infinite; animation-delay: -4.0s; }
+#shortwave-main ~ h3:nth-of-type(7) { animation: swPanelFloat 5s ease-in-out infinite; animation-delay: -0.4s; }
+#shortwave-main ~ h3:nth-of-type(8) { animation: swPanelFloat 5s ease-in-out infinite; animation-delay: -1.2s; }
+
+@keyframes swPanelFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+#shortwave-main ~ h3:hover {
+  transform: translateY(-10px) scale(1.025) !important;
+  border-color: var(--sw-phosphor) !important;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.7),
+    0 0 30px rgba(51, 255, 0, 0.3),
+    0 0 60px rgba(51, 255, 0, 0.12),
+    0 0 90px rgba(255, 176, 0, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* Frequenz-Balken oben */
+#shortwave-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--sw-red), var(--sw-amber), var(--sw-phosphor), var(--sw-amber), var(--sw-red)) !important;
+  background-size: 400% 100% !important;
+  animation: swFreqScan 3s linear infinite !important;
+  opacity: 0.8 !important;
+}
+
+@keyframes swFreqScan {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+/* CRT Scanline-Effekt */
+#shortwave-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(51, 255, 0, 0.06), transparent) !important;
+  animation: swCrtSweep 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes swCrtSweep {
+  0%, 100% { left: -100%; }
+  50%      { left: 100%; }
+}
+
+/* ========== BESCHREIBUNGSTEXT ========== */
+#shortwave-main ~ h3 + p {
+  color: var(--sw-amber) !important;
+  font-size: 1rem !important;
+  line-height: 1.75 !important;
+  margin-bottom: 1rem !important;
+  padding-left: 0.6rem !important;
+  border-left: 2px solid rgba(255, 176, 0, 0.15) !important;
+  padding-left: 1rem !important;
+}
+
+/* ========== LINKS – FREQUENCY BUTTONS ========== */
+#shortwave-main ~ p a {
+  display: inline-block !important;
+  background: linear-gradient(135deg, rgba(51, 255, 0, 0.08) 0%, rgba(255, 176, 0, 0.04) 100%) !important;
+  border: 1px solid rgba(51, 255, 0, 0.25) !important;
+  border-radius: 2px !important;
+  padding: 0.55rem 1.1rem !important;
+  margin: 0.3rem !important;
+  color: var(--sw-phosphor) !important;
+  text-decoration: none !important;
+  font-family: var(--sw-mono) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 14px rgba(51, 255, 0, 0.08) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  ) !important;
+}
+
+#shortwave-main ~ p a::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(51, 255, 0, 0.3), transparent) !important;
+  transition: left 0.5s ease !important;
+}
+
+#shortwave-main ~ p a:hover::before {
+  left: 100% !important;
+}
+
+#shortwave-main ~ p a:hover {
+  background: linear-gradient(135deg, rgba(51, 255, 0, 0.18) 0%, rgba(255, 176, 0, 0.1) 100%) !important;
+  border-color: var(--sw-phosphor) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 16px rgba(51, 255, 0, 0.35),
+    0 0 32px rgba(51, 255, 0, 0.18),
+    0 0 48px rgba(255, 176, 0, 0.1) !important;
+  transform: translateY(-4px) !important;
+  animation: swSignalGlitch 0.25s ease !important;
+}
+
+@keyframes swSignalGlitch {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-3px, 3px); }
+  40%  { transform: translate(-3px, -3px); }
+  60%  { transform: translate(3px, 3px); }
+  80%  { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+/* ========== TABELLE – SIGNAL MATRIX ========== */
+#shortwave-main ~ table {
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(51, 255, 0, 0.25) !important;
+  background: linear-gradient(135deg, var(--sw-bg-dark) 0%, var(--sw-bg-panel) 100%) !important;
+  box-shadow:
+    0 6px 35px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(51, 255, 0, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  margin: 2rem 0 !important;
+  font-family: var(--sw-mono) !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  ) !important;
+}
+
+#shortwave-main ~ table thead {
+  background: linear-gradient(180deg, rgba(51, 255, 0, 0.12) 0%, rgba(255, 176, 0, 0.05) 100%) !important;
+}
+
+#shortwave-main ~ table th {
+  color: var(--sw-phosphor) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.2em !important;
+  border-bottom: 2px solid var(--sw-amber) !important;
+  padding: 1.3rem 1.6rem !important;
+  text-shadow: 0 0 8px rgba(51, 255, 0, 0.35) !important;
+}
+
+#shortwave-main ~ table td {
+  border-bottom: 1px solid rgba(51, 255, 0, 0.12) !important;
+  padding: 1.1rem 1.6rem !important;
+  color: var(--sw-text) !important;
+  transition: all 0.3s ease !important;
+  font-size: 0.9rem !important;
+}
+
+#shortwave-main ~ table tr:hover {
+  background: linear-gradient(90deg, rgba(51, 255, 0, 0.08) 0%, transparent 100%) !important;
+}
+
+#shortwave-main ~ table tr:hover td {
+  color: var(--sw-phosphor) !important;
+  text-shadow: 0 0 8px rgba(51, 255, 0, 0.3) !important;
+}
+
+/* ========== CODE BLOCKS – RECEIVER DISPLAY ========== */
+#shortwave-main ~ pre {
+  background: linear-gradient(135deg, var(--sw-bg-dark) 0%, var(--sw-bg-panel) 100%) !important;
+  border: 1px solid rgba(255, 176, 0, 0.25) !important;
+  border-radius: 4px !important;
+  padding: 1.8rem !important;
+  margin: 2rem 0 !important;
+  box-shadow:
+    0 6px 35px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255, 176, 0, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  overflow-x: auto !important;
+  position: relative !important;
+  font-family: var(--sw-mono) !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  ) !important;
+}
+
+/* Receiver-Header */
+#shortwave-main ~ pre::before {
+  content: '● ● ●   RECEIVER OUTPUT' !important;
+  display: block !important;
+  font-family: var(--sw-mono) !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.25em !important;
+  color: var(--sw-amber) !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.6rem !important;
+  border-bottom: 1px solid rgba(255, 176, 0, 0.15) !important;
+  text-shadow: 0 0 6px rgba(255, 176, 0, 0.3) !important;
+}
+
+#shortwave-main ~ pre code {
+  background: none !important;
+  border: none !important;
+  color: var(--sw-phosphor) !important;
+  font-family: var(--sw-mono) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.75 !important;
+}
+
+/* ========== BLOCKQUOTE (letztes) – TRANSMISSION LOG ========== */
+#shortwave-main ~ blockquote:last-of-type {
+  border-left: 4px solid var(--sw-amber) !important;
+  background: linear-gradient(90deg, rgba(255, 176, 0, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 18px 18px 0 !important;
+  padding: 2.2rem 2.8rem !important;
+  font-style: italic !important;
+  color: var(--sw-text-bright) !important;
+  text-align: center !important;
+  box-shadow:
+    0 0 25px rgba(255, 176, 0, 0.08),
+    inset 0 0 25px rgba(51, 255, 0, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-top: 2.5rem !important;
+}
+
+#shortwave-main ~ blockquote:last-of-type::before {
+  content: '❝' !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 18px !important;
+  font-size: 5.5rem !important;
+  color: rgba(51, 255, 0, 0.1) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+#shortwave-main ~ blockquote:last-of-type::after {
+  content: '❞' !important;
+  position: absolute !important;
+  bottom: -30px !important;
+  right: 18px !important;
+  font-size: 5.5rem !important;
+  color: rgba(51, 255, 0, 0.1) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+/* ========== INLINE CODE ========== */
+#shortwave-main ~ p code:not(pre code) {
+  background: linear-gradient(135deg, rgba(51, 255, 0, 0.12) 0%, rgba(255, 176, 0, 0.06) 100%) !important;
+  color: var(--sw-phosphor) !important;
+  padding: 0.2rem 0.65rem !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(51, 255, 0, 0.18) !important;
+  font-size: 0.88em !important;
+  box-shadow: 0 0 8px rgba(51, 255, 0, 0.1) !important;
+  font-family: var(--sw-mono) !important;
+}
+
+/* ========== LISTEN ========== */
+#shortwave-main ~ ul li,
+#shortwave-main ~ ol li {
+  color: var(--sw-text) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.6 !important;
+}
+
+#shortwave-main ~ ul li::marker {
+  color: var(--sw-amber) !important;
+  font-size: 1.1em !important;
+}
+
+#shortwave-main ~ ol li::marker {
+  color: var(--sw-phosphor) !important;
+  font-weight: bold !important;
+  font-family: var(--sw-mono) !important;
+}
+
+/* ========== TRENNLINIE – SIGNAL BREAK ========== */
+#shortwave-main ~ hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--sw-red),
+    var(--sw-amber),
+    var(--sw-phosphor),
+    var(--sw-amber),
+    var(--sw-red),
+    transparent
+  ) !important;
+  margin: 3rem 0 !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 16px rgba(51, 255, 0, 0.25) !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+#shortwave-main ~ hr::after {
+  content: '⚡' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: var(--sw-phosphor) !important;
+  font-size: 1.3rem !important;
+  text-shadow: 0 0 10px rgba(51, 255, 0, 0.5) !important;
+  background: var(--sw-bg-dark) !important;
+  padding: 0 1.2rem !important;
+}
+
+/* ========== ADMONITION / NOTE ========== */
+#shortwave-main ~ .admonition,
+#shortwave-main ~ div.admonition,
+#shortwave-main ~ .admonition.note {
+  background: linear-gradient(135deg, var(--sw-bg-dark) 0%, var(--sw-bg-panel) 100%) !important;
+  border: 1px solid rgba(255, 176, 0, 0.2) !important;
+  border-radius: 4px !important;
+  padding: 1.8rem !important;
+  margin: 2rem 0 !important;
+  box-shadow:
+    0 6px 35px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255, 176, 0, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  ) !important;
+}
+
+#shortwave-main ~ .admonition::before,
+#shortwave-main ~ div.admonition::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--sw-red), var(--sw-amber), var(--sw-phosphor), var(--sw-amber), var(--sw-red)) !important;
+  background-size: 400% 100% !important;
+  animation: swFreqScan 3s linear infinite !important;
+  opacity: 0.8 !important;
+}
+
+#shortwave-main ~ .admonition .admonition-title,
+#shortwave-main ~ div.admonition .admonition-title {
+  color: var(--sw-phosphor) !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 0.8rem !important;
+  text-shadow: 0 0 8px rgba(51, 255, 0, 0.3) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+#shortwave-main ~ .admonition p,
+#shortwave-main ~ div.admonition p {
+  color: var(--sw-text) !important;
+  margin: 0.5rem 0 !important;
+}
+
+/* ========== PARAGRAPHS ========== */
+#shortwave-main ~ p {
+  color: var(--sw-text) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #shortwave-main {
+    font-size: 1.4rem !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  #shortwave-main ~ h2 {
+    font-size: 1.5rem !important;
+  }
+
+  #shortwave-main ~ h3 {
+    padding: 1.3rem 1.6rem !important;
+    font-size: 1.15rem !important;
+  }
+
+  #shortwave-main ~ p a {
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.78rem !important;
+    margin: 0.2rem !important;
+  }
+
+  #shortwave-main ~ table th,
+  #shortwave-main ~ table td {
+    padding: 0.9rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
+}

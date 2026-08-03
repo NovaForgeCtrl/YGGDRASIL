@@ -1,5 +1,5 @@
 
-# 🤖 Robotics Platform Teil 2 {: #robotics-platform-teil-2 }
+# 🤖 Robotics Platform Teil 1 {: #robotics-platform-main }
 
 **Technische Projekt- und Administrationsdokumentation**  
 **Version:** 0.2-alpha  

@@ -1,4 +1,5 @@
-# Gitea Git-Server Dokumentation
+# 🌿 Gitea {: #gitea-main }
+# Gitea Git-Server Dokumentation 
 
 > **Projekt:** Lokaler Git-Server mit Ubuntu Server 26.04  
 > **Version:** 1.0  

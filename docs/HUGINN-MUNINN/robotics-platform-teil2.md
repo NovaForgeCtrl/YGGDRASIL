@@ -1,5 +1,5 @@
 
-# 🤖 Robotics Platform {: #robotics-platform-teil2-main}
+# 🤖 Robotics Platform Teil 2 {: #robotics-platform-teil2-main}
 **Entwicklung eines browserbasierten Robotik-Mission-Control-Systems**
 
 - **Datum:** 02.08.2026

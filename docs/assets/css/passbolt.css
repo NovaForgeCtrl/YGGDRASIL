@@ -1,0 +1,697 @@
+/* ============================================================
+   🔐 PASSBOLT — FORT KNOX EDITION
+   Sicherheits- & Verschlüsselungs-Vibes: Schlüssel, Schloss,
+   Matrix-Regen, Encryption-Strom & Breach-Alert.
+   Nur aktiv innerhalb von #passbolt-main
+   ============================================================ */
+
+/* ========== ROOT VARIABLEN ========== */
+:root {
+  --pb-gold:         #ffcc00;
+  --pb-gold-dim:     rgba(255, 204, 0, 0.15);
+  --pb-cyan:         #00e5ff;
+  --pb-cyan-dim:     rgba(0, 229, 255, 0.15);
+  --pb-red:          #ff3366;
+  --pb-red-dim:      rgba(255, 51, 102, 0.15);
+  --pb-bg:           #050508;
+  --pb-bg-panel:     #0a0a10;
+  --pb-bg-dark:      #020203;
+  --pb-text:         #a0a8b8;
+  --pb-text-bright:  #c8d0e0;
+  --pb-mono:         'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* ========== HAUPTTITEL — VAULT STATUS ========== */
+#passbolt-main {
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: var(--pb-gold) !important;
+  text-shadow:
+    0 0 6px  rgba(255, 204, 0, 0.6),
+    0 0 12px rgba(255, 204, 0, 0.4),
+    0 0 24px rgba(255, 204, 0, 0.25),
+    0 0 48px rgba(0, 229, 255, 0.2),
+    0 0 80px rgba(255, 204, 0, 0.1) !important;
+  animation: pbVaultPulse 3s ease-in-out infinite;
+  border: none !important;
+  margin-bottom: 1.2rem !important;
+  position: relative !important;
+  padding-top: 1.2rem !important;
+  padding-bottom: 0.5rem !important;
+  font-family: var(--pb-mono) !important;
+  line-height: 1.3 !important;
+}
+
+@keyframes pbVaultPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 6px  rgba(255, 204, 0, 0.6),
+      0 0 12px rgba(255, 204, 0, 0.4),
+      0 0 24px rgba(255, 204, 0, 0.25),
+      0 0 48px rgba(0, 229, 255, 0.2),
+      0 0 80px rgba(255, 204, 0, 0.1) !important;
+    filter: brightness(1);
+    letter-spacing: 0.1em;
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 204, 0, 0.9),
+      0 0 20px rgba(255, 204, 0, 0.6),
+      0 0 40px rgba(255, 204, 0, 0.35),
+      0 0 60px rgba(0, 229, 255, 0.3),
+      0 0 100px rgba(255, 204, 0, 0.15) !important;
+    filter: brightness(1.2);
+    letter-spacing: 0.14em;
+  }
+}
+
+/* Schlüssel-Balken unter dem Titel */
+#passbolt-main::after {
+  content: '' !important;
+  display: block !important;
+  width: 80% !important;
+  height: 3px !important;
+  margin: 0.8rem auto 0 !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--pb-red) 10%,
+    var(--pb-gold) 30%,
+    var(--pb-cyan) 50%,
+    var(--pb-gold) 70%,
+    var(--pb-red) 90%,
+    transparent 100%
+  ) !important;
+  box-shadow:
+    0 0 8px  rgba(255, 204, 0, 0.4),
+    0 0 16px rgba(0, 229, 255, 0.3) !important;
+  animation: pbKeyPulse 3s ease-in-out infinite !important;
+}
+
+@keyframes pbKeyPulse {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+/* Encryption-Glitch */
+#passbolt-main::before {
+  content: 'PASSBOLT' !important;
+  position: absolute !important;
+  top: 1.2rem !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  color: transparent !important;
+  text-shadow:
+    -2px 0 var(--pb-red),
+     2px 0 var(--pb-cyan) !important;
+  opacity: 0 !important;
+  animation: pbEncryptGlitch 3.5s ease-in-out infinite !important;
+  pointer-events: none !important;
+  letter-spacing: 0.1em !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+}
+
+@keyframes pbEncryptGlitch {
+  0%, 82%, 100% { opacity: 0; transform: translateX(0); }
+  83% { opacity: 0.5; transform: translateX(-3px); }
+  84% { opacity: 0.7; transform: translateX(3px); }
+  85% { opacity: 0.3; transform: translateX(-2px); }
+  86% { opacity: 0.6; transform: translateX(2px); }
+  87% { opacity: 0;  transform: translateX(0); }
+  88% { opacity: 0.4; transform: translateX(-3px); }
+  89% { opacity: 0;  transform: translateX(0); }
+}
+
+/* ========== STATUS-LEISTE — VAULT SECURED ========== */
+#passbolt-main + blockquote {
+  border-left: 4px solid var(--pb-gold) !important;
+  background: linear-gradient(90deg, rgba(255, 204, 0, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 14px 14px 0 !important;
+  padding: 1.2rem 1.8rem !important;
+  color: var(--pb-cyan) !important;
+  font-style: normal !important;
+  text-align: center !important;
+  margin-bottom: 2.5rem !important;
+  box-shadow:
+    0 0 20px rgba(255, 204, 0, 0.06),
+    inset 0 0 20px rgba(0, 229, 255, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#passbolt-main + blockquote::before {
+  content: '◄ VAULT SECURED ● AES-256-GCM ►' !important;
+  display: block !important;
+  font-family: var(--pb-mono) !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.3em !important;
+  color: var(--pb-gold) !important;
+  margin-bottom: 0.5rem !important;
+  text-shadow: 0 0 6px rgba(255, 204, 0, 0.4) !important;
+}
+
+#passbolt-main + blockquote code {
+  background: rgba(255, 204, 0, 0.1) !important;
+  color: var(--pb-gold) !important;
+  padding: 0.15rem 0.4rem !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 204, 0, 0.2) !important;
+  font-size: 0.75rem !important;
+  font-family: var(--pb-mono) !important;
+  box-shadow: 0 0 6px rgba(255, 204, 0, 0.1) !important;
+}
+
+/* ========== H2 — SECURITY SECTOR HEADERS ========== */
+#passbolt-main ~ h2 {
+  color: var(--pb-gold) !important;
+  font-size: 1.9rem !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  letter-spacing: 0.12em !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1.8rem !important;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.35) !important;
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  font-family: var(--pb-mono) !important;
+}
+
+#passbolt-main ~ h2::before {
+  content: '▌' !important;
+  color: var(--pb-red) !important;
+  margin-right: 0.5rem !important;
+  text-shadow: 0 0 8px rgba(255, 51, 102, 0.5) !important;
+}
+
+#passbolt-main ~ h2::after {
+  content: '' !important;
+  display: block !important;
+  width: 70% !important;
+  height: 2px !important;
+  margin: 0.6rem auto 0 !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pb-red),
+    var(--pb-gold),
+    var(--pb-cyan),
+    var(--pb-gold),
+    var(--pb-red),
+    transparent
+  ) !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.2) !important;
+}
+
+/* ========== H3 — ENCRYPTED PANELS ========== */
+#passbolt-main ~ h3 {
+  background: linear-gradient(135deg, var(--pb-bg-dark) 0%, var(--pb-bg-panel) 50%, var(--pb-bg-dark) 100%) !important;
+  border: 1px solid rgba(255, 204, 0, 0.3) !important;
+  border-radius: 4px !important;
+  padding: 1.6rem 2.2rem !important;
+  margin: 2rem 0 0.6rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow:
+    0 6px 30px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255, 204, 0, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  color: var(--pb-gold) !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  ) !important;
+  font-family: var(--pb-mono) !important;
+}
+
+/* Staggered Float */
+#passbolt-main ~ h3:nth-of-type(1) { animation: pbPanelFloat 5s ease-in-out infinite; animation-delay: 0s; }
+#passbolt-main ~ h3:nth-of-type(2) { animation: pbPanelFloat 5s ease-in-out infinite; animation-delay: -0.8s; }
+#passbolt-main ~ h3:nth-of-type(3) { animation: pbPanelFloat 5s ease-in-out infinite; animation-delay: -1.6s; }
+#passbolt-main ~ h3:nth-of-type(4) { animation: pbPanelFloat 5s ease-in-out infinite; animation-delay: -2.4s; }
+#passbolt-main ~ h3:nth-of-type(5) { animation: pbPanelFloat 5s ease-in-out infinite; animation-delay: -3.2s; }
+#passbolt-main ~ h3:nth-of-type(6) { animation: pbPanelFloat 5s ease-in-out infinite; animation-delay: -4.0s; }
+#passbolt-main ~ h3:nth-of-type(7) { animation: pbPanelFloat 5s ease-in-out infinite; animation-delay: -0.4s; }
+#passbolt-main ~ h3:nth-of-type(8) { animation: pbPanelFloat 5s ease-in-out infinite; animation-delay: -1.2s; }
+
+@keyframes pbPanelFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+#passbolt-main ~ h3:hover {
+  transform: translateY(-10px) scale(1.025) !important;
+  border-color: var(--pb-gold) !important;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.7),
+    0 0 30px rgba(255, 204, 0, 0.3),
+    0 0 60px rgba(255, 204, 0, 0.12),
+    0 0 90px rgba(0, 229, 255, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* Verschlüsselungs-Balken oben */
+#passbolt-main ~ h3::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--pb-red), var(--pb-gold), var(--pb-cyan), var(--pb-gold), var(--pb-red)) !important;
+  background-size: 400% 100% !important;
+  animation: pbEncryptScan 3s linear infinite !important;
+  opacity: 0.8 !important;
+}
+
+@keyframes pbEncryptScan {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+/* Matrix-Scanline */
+#passbolt-main ~ h3::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.06), transparent) !important;
+  animation: pbMatrixSweep 4s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
+
+@keyframes pbMatrixSweep {
+  0%, 100% { left: -100%; }
+  50%      { left: 100%; }
+}
+
+/* ========== BESCHREIBUNGSTEXT ========== */
+#passbolt-main ~ h3 + p {
+  color: var(--pb-cyan) !important;
+  font-size: 1rem !important;
+  line-height: 1.75 !important;
+  margin-bottom: 1rem !important;
+  padding-left: 0.6rem !important;
+  border-left: 2px solid rgba(0, 229, 255, 0.15) !important;
+  padding-left: 1rem !important;
+}
+
+/* ========== LINKS — KEY BUTTONS ========== */
+#passbolt-main ~ p a,
+#passbolt-main ~ p a.world-link {
+  display: inline-block !important;
+  background: linear-gradient(135deg, rgba(255, 204, 0, 0.08) 0%, rgba(0, 229, 255, 0.04) 100%) !important;
+  border: 1px solid rgba(255, 204, 0, 0.25) !important;
+  border-radius: 2px !important;
+  padding: 0.55rem 1.1rem !important;
+  margin: 0.3rem !important;
+  color: var(--pb-gold) !important;
+  text-decoration: none !important;
+  font-family: var(--pb-mono) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 14px rgba(255, 204, 0, 0.08) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  ) !important;
+}
+
+#passbolt-main ~ p a::before,
+#passbolt-main ~ p a.world-link::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.3), transparent) !important;
+  transition: left 0.5s ease !important;
+}
+
+#passbolt-main ~ p a:hover::before,
+#passbolt-main ~ p a.world-link:hover::before {
+  left: 100% !important;
+}
+
+#passbolt-main ~ p a:hover,
+#passbolt-main ~ p a.world-link:hover {
+  background: linear-gradient(135deg, rgba(255, 204, 0, 0.18) 0%, rgba(0, 229, 255, 0.1) 100%) !important;
+  border-color: var(--pb-gold) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 0 16px rgba(255, 204, 0, 0.35),
+    0 0 32px rgba(255, 204, 0, 0.18),
+    0 0 48px rgba(0, 229, 255, 0.1) !important;
+  transform: translateY(-4px) !important;
+  animation: pbKeyGlitch 0.25s ease !important;
+}
+
+@keyframes pbKeyGlitch {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-3px, 3px); }
+  40%  { transform: translate(-3px, -3px); }
+  60%  { transform: translate(3px, 3px); }
+  80%  { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+/* ========== TABELLE — CREDENTIAL MATRIX ========== */
+#passbolt-main ~ table {
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 204, 0, 0.25) !important;
+  background: linear-gradient(135deg, var(--pb-bg-dark) 0%, var(--pb-bg-panel) 100%) !important;
+  box-shadow:
+    0 6px 35px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255, 204, 0, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  margin: 2rem 0 !important;
+  font-family: var(--pb-mono) !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  ) !important;
+}
+
+#passbolt-main ~ table thead {
+  background: linear-gradient(180deg, rgba(255, 204, 0, 0.12) 0%, rgba(0, 229, 255, 0.05) 100%) !important;
+}
+
+#passbolt-main ~ table th {
+  color: var(--pb-gold) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.2em !important;
+  border-bottom: 2px solid var(--pb-red) !important;
+  padding: 1.3rem 1.6rem !important;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.35) !important;
+}
+
+#passbolt-main ~ table td {
+  border-bottom: 1px solid rgba(255, 204, 0, 0.12) !important;
+  padding: 1.1rem 1.6rem !important;
+  color: var(--pb-text) !important;
+  transition: all 0.3s ease !important;
+  font-size: 0.9rem !important;
+}
+
+#passbolt-main ~ table tr:hover {
+  background: linear-gradient(90deg, rgba(255, 204, 0, 0.08) 0%, transparent 100%) !important;
+}
+
+#passbolt-main ~ table tr:hover td {
+  color: var(--pb-gold) !important;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.3) !important;
+}
+
+/* ========== CODE BLOCKS — DECRYPTION TERMINAL ========== */
+#passbolt-main ~ pre {
+  background: linear-gradient(135deg, var(--pb-bg-dark) 0%, var(--pb-bg-panel) 100%) !important;
+  border: 1px solid rgba(0, 229, 255, 0.25) !important;
+  border-radius: 4px !important;
+  padding: 1.8rem !important;
+  margin: 2rem 0 !important;
+  box-shadow:
+    0 6px 35px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(0, 229, 255, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  overflow-x: auto !important;
+  position: relative !important;
+  font-family: var(--pb-mono) !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  ) !important;
+}
+
+/* Decryption-Header */
+#passbolt-main ~ pre::before {
+  content: '● ● ●   DECRYPTION LOG' !important;
+  display: block !important;
+  font-family: var(--pb-mono) !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.25em !important;
+  color: var(--pb-red) !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.6rem !important;
+  border-bottom: 1px solid rgba(0, 229, 255, 0.15) !important;
+  text-shadow: 0 0 6px rgba(255, 51, 102, 0.3) !important;
+}
+
+#passbolt-main ~ pre code {
+  background: none !important;
+  border: none !important;
+  color: var(--pb-cyan) !important;
+  font-family: var(--pb-mono) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.75 !important;
+}
+
+/* ========== BLOCKQUOTE — SECURITY BULLETIN ========== */
+#passbolt-main ~ blockquote {
+  border-left: 4px solid var(--pb-red) !important;
+  background: linear-gradient(90deg, rgba(255, 51, 102, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 14px 14px 0 !important;
+  padding: 1.2rem 1.8rem !important;
+  color: var(--pb-red) !important;
+  font-style: normal !important;
+  box-shadow:
+    0 0 20px rgba(255, 51, 102, 0.06),
+    inset 0 0 20px rgba(255, 204, 0, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 1rem 0 !important;
+}
+
+#passbolt-main ~ blockquote:last-of-type {
+  border-left: 4px solid var(--pb-gold) !important;
+  background: linear-gradient(90deg, rgba(255, 204, 0, 0.06) 0%, transparent 100%) !important;
+  border-radius: 0 18px 18px 0 !important;
+  padding: 2.2rem 2.8rem !important;
+  font-style: italic !important;
+  color: var(--pb-text-bright) !important;
+  text-align: center !important;
+  box-shadow:
+    0 0 25px rgba(255, 204, 0, 0.08),
+    inset 0 0 25px rgba(0, 229, 255, 0.02) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-top: 2.5rem !important;
+}
+
+#passbolt-main ~ blockquote:last-of-type::before {
+  content: '❝' !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 18px !important;
+  font-size: 5.5rem !important;
+  color: rgba(255, 204, 0, 0.1) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+#passbolt-main ~ blockquote:last-of-type::after {
+  content: '❞' !important;
+  position: absolute !important;
+  bottom: -30px !important;
+  right: 18px !important;
+  font-size: 5.5rem !important;
+  color: rgba(255, 204, 0, 0.1) !important;
+  font-family: Georgia, serif !important;
+  line-height: 1 !important;
+}
+
+/* ========== INLINE CODE ========== */
+#passbolt-main ~ p code:not(pre code) {
+  background: linear-gradient(135deg, rgba(255, 204, 0, 0.12) 0%, rgba(0, 229, 255, 0.06) 100%) !important;
+  color: var(--pb-gold) !important;
+  padding: 0.2rem 0.65rem !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 204, 0, 0.18) !important;
+  font-size: 0.88em !important;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.1) !important;
+  font-family: var(--pb-mono) !important;
+}
+
+/* ========== LISTEN ========== */
+#passbolt-main ~ ul li,
+#passbolt-main ~ ol li {
+  color: var(--pb-text) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.6 !important;
+}
+
+#passbolt-main ~ ul li::marker {
+  color: var(--pb-red) !important;
+  font-size: 1.1em !important;
+}
+
+#passbolt-main ~ ol li::marker {
+  color: var(--pb-cyan) !important;
+  font-weight: bold !important;
+  font-family: var(--pb-mono) !important;
+}
+
+/* ========== TRENNLINIE — ENCRYPTION BREAK ========== */
+#passbolt-main ~ hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pb-red),
+    var(--pb-gold),
+    var(--pb-cyan),
+    var(--pb-gold),
+    var(--pb-red),
+    transparent
+  ) !important;
+  margin: 3rem 0 !important;
+  opacity: 0.6 !important;
+  box-shadow: 0 0 16px rgba(255, 204, 0, 0.25) !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+#passbolt-main ~ hr::after {
+  content: '🔐' !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  color: var(--pb-gold) !important;
+  font-size: 1.3rem !important;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.5) !important;
+  background: var(--pb-bg-dark) !important;
+  padding: 0 1.2rem !important;
+}
+
+/* ========== ADMONITION / NOTE ========== */
+#passbolt-main ~ .admonition,
+#passbolt-main ~ div.admonition,
+#passbolt-main ~ .admonition.note {
+  background: linear-gradient(135deg, var(--pb-bg-dark) 0%, var(--pb-bg-panel) 100%) !important;
+  border: 1px solid rgba(0, 229, 255, 0.2) !important;
+  border-radius: 4px !important;
+  padding: 1.8rem !important;
+  margin: 2rem 0 !important;
+  box-shadow:
+    0 6px 35px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(0, 229, 255, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  ) !important;
+}
+
+#passbolt-main ~ .admonition::before,
+#passbolt-main ~ div.admonition::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--pb-red), var(--pb-gold), var(--pb-cyan), var(--pb-gold), var(--pb-red)) !important;
+  background-size: 400% 100% !important;
+  animation: pbEncryptScan 3s linear infinite !important;
+  opacity: 0.8 !important;
+}
+
+#passbolt-main ~ .admonition .admonition-title,
+#passbolt-main ~ div.admonition .admonition-title {
+  color: var(--pb-gold) !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 0.8rem !important;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.3) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+#passbolt-main ~ .admonition p,
+#passbolt-main ~ div.admonition p {
+  color: var(--pb-text) !important;
+  margin: 0.5rem 0 !important;
+}
+
+/* ========== PARAGRAPHS ========== */
+#passbolt-main ~ p {
+  color: var(--pb-text) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #passbolt-main {
+    font-size: 1.4rem !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  #passbolt-main ~ h2 {
+    font-size: 1.5rem !important;
+  }
+
+  #passbolt-main ~ h3 {
+    padding: 1.3rem 1.6rem !important;
+    font-size: 1.15rem !important;
+  }
+
+  #passbolt-main ~ p a,
+  #passbolt-main ~ p a.world-link {
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.78rem !important;
+    margin: 0.2rem !important;
+  }
+
+  #passbolt-main ~ table th,
+  #passbolt-main ~ table td {
+    padding: 0.9rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
+}

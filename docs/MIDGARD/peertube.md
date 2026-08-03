@@ -1,7 +1,9 @@
+
+<html><h1 id="peertube-main">PeerTube Docker</h1></html>
 # PeerTube Docker Installation – Problemdokumentation
 
 > **Server:** peertube (Ubuntu Server, SSH) | **Installation:** Docker Compose | **Zugriff:** http://xxx.xxx.xxx.xxx:9000
-<html><h1 id="peertube-main">PeerTube Docker</h1></html>
+
 ---
 
 ## Systemübersicht
